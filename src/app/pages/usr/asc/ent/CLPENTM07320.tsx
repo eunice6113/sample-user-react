@@ -9,9 +9,12 @@ import { Accordion, AccordionTab } from 'primereact/accordion';
 import { DataTable } from 'primereact/datatable';
 import { eventWinData } from '../../../../shared/demo/data/eventWinData';
 import BoardDetail from '../../../../shared/components/template/BoardDetail';
+import { updateItemInList } from '../../../../shared/utils/com-utils';
+import { IComment } from '../../../../core/models/i-comment';
+import { commDummyData } from '../../../../shared/demo/data/commentDummyData';
 
 
-//소통공간 상세
+//이벤트 상세
 const CLPENTM07320:React.FC = () => {
     const { goPage } = useBasePage()
 
@@ -19,7 +22,7 @@ const CLPENTM07320:React.FC = () => {
    
     //목록 버튼
     const list = () => {
-        goPage('/stm/ent/list')
+        goPage('/asc/ent/list')
     }
 
     //링크 버튼
@@ -27,26 +30,81 @@ const CLPENTM07320:React.FC = () => {
 
     }
     
-    //comment 댓글입력
-    const [value1, setValue1] = React.useState('');
-    const [value2, setValue2] = React.useState('');
 
-    //comment 등록
-    const registration = () => {
+    //이벤트 댓글 리스트
+    const initialComments:IComment[] = commDummyData
+
+
+    //댓글 목록
+    const [comments, setComments] = React.useState<IComment[]>([])
+
+    React.useEffect(() => {
+        //댓글 목록 초기화
+        setComments(initialComments);
+    }, [])
+    
+
+    //(하나만 있는) 댓글 입력 처리
+    const [comment, setComment] = React.useState('');
+
+
+    //(하나만 있는) 댓글 등록
+    const registerComment = () => {
         console.log('등록')
     }
     
-    //comment 삭제
-    const deleteFunc = () => {
-        console.log('삭제')
+
+
+    //댓글 목록 ===================================================
+
+    //댓글 삭제 버튼
+    const deleteFunc = ( e:Event, id:any ) => {
+        console.log('삭제', id)
+
+        setComments(
+            comments.filter(c =>
+                c.id !== id
+            )
+        );
     }
 
-    //comment 수정 버튼
-    const edit = () => {
-        setMode('edit');
-        console.log('mode =>', mode)
+    // Start 댓글 수정 버튼 눌렀을 때 나오는 버튼들 ---------------
+    //댓글 취소
+    const cancel = ( e:Event, id:any ) => {
+        console.log('취소', id)
+
+        //댓글 목록의 해당 댓글 모드를 view 로 바꾼다
+        updateItemInList(id, 'mode', 'view', comments, setComments)
     }
 
+    //댓글 등록
+    const register = ( e:Event, id:any ) => {
+        console.log('등록', id)
+
+        //댓글 목록의 해당 댓글 모드를 view 로 바꾼다
+        updateItemInList(id, 'mode', 'view', comments, setComments)
+    }
+    // End 댓글 수정 버튼 눌렀을 때 나오는 버튼들 ---------------
+
+
+    //댓글 수정 버튼
+    const edit = ( e:Event, id:any ) => {
+        console.log('수정', id)
+
+        //댓글 목록의 해당 댓글 모드를 edit 로 바꾼다
+        updateItemInList(id, 'mode', 'edit', comments, setComments)
+    }
+
+    //댓글 내용 수정
+    const editValue = ( e:any, id:any ) => {
+        console.log('댓글 내용 수정', id, e.target.value)
+
+        //댓글 목록의 해당 댓글 값을 업데이트한다
+        updateItemInList(id, 'value', e.target.value, comments, setComments)
+    }
+
+
+    
     //api 읽어와서 업데이트 할 내용
     
     const contentsInfo = {
@@ -84,33 +142,17 @@ const CLPENTM07320:React.FC = () => {
         ],
         
     }
-    //이벤트 댓글 리스트
-    const commentList = [
-        {//관리자 이거나 ? 본인이 작성한 것만 수정/삭제 가능
-            deletable:true,
-            editable:true,
-            userName:'권승주',
-            commentContent: '클라우드 Cell은 당대의 빛과 같은 존재로 기은에서 없어서는 안될 존재입니다. 기은의 클라우드를 늘 이끌어주세요~~!!',
-            date:'2022.03.02 09:00:00'
-        },
-        {
-            deletable:true,
-            editable:true,
-            userName:'홍길동',
-            commentContent: '클라우드 Cell은 당대의 빛과 같은 존재로 기은에서 없어서는 안될 존재입니다. 기은의 클라우드를 늘 이끌어주세요~~!!',
-            date:'2022.03.02 09:00:00'
-        },
-        {
-            deletable:true,
-            editable:true,
-            userName:'홍길동',
-            commentContent: '클라우드 Cell은 당대의 빛과 같은 존재로 기은에서 없어서는 안될 존재입니다. 기은의 클라우드를 늘 이끌어주세요~~!!',
-            date:'2022.03.02 09:00:00'
+    
 
-        },
-        
-    ]
+     //더보기 할 댓글수
+     let moreCommentLen = 120;
 
+     //댓글 더보기 버튼
+     const moreComment = () => {
+         console.log('댓글 더보기')
+     }
+     
+    
     return(
     <BasePage>
 
@@ -126,33 +168,34 @@ const CLPENTM07320:React.FC = () => {
             <CommentRegister 
                 title='이벤트에 참여해주세요.'
                 total='글 댓글 2'
-                value={value1}
-                // setValue={setValue1}
-                setValue={setValue1}
+                value={comment}
+                setValue={setComment}
+                register={registerComment}
             />
 
             {
-                commentList.map(( item, index) => (
+                comments.map(( item, index) => (
                     <Comment 
-                        id={index}
+                        key={'comm'+index}
+                        id={item.id}
                         deletable={item.deletable}
                         editable={item.editable}
-                        key={'comm'+index}
+                        showProfile={item.showProfile}
                         userName={item.userName} 
-                        commentContent={item.commentContent}
+                        value={item.value}
+                        setValue={(e:Event) => editValue(e, item.id)}
                         date={item.date}
-                        mode='register'
-                        value={value2} 
-                        setValue={setValue2}
-                        edit={edit}
-                        delt={deleteFunc}
-                        registration={registration}
-                        />
+                        mode={item.mode}
+                        edit={(e:Event) => edit(e, item.id)}
+                        delt={(e:Event) => deleteFunc(e, item.id)}
+                        register={(e:Event) => register(e, item.id)}
+                        cancel={(e:Event) => cancel(e, item.id)}
+                    />
                 ))
             
             }
             
-            <Button className='more p-button-text' label='더보기 123댓글' icon='pi pi-angle-down'  iconPos="right"/>
+            <Button onClick={moreComment} label={`더보기 ${moreCommentLen}댓글`} className='more p-button-text' icon='pi pi-angle-down' iconPos="right"/>
         </div>
         
 

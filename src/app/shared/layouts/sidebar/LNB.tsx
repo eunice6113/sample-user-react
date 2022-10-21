@@ -33,11 +33,6 @@ const LNB: React.FC<IProps> = ({open, children}) => {
             className: getClsName('/asc/ent/list')
         },
         {
-            label:'이벤트 목록 관리',
-            url: '/asc/ent/list',
-            className: getClsName('/asc/ent/list')
-        },
-        {
             label:'UI',
             visible: true,
             expanded: curLocation === 'ui',
@@ -110,110 +105,7 @@ const LNB: React.FC<IProps> = ({open, children}) => {
                 
             ]
         },
-        {
-            label:'사용자 관리',
-            // template: (item, options) => {
-            //     return (
-            //         /* custom element */
-            //         <a className={options.className} target={item.target} onClick={options.onClick}>
-            //             <span className={classNames(options.iconClassName, 'pi pi-home')}></span>;
-            //             <span className={options.labelClassName}>{item.label}</span>;
-            //         </a>
-            //     );
-            // },
-            expanded: curLocation === 'usr',
-            visible: true,
-            items:[
-                {
-                    label:'사용자 권한관리',
-                    url: '/urm/role',
-                    className: getClsName('/urm/role')
-                },
-                {
-                    label:'사용자 접속이력 관리',
-                    url: '/urm/list',
-                    className: getClsName('/urm/list')
-                },
-            ]
-        },
-        {
-            label:'사이트 관리',
-            expanded: curLocation === 'stm',
-            visible: true,
-            items:[
-                {
-                    label:'메뉴 관리',
-                    url: '/stm/mnm',
-                    className: getClsName('/stm/mnm')
-                },
-                {
-                    label:'공지사항 관리',
-                    url: '/asc/ntc/list',
-                    className: getClsName('/stm/ntc/list')
-                },
-                {
-                    label:'자주 묻는 질문 관리',
-                    url: '/stm/qna/list',
-                    className: getClsName('/stm/qna/list')
-                },
-                {
-                    label:'건의 및 개선 관리',
-                    url: '/stm/faq/list',
-                    className: getClsName('/stm/faq/list')
-                },
-                {
-                    label:'팝업 관리',
-                    url: '/stm/pop/list',
-                    className: getClsName('/stm/pop/list')
-                },
-                {
-                    label:'소통공간 관리',
-                    url: '/stm/cmn/list',
-                    className: getClsName('/stm/cmn/list')
-                },
-                {
-                    label:'메인배너 관리',
-                    url: '/stm/mbn/list',
-                    className: getClsName('/stm/mbn/list')
-                },
-            ]
-        },
-        {
-            label:'설문 관리',
-            expanded: curLocation === 'qsm',
-            visible: true,
-            items:[
-                {
-                    label:'설문 목록 관리',
-                    url: '/qsm/list',
-                    className: getClsName('/qsm/list')
-                },
-            ]
-        },
-        {
-            label:'이벤트 관리',
-            expanded: curLocation === 'evm',
-            visible: true,
-            items:[
-                {
-                    label:'이벤트 목록 관리',
-                    url: '/evm/list',
-                    className: getClsName('/evm/list')
-                },
-            ]
-        },
-        {
-            label:'매뉴얼 관리',
-            expanded: curLocation === 'mnm',
-            visible: true,
-            items:[
-                {
-                    label:'매뉴얼 목록 관리',
-                    url: '/mnm/list',
-                    className: getClsName('/mnm/list')
-                },
-            ]
-        },
+        /*
         {
             label:'신청하기 관리',
             expanded: curLocation === 'apm',
@@ -231,40 +123,7 @@ const LNB: React.FC<IProps> = ({open, children}) => {
                 },
             ]
         },
-        {
-            label:'요청 관리',
-            visible: getIsAdmin(),
-            expanded: curLocation === 'rqm',
-            items:[
-                {
-                    label:'서비스그룹 요청 목록',
-                    url: '',
-                    className: getClsName('')
-                },
-                {
-                    label:'자원 요청 목록',
-                    url: '',
-                    className: getClsName('')
-                },
-            ]
-        },
-        {
-            label:'운영 관리',
-            expanded: curLocation === 'rqm',
-            visible: getIsAdmin(),
-            items:[
-                {
-                    label:'자원 할당량 관리',
-                    url: '',
-                    className: getClsName('')
-                },
-                {
-                    label:'자원 청구 코드 관리',
-                    url: '',
-                    className: getClsName('')
-                },
-            ]
-        },
+        */
     ];
 
     React.useEffect(() => {
