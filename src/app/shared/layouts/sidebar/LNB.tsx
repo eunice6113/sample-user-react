@@ -28,6 +28,11 @@ const LNB: React.FC<IProps> = ({open, children}) => {
             className: getClsName('/stm/ntc/list')
         },
         {
+            label:'이벤트 목록 관리',
+            url: '/asc/ent/list',
+            className: getClsName('/asc/ent/list')
+        },
+        {
             label:'UI',
             visible: true,
             expanded: curLocation === 'ui',

@@ -9,15 +9,13 @@ import "primeicons/primeicons.css";                                //icons
 
 // import "../node_modules/cloud-portal-design-token/src/styles.css"
 // import "../node_modules/sample-design-token/src/styles.css"
-import "./assets-admin/css/token-rewrite.css";
-import './assets-admin/css/AppAdmin.css';
-import './assets-admin/css/App_ksj.css';
-import adminRoutes from './app/routes/admin-routes';
+import "./assets/css/token-rewrite.css";
+import './assets/css/App.css';
+import './assets/css/App_ksj.css';
 import { ConfirmDialog, Toast } from 'primereact';
 
-function App() {
-  // const routing = useRoutes(portalRoutes)
-  const routing = useRoutes(adminRoutes)
+function AppUser() {
+  const routing = useRoutes(portalRoutes)
 
   return (
     <>
@@ -31,4 +29,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppUser;
