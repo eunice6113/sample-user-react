@@ -237,7 +237,8 @@ const portalRoutes = [
             name: '건의 및 개선', 
             element: <CLPQNAM07800 />,
           },
-          { path: 'sgs',
+          { 
+            path: 'sgs',
             name: '설문',
             children: [
               {path: 'list', name:'설문 목록', element: <CLPSGSM07910 />},

@@ -33,6 +33,21 @@ const LNB: React.FC<IProps> = ({open, children}) => {
             className: getClsName('/asc/ent/list')
         },
         {
+            label:'매뉴얼',
+            url: '/mnl',
+            className: getClsName('/mnl')
+        },
+        {
+            label:'소통공간',
+            url: '/asc/cmn',
+            className: getClsName('/asc/cmn/list')
+        },
+        {
+            label:'메인',
+            url: '/man',
+            className: getClsName('/man')
+        },
+        {
             label:'UI',
             visible: true,
             expanded: curLocation === 'ui',
