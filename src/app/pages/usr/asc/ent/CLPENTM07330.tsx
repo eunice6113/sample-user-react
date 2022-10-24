@@ -3,7 +3,7 @@ import * as React from 'react';
 import { BasePage } from '../../../../shared/components/base/BasePage';
 import CldFileUpload from '../../../../shared/components/CldFileUpload';
 import ViewButtonsTemplate from '../../../../shared/components/template/ViewButtonsTemplate';
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import  useBasePage  from '../../../../shared/hooks/base-page.hook';
 import { MODE } from '../../../../shared/config/commonCode';
 import './CLPENTM07330.css';
 import ViewTemplate from '../../../../shared/components/template/ViewTemplate';
