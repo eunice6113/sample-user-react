@@ -196,12 +196,17 @@ const portalRoutes = [
       { path: 'inr', 
         name: '클라우드소개', 
         children: [
-          {path: 'cell', name:'클라우드추진셀소개', element: <CLPCLTM00200 />},
+          {path: 'cell', name:'클라우드 추진 Cell 소개', element: <CLPCLTM00200 />},
           {path: 'tfc', name:'The fast claoud 지원 프로그램', element: <CLPTFCM00300 />},
           {path: 'portal', name:'클라우드 포털 소개', element: <CLPICPM00400 />},
           {path: 'cloud',  name:'클라우드 서비스 소개',element: <CLPIASM00500 />},
-          {path: 'tfc-req', name:'The fast cloud 서비스 신청', element: <CLPISCM00800 />},
+        ],
+      },
+      { path: 'asc', 
+        name: '신청하기', 
+        children: [
           {path: 'cat-req', name:'서비스 카탈로그 신청 화면', element: <CLPASCM01700 />},
+          {path: 'tfc-req', name:'The fast cloud 서비스 신청', element: <CLPISCM00800 />},
           {path: 'cat-basket', name:'서비스 카탈로그 신청 장바구니', element: <CLPASCM08900 />},
         ],
       },
@@ -209,17 +214,9 @@ const portalRoutes = [
         name: '매뉴얼 목록', 
         element: <CLPMNLM04010 />,
       },
-      { path: 'asc',
+      { path: 'spr',
         name: '클라우드 지원', 
         children: [
-          { path: 'ent',
-            name: '이벤트',
-            children: [
-              {path: 'list', name:'이벤트 목록', element: <CLPENTM07210 />},
-              {path: ':id', name:'이벤트 상세', element: <CLPENTM07320 />},
-              {path: 'register', name:'이벤트 등록', element: <CLPENTM07330 />},
-            ],
-          },
           { path: 'ntc',
             name: '공지사항',
             children: [
@@ -232,10 +229,20 @@ const portalRoutes = [
             name: '자주 묻는 질문', 
             element: <CLPFAQM07600 />,
           },
-          {
-            path: 'qna', 
-            name: '건의 및 개선', 
-            element: <CLPQNAM07800 />,
+          { path: 'ent',
+            name: '이벤트',
+            children: [
+              {path: 'list', name:'이벤트 목록', element: <CLPENTM07210 />},
+              {path: ':id', name:'이벤트 상세', element: <CLPENTM07320 />},
+              {path: 'register', name:'이벤트 등록', element: <CLPENTM07330 />},
+            ],
+          },
+          { path: 'cmn',
+            name: '소통공간',
+            children: [
+              {path: 'list', name:'소통공간 목록', element: <CLPCMNM08610 />},
+              {path: ':id', name:'소통공간 상세', element: <CLPCMNM08720 />},
+            ],
           },
           { 
             path: 'sgs',
@@ -246,16 +253,14 @@ const portalRoutes = [
             ],
           },
           {
+            path: 'qna', 
+            name: '건의 및 개선', 
+            element: <CLPQNAM07800 />,
+          },
+          {
             path: 'mmb', 
             name: '알림 이벤트 노출 상세 화면', 
             element: <CLPMMBM08500 />,
-          },
-          { path: 'cmn',
-            name: '소통공간',
-            children: [
-              {path: 'list', name:'소통공간 목록', element: <CLPCMNM08610 />},
-              {path: ':id', name:'소통공간 상세', element: <CLPCMNM08720 />},
-            ],
           },
         ]
       }
