@@ -29,8 +29,8 @@ const LNB: React.FC<IProps> = ({open, children}) => {
         },
         {
             label:'이벤트',
-            url: '/asc/ent/list',
-            className: getClsName('/asc/ent/list')
+            url: '/spr/ent/list',
+            className: getClsName('/spr/ent/list')
         },
         {
             label:'매뉴얼',

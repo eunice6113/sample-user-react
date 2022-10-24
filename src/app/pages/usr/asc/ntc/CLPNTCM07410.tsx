@@ -63,7 +63,7 @@ const CLPNTCM07410: React.FC<IProps> = ({children}) => {
 
     const goDetail = ( e:any ) => {
         console.log('clicked row =>', e.index)
-        goPage(`/asc/ntc/${e.index}`);
+        goPage(`/spr/ntc/${e.index}`);
     }
 
     const headerTemplate = [

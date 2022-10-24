@@ -15,7 +15,7 @@ const CLPENTM07320:React.FC = () => {
 
     //목록 버튼
     const list = () => {
-        goPage('/asc/ent/list')
+        goPage('/spr/ent/list')
     }
 
     //링크 버튼

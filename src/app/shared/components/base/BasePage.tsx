@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useLocation } from "react-router-dom";
-import adminRoutes from "../../../routes/admin-routes";
-import AdminPageTitle from "../page-title/AdminPageTitle";
+import portalRoutes from "../../../routes/portal-routes";
 import PageTitle from "../page-title/PageTitle";
 
 interface IProps {
@@ -15,7 +14,7 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
     const curLocation = location.pathname.split('/')
     let pageTitle = '';
     let subTitle = '';
-    const routes = adminRoutes;
+    const routes = portalRoutes;
 
     const pageInfos = [
         {

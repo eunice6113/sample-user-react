@@ -21,7 +21,7 @@ const CLPNTCM07520: React.FC<IProps> = ({children}) => {
 
     //목록 버튼
     const list = () => {
-        goPage('/asc/ntc/list')
+        goPage('/spr/ntc/list')
     }
     
     //api 읽어와서 업데이트 할 내용
@@ -75,12 +75,12 @@ const CLPNTCM07520: React.FC<IProps> = ({children}) => {
             {
                 preview: {
                     label: '클라우드 포탈 오픈 소식을 전해드립니다.' ,
-                    link: '/stm/ntc/1',
+                    link: '/spr/ntc/1',
                     showIf: true
                 },
                 next: {
                     label: '클라우드 포탈 오픈 소식을 전해드립니다 >> 다음글입니다' ,
-                    link: '/stm/ntc/list',
+                    link: '/spr/ntc/list',
                     showIf: true
                 },
             },

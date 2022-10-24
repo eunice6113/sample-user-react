@@ -1,6 +1,6 @@
-import { Badge, Button } from "primereact";
-import * as React from "react";
-import { Link } from "react-router-dom";
+import { Badge, Button, Divider, OverlayPanel } from 'primereact';
+import * as React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../../../assets/images/ibk-logo.png';
 import './header.css';
 import { InputSwitch } from 'primereact/inputswitch';
@@ -13,7 +13,13 @@ interface IProps {
 const Header: React.FC<IProps> = ({handleOpen, children}) => {
 
     const [theme, setTheme] = React.useState(false);
+    const [submenuOpen, setsubmenuOpen] = React.useState(false);
 
+    const profileOpRef = React.useRef<OverlayPanel>(null);
+    const submenuOpRef = React.useRef<OverlayPanel>(null);
+    const headerRef = React.useRef<HTMLElement>(null);
+
+    //서브메뉴
     const menus = [
         {
             label:'클라우드 소개',
@@ -38,42 +44,6 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
             ]
         },
         {
-            label:'매뉴얼',
-            url: '/mnl',
-        },
-        {
-            label:'신청하기',
-            url: 'asc',
-            children: [
-                {
-                    label:'서비스 카탈로그 신청 화면',
-                    url: '/asc/cat-req',
-                },
-                {
-                    label:'The fast cloud 서비스 신청',
-                    url: '/asc/tfc-req',
-                },
-            ]
-        },
-        {
-            label:'요청관리',
-            url: '',
-            children: [
-                {
-                    label:'',
-                    url: '',
-                },
-                {
-                    label:'',
-                    url: '',
-                },
-                {
-                    label:'',
-                    url: '',
-                },
-            ]
-        },
-        {
             label:'운영관리',
             url: '',
             children: [
@@ -93,6 +63,38 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
                     label:'',
                     url: '',
                 },
+                {
+                    label:'',
+                    url: '',
+                },
+                {
+                    label:'',
+                    url: '',
+                },
+                {
+                    label:'',
+                    url: '',
+                },
+            ]
+        },
+        {
+            label:'신청하기',
+            url: 'asc',
+            children: [
+                {
+                    label:'서비스 카탈로그 신청 화면',
+                    url: '/asc/cat-req',
+                },
+                {
+                    label:'The fast cloud 서비스 신청',
+                    url: '/asc/tfc-req',
+                },
+            ]
+        },
+        {
+            label:'요청관리',
+            url: '',
+            children: [
                 {
                     label:'',
                     url: '',
@@ -133,6 +135,11 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
                 },
             ]
         },
+        {
+            label:'매뉴얼',
+            url: '/mnl',
+        },
+        
     ]
     
     const handleTheme = () => {
@@ -150,45 +157,112 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
 
     let userName = '홍길동'
 
+    const openSubmenu = ( e:any ) => {
+        submenuOpRef.current?.show(e, e.target)
+        setsubmenuOpen(true)
+        if(submenuOpen) {
+
+        }
+    }
+
+    const logout = () => {
+
+    }
+    
+
     return(
     <div className='customHeader'>
-        <div className="headerInnerContents">
-            <Button className="menu p-button-text" icon="pi pi-bars"
-                    onClick={handleOpen} />
+        <div className='headerInnerContents'>
+            {/* <Button className='menu p-button-text' icon='pi pi-bars' onClick={handleOpen} /> */}
 
-            <Link to='/' className="logoTitle">
-                <img className="ibkLogo" src={logo} alt='클라우드 포털 관리자' />
-                <span className="portalName">Cloud Portal</span>
+            <Link to='/' className='logoTitle'>
+                <img className='ibkLogo' src={logo} alt='클라우드 포털 관리자' />
+                <span className='portalName'>Cloud Portal</span>
             </Link>
             {/* {children} */}
 
-            <InputSwitch className="ml10" checked={theme} onChange={handleTheme} />
+            <InputSwitch className='ml10' checked={theme} onChange={handleTheme} />
 
-
-            <ul className="mainMenus">
+            <ul className='mainMenus'>
                 {
                     menus.map((menu, index) => (
-                        <li><Link to={menu.url}>{menu.label}</Link></li>
+                        <li key={`gnb-${index}`} 
+                            onClick={(e) => submenuOpRef.current?.show(e, e.target)}
+                            // onClick={(e) => openSubmenu(e)}
+                        >{menu.label}</li>
                     ))
                 }
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
             </ul>
 
-            <i className="pi pi-bell mr15 p-text-secondary p-overlay-badge fs24 color-white">
-                <Badge severity="success" className="badgeDot"></Badge>
-            </i>
+            <Button icon='pi pi-bell' className='mr5 p-overlay-badge alarmBtn'>
+                <Badge severity='success' className='badgeDot'></Badge>
+            </Button>
 
-            <span className="profile ml8">
-                <i className="pi pi-user" />
-            </span>
-            <span>{userName}</span>
-
+            <Button
+                className='profileBtn'
+                onClick={(e) => profileOpRef.current?.toggle(e)}
+                aria-haspopup
+                aria-controls='overlay_panel'
+            >
+                <span className='profile'>
+                    <i className='pi pi-user' />
+                </span>
+                <span>{userName}</span>
+                <i className='pi pi-angle-down ml35'></i>
+            </Button>
             
         </div>
-        
+
+        {/* 서브메뉴 패널 */}
+        <OverlayPanel
+            ref={submenuOpRef}
+            // showCloseIcon
+            id='submenu_panel'
+            className='submenuOverlayPanel'
+        >
+            <div className='d-flex'>
+            <ul className='menus'>
+                {
+                    menus.map((menu, index) => (
+                        <li key={`smenu-${index}`}>
+                            <p>{menu.label}</p>
+                            {
+                                menu?.children &&
+                                <ul>
+                                    {
+                                        menu?.children.map((smenu, sindex) => (
+                                            <li key={`smenu-${sindex}`} 
+                                            onClick={(e) => submenuOpRef.current?.hide()}>
+                                                <Link to={smenu.url}>{smenu.label}</Link>
+                                            </li>
+                                        ))
+                                    }
+                                </ul>
+                            }
+                        </li>
+                    ))
+                }
+            </ul>
+            </div>
+            
+        </OverlayPanel>
+
+        {/* 프로필 이름 클릭시 나오는 패널 */}
+        <OverlayPanel
+            ref={profileOpRef}
+            // showCloseIcon
+            id='overlay_panel'
+            className='profileOverlayPanel'
+        >
+            <ul className='userInfo'>
+                <li className='border-bottom'>홍길동 S12345</li>
+                <li>IT그룹</li>
+                <li className='border-bottom'>관리자</li>
+                <li>
+                    <Button onClick={logout} icon='pi pi-sign-out' className="p-button-link logoutBtn xxl" label='Logout' />
+                </li>
+            </ul>
+        </OverlayPanel>
     </div>
     )
 }
