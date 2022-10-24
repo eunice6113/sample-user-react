@@ -14,7 +14,7 @@ import './assets/css/App.css';
 import './assets/css/App_ksj.css';
 import { ConfirmDialog, Toast } from 'primereact';
 
-function AppUser() {
+function App() {
   const routing = useRoutes(portalRoutes)
 
   return (
@@ -29,4 +29,4 @@ function AppUser() {
   );
 }
 
-export default AppUser;
+export default App;
