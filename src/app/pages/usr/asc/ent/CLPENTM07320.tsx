@@ -5,21 +5,14 @@ import { useBasePage } from '../../../../shared/hooks/base-page.hook';
 import './CLPENTM07320.css';
 import Comment from '../../../../shared/components/ui/comment/Comment';
 import CommentRegister from '../../../../shared/components/ui/comment/CommentRegister';
-import { Accordion, AccordionTab } from 'primereact/accordion';
-import { DataTable } from 'primereact/datatable';
-import { eventWinData } from '../../../../shared/demo/data/eventWinData';
 import BoardDetail from '../../../../shared/components/template/BoardDetail';
 import { updateItemInList } from '../../../../shared/utils/com-utils';
 import { IComment } from '../../../../core/models/i-comment';
-import { commDummyData } from '../../../../shared/demo/data/commentDummyData';
-
 
 //이벤트 상세
 const CLPENTM07320:React.FC = () => {
     const { goPage } = useBasePage()
 
-    const [mode, setMode] = React.useState<'view' | 'edit' | 'register'>('view');
-   
     //목록 버튼
     const list = () => {
         goPage('/asc/ent/list')
@@ -29,7 +22,6 @@ const CLPENTM07320:React.FC = () => {
     const link = () => {
 
     }
-    
 
     //이벤트 댓글 리스트
     const initialComments:IComment[] =  [
@@ -173,7 +165,6 @@ const CLPENTM07320:React.FC = () => {
         ],
         
     }
-    
 
      //더보기 할 댓글수
      let moreCommentLen = 120;
@@ -228,12 +219,7 @@ const CLPENTM07320:React.FC = () => {
             
             <Button onClick={moreComment} label={`더보기 ${moreCommentLen}댓글`} className='more p-button-text' icon='pi pi-angle-down' iconPos="right"/>
         </div>
-        
 
-                
-
-                
-        
     </BasePage>)
 }
 export default CLPENTM07320;

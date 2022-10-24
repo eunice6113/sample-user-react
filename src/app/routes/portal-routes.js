@@ -53,6 +53,7 @@ const CLPMNLM04010 = Loadable(lazy(() => import('../pages/usr/mnl/CLPMNLM04010')
 // 이벤트
 const CLPENTM07210 = Loadable(lazy(() => import('../pages/usr/asc/ent/CLPENTM07210')));
 const CLPENTM07320 = Loadable(lazy(() => import('../pages/usr/asc/ent/CLPENTM07320')));
+const CLPENTM07330 = Loadable(lazy(() => import('../pages/usr/asc/ent/CLPENTM07330')));
 
 // 공지사항
 const CLPNTCM07410 = Loadable(lazy(() => import('../pages/usr/asc/ntc/CLPNTCM07410')));
@@ -230,6 +231,7 @@ const portalRoutes = [
             children: [
               {path: 'list', name:'이벤트 목록', element: <CLPENTM07210 />},
               {path: ':id', name:'이벤트 상세', element: <CLPENTM07320 />},
+              {path: 'register', name:'이벤트 등록', element: <CLPENTM07330 />},
             ],
           },
           { path: 'ntc',
