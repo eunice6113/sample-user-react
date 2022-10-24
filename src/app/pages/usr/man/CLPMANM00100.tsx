@@ -9,8 +9,8 @@ interface IProps {
 const CLPMANM00100: React.FC<IProps> = ({children}) => {
 
     return(
-    <BasePage>
-        <h1>notice list!!</h1>
+    <BasePage className="CLPMANM00100">
+        <h1>main</h1>
     </BasePage>)
 }
 export default CLPMANM00100;

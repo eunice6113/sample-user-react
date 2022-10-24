@@ -17,6 +17,14 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
     let subTitle = '';
     const routes = adminRoutes;
 
+    const pageInfos = [
+        {
+            path: 'mnl',
+            title: '매뉴얼',
+            subTitle: '다양한 클라우드 업무에 활용한 적용사례와 매뉴얼을 확인하세요.'
+        }
+    ]
+
     //route에 정의된 name 에서 페이지 제목을 읽어온다
     // console.log('curLocation.length', curLocation,  curLocation.length)
     if( curLocation.length === 4 && curLocation[3] && curLocation[3] !== 'list' && curLocation[3] !== 'register' &&  curLocation[3] !== '') {
