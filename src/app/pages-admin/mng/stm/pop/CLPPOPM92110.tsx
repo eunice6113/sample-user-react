@@ -8,7 +8,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { paginator } from '../../../../shared/utils/table-paginator';
 import './CLPPOPM92110.css';
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../../shared/hooks/base-page.hook';
 import { SearchParams } from '../../../../core/models/search-params';
 import { popDummyData } from '../../../../shared/demo/data/popDummyData';
 

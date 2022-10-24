@@ -59,8 +59,8 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
     // let flat = getFlat([routes]);
     // console.log(flat);
 
-    pageTitle= '공지사항'
-    subTitle='클라우드 포탈의 다양한 내용을 확인하세요.'
+    // pageTitle= '공지사항'
+    // subTitle='클라우드 포탈의 다양한 내용을 확인하세요.'
     //새로운 곳으로 이동시 페이지 상단으로 스크롤 이동
     React.useEffect(() => {
         window.scrollTo(0, 0);

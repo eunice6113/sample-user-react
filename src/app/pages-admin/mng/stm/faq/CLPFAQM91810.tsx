@@ -10,7 +10,7 @@ import { Column } from 'primereact/column';
 import { paginator } from "../../../../shared/utils/table-paginator";
 import './CLPFAQM91810.css';
 import { faqDummyData } from '../../../../shared/demo/data/faqDummyData';
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../../shared/hooks/base-page.hook';
 import { SearchParams } from '../../../../core/models/search-params';
 
 //건의 및 개선 관리

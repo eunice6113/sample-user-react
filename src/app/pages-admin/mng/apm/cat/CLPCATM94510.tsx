@@ -9,7 +9,7 @@ import { Column } from 'primereact/column';
 import { paginator } from "../../../../shared/utils/table-paginator";
 import './CLPCATM94510.css';
 import { catDummyData } from '../../../../shared/demo/data/catDummyData';
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../../shared/hooks/base-page.hook';
 import { SearchParams } from '../../../../core/models/search-params';
 import { TableSortParams } from '../../../../core/models/table-sort-params';
 

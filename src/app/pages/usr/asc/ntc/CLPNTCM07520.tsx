@@ -1,7 +1,7 @@
 import { Button } from 'primereact';
 import * as React from "react";
 import { BasePage } from "../../../../shared/components/base/BasePage";
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../../shared/hooks/base-page.hook';
 import './CLPNTCM07520.css';
 import BoardDetail from '../../../../shared/components/template/BoardDetail';
 import BoardDetailPagination from '../../../../shared/components/template/BoardDetailPagination';

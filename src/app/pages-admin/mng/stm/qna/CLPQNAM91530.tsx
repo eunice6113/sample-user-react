@@ -3,7 +3,7 @@ import * as React from 'react';
 import { BasePage } from '../../../../shared/components/base/BasePage';
 import ViewButtonsTemplate from '../../../../shared/components/template/ViewButtonsTemplate';
 import TextEditor from '../../../../shared/components/ui/text-editor/TextEditor';
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../../shared/hooks/base-page.hook';
 import { MODE } from '../../../../shared/config/commonCode';
 import ViewTemplate from '../../../../shared/components/template/ViewTemplate';
 import './CLPQNAM91520.css';

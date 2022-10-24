@@ -1,7 +1,7 @@
 import { Button,Calendar, Dropdown, Editor, FileUpload, InputText, InputTextarea, RadioButton } from 'primereact';
 import * as React from 'react';
 import { BasePage } from '../../../../shared/components/base/BasePage';
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../../shared/hooks/base-page.hook';
 import './CLPCATM95720.css';
 import ViewTemplate from '../../../../shared/components/template/ViewTemplate';
 import CldFileUpload from '../../../../shared/components/CldFileUpload';

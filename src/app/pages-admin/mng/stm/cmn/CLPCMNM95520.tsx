@@ -1,7 +1,7 @@
 import { Button } from 'primereact';
 import * as React from 'react';
 import { BasePage } from '../../../../shared/components/base/BasePage';
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../../shared/hooks/base-page.hook';
 import './CLPCMNM95520.css';
 import ViewTemplate from '../../../../shared/components/template/ViewTemplate';
 import Comment from '../../../../shared/components/ui/comment/Comment';
