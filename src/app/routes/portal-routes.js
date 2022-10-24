@@ -79,20 +79,15 @@ const CLPCMNM08720 = Loadable(lazy(() => import('../pages/usr/asc/cmn/CLPCMNM087
 
 
 
-const NoticeList = Loadable(lazy(() => import('../pages/sample/NoticeList')));
-const NoticeRegister = Loadable(lazy(() => import('../pages/sample/NoticeRegister')));
-const NoticeDetail = Loadable(lazy(() => import('../pages/sample/NoticeDetail')));
-const NoticeEdit = Loadable(lazy(() => import('../pages/sample/NoticeEdit')));
 
-const Error = Loadable(lazy(() => import('../pages/auth/Error')));
 
 
 
 // Routes ==================================================================================
 const portalRoutes = [
   {
-    path: 'callback',
-    element: <Callback />
+    path: '/',
+    element: <Navigate to='/man' />
   },
   {
     path: '/',
@@ -194,16 +189,7 @@ const portalRoutes = [
     path: '/',
     element: <FullLayout />,
     children: [
-      { path: 'notice', 
-        name: 'notice', 
-        children: [
-          {path: 'list', element: <NoticeList />},
-          {path: 'register', element: <NoticeRegister />},
-          {path: 'detail/:id', element: <NoticeDetail />},
-          {path: 'edit/:id', element: <NoticeEdit />},
-        ],
-      },
-      { path: '', 
+      { path: 'man', 
         name: '메인', 
         element: <CLPMANM00100 />,
       },
@@ -278,8 +264,8 @@ const portalRoutes = [
     path: '/auth',
     element: <BlankLayout />,
     children: [
-      { path: '404', element: <Error /> },
-      { path: '*', element: <Navigate to="/auth/404" /> },
+      // { path: '404', element: <Error /> },
+      // { path: '*', element: <Navigate to="/auth/404" /> },
     ],
   },
 ];

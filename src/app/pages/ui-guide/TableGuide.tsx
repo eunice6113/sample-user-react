@@ -4,7 +4,7 @@ import { BasePage } from "../../shared/components/base/BasePage";
 import CldFileUpload from "../../shared/components/CldFileUpload";
 import ViewButtonsTemplate from "../../shared/components/template/ViewButtonsTemplate";
 import ViewTemplate from "../../shared/components/template/ViewTemplate";
-import { useBasePage } from "../../shared/hooks/base-page.hook";
+import useBasePage from "../../shared/hooks/base-page.hook";
 import './ui-guide.css';
 
 interface File {

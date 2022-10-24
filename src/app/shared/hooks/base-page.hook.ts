@@ -1,7 +1,8 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom"
+import { BasePage } from "../components/base/BasePage";
 
 
-export const useBasePage = () => {
+const useBasePage = () => {
 
     const location = useLocation();
     const curLocation = location.pathname.split('/')
@@ -32,3 +33,4 @@ export const useBasePage = () => {
         isRegister
     }
 }
+export default useBasePage

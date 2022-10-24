@@ -9,7 +9,7 @@ import { Column } from 'primereact/column';
 import { paginator } from "../../../../shared/utils/table-paginator";
 import './CLPCMNM95410.css';
 import { cmnDummyData } from '../../../../shared/demo/data/cmnDummyData';
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../../shared/hooks/base-page.hook';
 import { SearchParams } from '../../../../core/models/search-params';
 
 // 소통공간 관리

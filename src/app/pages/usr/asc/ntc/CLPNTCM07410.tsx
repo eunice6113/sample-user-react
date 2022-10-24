@@ -9,7 +9,7 @@ import { paginator } from '../../../../shared/utils/table-paginator';
 import './CLPNTCM07410.css';
 import { noticeDummyData } from '../../../../shared/demo/data/noticeDummyData';
 import { SearchParams } from "../../../../core/models/search-params";
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../../shared/hooks/base-page.hook';
 
 interface IProps {
     children: React.ReactNode;

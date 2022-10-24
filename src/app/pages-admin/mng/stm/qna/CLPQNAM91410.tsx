@@ -9,7 +9,7 @@ import { Column } from 'primereact/column';
 import { paginator } from '../../../../shared/utils/table-paginator';
 import './CLPQNAM91410.css';
 import { qnaDummyData } from '../../../../shared/demo/data/qnaDummyData';
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../../shared/hooks/base-page.hook';
 import { SearchParams } from '../../../../core/models/search-params';
 
 // 자주묻는질문 관리

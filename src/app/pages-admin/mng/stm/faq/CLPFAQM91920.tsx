@@ -2,7 +2,7 @@ import { Calendar, Dropdown, Editor, FileUpload, InputText, InputTextarea, Radio
 import * as React from 'react';
 import { BasePage } from '../../../../shared/components/base/BasePage';
 import ViewButtonsTemplate from '../../../../shared/components/template/ViewButtonsTemplate';
-import { useBasePage } from '../../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../../shared/hooks/base-page.hook';
 import './CLPFAQM91920.css';
 import ViewTemplate from '../../../../shared/components/template/ViewTemplate';
 import CldFileUpload from '../../../../shared/components/CldFileUpload';

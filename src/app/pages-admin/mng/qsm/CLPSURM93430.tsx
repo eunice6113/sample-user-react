@@ -1,7 +1,7 @@
 import { Dropdown, Editor, FileUpload, InputText, RadioButton, Button, Checkbox, Calendar, InputSwitch } from 'primereact';
 import * as React from 'react';
 import { BasePage } from '../../../shared/components/base/BasePage';
-import { useBasePage } from '../../../shared/hooks/base-page.hook';
+import useBasePage from '../../../shared/hooks/base-page.hook';
 import './CLPSURM93430.css';
 import ViewTemplate from '../../../shared/components/template/ViewTemplate';
 import { SearchParams } from "../../../core/models/search-params";
