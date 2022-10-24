@@ -16,9 +16,9 @@ const CLPENTM07330:React.FC = () => {
 
     const [mode, setMode] = React.useState<'view' | 'edit' | 'register'>('register');
 
-    const [select1, setSelect1] = React.useState<any>(null);
     const [title, setTitle] = React.useState('');
     const [content, setContent] = React.useState('');
+    const [answer, setAnswer] = React.useState('');
     
     //이벤트 유형
     const type = [
@@ -170,7 +170,7 @@ const CLPENTM07330:React.FC = () => {
                 cols: [
                     {
                         key: '이벤트 설명', 
-                        editingValue: <InputText className="" placeholder="이벤트 설명을 입력해주세요" value={title} onChange={(e) => setTitle(e.target.value)} />,
+                        editingValue: <InputText className="" placeholder="이벤트 설명을 입력해주세요" value={content} onChange={(e) => setContent(e.target.value)} />,
                     },
                 ]
             },
@@ -179,7 +179,7 @@ const CLPENTM07330:React.FC = () => {
                     {
                         required: true,
                         key: '퀴즈 정답', 
-                        editingValue: <InputText className="" placeholder="퀴즈 정답을 입력해주세요. (시스템에서 정답 자동 추출을 위해 입력 시 오탈자에 주의해주세요.)" value={title} onChange={(e) => setTitle(e.target.value)} />,
+                        editingValue: <InputText className="" placeholder="퀴즈 정답을 입력해주세요. (시스템에서 정답 자동 추출을 위해 입력 시 오탈자에 주의해주세요.)" value={answer} onChange={(e) => setAnswer(e.target.value)} />,
                     },
                 ]
             },
@@ -198,7 +198,7 @@ const CLPENTM07330:React.FC = () => {
     }
 
     return(
-    <BasePage>
+    <BasePage className='CLPENTM07330'>
         {/* 등록자 정보 */}
         <ViewTemplate {...authorInfo} />
 
