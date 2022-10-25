@@ -33,7 +33,7 @@ const CLPENTM07210: React.FC = () => {
 
     //이벤트 등록 버튼
     const register = (event:any) => {
-        goPage(`/spr/ent/register`);
+        goPage(`/asc/ent/register`);
     }
 
     //table
@@ -88,7 +88,7 @@ const CLPENTM07210: React.FC = () => {
     
     const goDetail = ( e:any ) => {
         console.log('clicked row =>', e.index)
-        goPage(`/spr/ent/${e.index}`);
+        goPage(`/asc/ent/${e.index}`);
     }
 
     const headerTemplate = [
