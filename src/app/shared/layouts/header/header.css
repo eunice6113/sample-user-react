@@ -81,9 +81,11 @@
     margin: 0 auto;
 }
 .customHeader .mainMenus li {
-    margin-right: 40px;
+    padding: 0 20px;
     font-weight: bold;
     cursor: pointer;
+    height: 55px;
+    line-height: 55px;
 }
 .customHeader .mainMenus li:last-child {
     margin-right: 0;
@@ -103,126 +105,4 @@
 
 .customHeader .alarmBtn .pi-bell {
     font-size: 24px;
-}
-
-.customHeader .profileOverlayPanel {
-    min-width: 200px;
-}
-
-.customHeader .profileOverlayPanel .p-overlaypanel-content {
-    padding: 0 !important;
-}
-
-.p-overlaypanel .p-overlaypanel-content {
-    padding: 0;
-}
-
-.profileOverlayPanel .item {
-    padding: 10px !important;
-}
-
-.p-divider.p-divider-horizontal.noMargin {
-    margin: 0 !important;
-}
-
-.profileOverlayPanel .userInfo {
-    padding-left: 0;
-    list-style: none;
-}
-
-.profileOverlayPanel .userInfo li {
-    padding: 10px 15px;
-    font-size: 13px;
-}
-
-.profileOverlayPanel .logoutBtn {
-    padding: 0 !important
-}
-
-.profileOverlayPanel .logoutBtn .p-button-icon {
-    color: #333;
-}
-
-.profileOverlayPanel .logoutBtn .p-button-label {
-    color: #333;
-}
-
-.submenuOverlayPanel {
-    /* position: fixed; */
-    top:0;
-    width: 100%;
-    /* height: 100px; */
-    left: 0 !important;
-    margin-top: 18px;
-    padding: 10px 40px 40px;
-}
-
-body.theme-light .submenuOverlayPanel {
-    background-color: #F0F0F0;
-}
-
-body.theme-dark .submenuOverlayPanel {
-    background-color: #555;
-}
-
-.submenuOverlayPanel:before,
-.submenuOverlayPanel:after {
-    display: none;
-}
-
-.submenuOverlayPanel .menus {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    list-style: none;
-}
-
-.submenuOverlayPanel .menus li {
-    color: #454545
-}
-
-body.theme-light .submenuOverlayPanel .menus li {
-    color: #454545
-}
-
-body.theme-dark .submenuOverlayPanel .menus li {
-    color: #fff
-}
-
-.submenuOverlayPanel .menus > li {
-    padding: 30px 40px 0;
-    width: 50%;
-    border-right: 1px solid var(--global-border-color);
-}
-
-.submenuOverlayPanel .menus > li:last-child {
-    padding-bottom: 0 !important;
-}
-
-.submenuOverlayPanel .menus > li > p {
-    font-size: 26px;
-    font-weight: bold;
-}
-
-.submenuOverlayPanel .menus li > ul {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    list-style: none;
-    
-}
-
-.submenuOverlayPanel .menus li > ul li {
-    font-size: 16px;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-
-.submenuOverlayPanel .menus li > ul li a {
-    color: var(--global-text-color);
-}
-
-.submenuOverlayPanel .menus li > ul li a:hover {
-    color: var(--hover-color);
-    border-bottom: 1px solid var(--hover-color);
 }
