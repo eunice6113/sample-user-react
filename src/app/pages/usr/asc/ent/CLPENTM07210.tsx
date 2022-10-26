@@ -2,7 +2,6 @@ import * as React from "react";
 import { BasePage } from "../../../../shared/components/base/BasePage";
 import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
-import { Calendar } from 'primereact/calendar';
 import { Button } from "primereact";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -33,7 +32,7 @@ const CLPENTM07210: React.FC = () => {
 
     //이벤트 등록 버튼
     const register = (event:any) => {
-        goPage(`/asc/ent/register`);
+        goPage(`/spr/ent/register`);
     }
 
     //table
@@ -88,7 +87,7 @@ const CLPENTM07210: React.FC = () => {
     
     const goDetail = ( e:any ) => {
         console.log('clicked row =>', e.index)
-        goPage(`/asc/ent/${e.index}`);
+        goPage(`/spr/ent/${e.index}`);
     }
 
     const headerTemplate = [

@@ -1,0 +1,72 @@
+/* swiper */
+.swiper {
+    width: 100%;
+    height: 390px;
+  }
+  .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+      bottom:0;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    /* -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center; */
+    /* align-items: center; */
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+/* visual */
+.visual {
+    display: flex;
+    height: 355px;
+    min-width: 100%;
+}
+.visual div{
+    width:50%;
+    
+}
+.visual .visualText {
+    background: #3C4059;
+    color:#fff;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.visual .visualText h2{
+    font-size:40px;
+    width: 100%;
+    padding:0 40px 25px;
+    line-height: 1.1;
+}
+.visual .visualText p{
+    font-size:20px;
+    width:100%;
+    padding:0 40px 25px;
+}
+.visual .visualText .outline {
+    border:1px solid #fff;
+    background: transparent !important;
+    color: #fff !important;
+    border-radius: 20px;
+    padding:10px 40px;
+    height:40px;
+    font-size: 16px;
+}

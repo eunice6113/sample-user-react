@@ -1,0 +1,91 @@
+
+.galleria-demo .custom-indicator-galleria .indicator-text {
+    color: #e9ecef;
+    cursor: pointer;
+}
+.galleria-demo .custom-indicator-galleria .p-highlight .indicator-text {
+    color: var(--primary-color);
+}
+
+.CLPMANM00100 .swiper {
+    width: 100%;
+    height: 550px;
+}
+.CLPMANM00100 .visual {
+    height: 510px;
+}
+.CLPMANM00100 .mainSearch {
+    border-radius: 9999px;
+}
+
+.CLPMANM00100 .category{
+    justify-content: space-around;
+    width: 1180px;
+    margin: 0 auto;
+}
+.CLPMANM00100 .roundBtn {
+    padding:0 20px !important;
+    background-color: #E7EEF5 !important;
+    height:54px;
+    font-size: 20px;
+}
+.CLPMANM00100 .roundBtn.on {
+    background-color: #7EA0D3 !important;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+}
+.CLPMANM00100 .roundBtn .p-button-label{
+    font-weight: normal;
+    color:#333 !important;
+}
+.CLPMANM00100 .roundBtn.on .p-button-label{
+    font-weight: bold;
+    color: #fff !important;
+}
+.contentTitle{
+    color:#333;
+    font-size: 40px;
+    text-align: center;
+}
+
+.mainSearch {
+    height: 50px;
+    width: 500px;
+}
+
+
+
+
+.iconBtnAdd{
+    background: transparent !important;
+    width: 50px;
+    height: 50px;
+    color:#ccc;
+  }
+.iconBtnAdd .p-button-icon {
+color: var(--gray-scale-gray500) !important;
+font-size: 48px;
+}
+.iconBtnAdd .p-button-icon:hover {
+color: var(--gray-scale-gray800) !important;
+}
+  
+ /* 배너이미지 */
+.CLPMANM00100 .banner{
+    display: flex;
+    justify-content: space-evenly;
+}
+.bannerItem{
+    width:580px;
+    height: 230px;
+    border-radius: 10px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../../../assets/images/main-bn01.png');
+    color:#fff;
+}
+.bannerItem .outline {
+    background: transparent !important;
+    color:#fff !important;
+    padding:10px 30px !important;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 17px;
+}
