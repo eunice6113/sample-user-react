@@ -1,0 +1,41 @@
+.profileOverlayPanel {
+    min-width: 200px;
+}
+
+.profileOverlayPanel .p-overlaypanel-content {
+    padding: 0 !important;
+}
+
+.p-overlaypanel .p-overlaypanel-content {
+    padding: 0;
+}
+
+.profileOverlayPanel .item {
+    padding: 10px !important;
+}
+
+.p-divider.p-divider-horizontal.noMargin {
+    margin: 0 !important;
+}
+
+.profileOverlayPanel .userInfo {
+    padding-left: 0;
+    list-style: none;
+}
+
+.profileOverlayPanel .userInfo li {
+    padding: 10px 15px;
+    font-size: 13px;
+}
+
+.profileOverlayPanel .logoutBtn {
+    padding: 0 !important
+}
+
+.profileOverlayPanel .logoutBtn .p-button-icon {
+    color: #333;
+}
+
+.profileOverlayPanel .logoutBtn .p-button-label {
+    color: #333;
+}

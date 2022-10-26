@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import logo from '../../../../assets/images/ibk-logo.png';
 import './header.css';
 import { InputSwitch } from 'primereact/inputswitch';
+import ProfilePanel from './ProfilePanel';
+import SubMenuPanel from './SubMenuPanel';
 
 interface IProps {
     handleOpen: React.MouseEventHandler<HTMLButtonElement>;
@@ -15,8 +17,10 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
     const [theme, setTheme] = React.useState(false);
     const [submenuOpen, setsubmenuOpen] = React.useState(false);
 
-    const profileOpRef = React.useRef<OverlayPanel>(null);
-    const submenuOpRef = React.useRef<OverlayPanel>(null);
+    const profileOpRef = React.useRef<any>(null);
+    const submenuOpRef = React.useRef<any>(null);
+    // const profileOpRef = React.useRef<OverlayPanel>(null);
+    // const submenuOpRef = React.useRef<OverlayPanel>(null);
     const headerRef = React.useRef<HTMLElement>(null);
 
     //서브메뉴
@@ -158,17 +162,20 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
     let userName = '홍길동'
 
     const openSubmenu = ( e:any ) => {
-        submenuOpRef.current?.show(e, e.target)
-        setsubmenuOpen(true)
-        if(submenuOpen) {
-
-        }
+        console.log('ㅋㅋㅋㅋㅋㅋ', e)
+        console.log('submenuOpRef', submenuOpRef)
+        console.log('submenuOpRef', submenuOpRef.current.getElement)
+        // if(!submenuOpen) {
+            submenuOpRef.current?.show(e, e.target)
+            // setsubmenuOpen(false)
+        // } else {
+        //     setsubmenuOpen(true)
+        // }
     }
 
     const logout = () => {
 
     }
-    
 
     return(
     <div className='customHeader'>
@@ -183,12 +190,14 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
 
             <InputSwitch className='ml10' checked={theme} onChange={handleTheme} />
 
-            <ul className='mainMenus'>
+            <ul className='mainMenus' 
+                // onClick={(e) => submenuOpRef.current?.show(e, e.target)}
+                onClick={(e) => openSubmenu(e)}
+            >
                 {
                     menus.map((menu, index) => (
                         <li key={`gnb-${index}`} 
-                            onClick={(e) => submenuOpRef.current?.show(e, e.target)}
-                            // onClick={(e) => openSubmenu(e)}
+                            // onClick={(e) => submenuOpRef.current?.show(e, e.target)}
                         >{menu.label}</li>
                     ))
                 }
@@ -213,56 +222,22 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
             
         </div>
 
-        {/* 서브메뉴 패널 */}
-        <OverlayPanel
-            ref={submenuOpRef}
-            // showCloseIcon
-            id='submenu_panel'
-            className='submenuOverlayPanel'
-        >
-            <div className='d-flex'>
-            <ul className='menus'>
-                {
-                    menus.map((menu, index) => (
-                        <li key={`smenu-${index}`}>
-                            <p>{menu.label}</p>
-                            {
-                                menu?.children &&
-                                <ul>
-                                    {
-                                        menu?.children.map((smenu, sindex) => (
-                                            <li key={`smenu-${sindex}`} 
-                                            onClick={(e) => submenuOpRef.current?.hide()}>
-                                                <Link to={smenu.url}>{smenu.label}</Link>
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
-                            }
-                        </li>
-                    ))
-                }
-            </ul>
-            </div>
-            
-        </OverlayPanel>
+        {/* 서브메뉴 클릭시 메뉴 이름 나오는 패널 */}
+        <SubMenuPanel 
+            domRef={submenuOpRef}
+            menus={menus}
+        />
 
         {/* 프로필 이름 클릭시 나오는 패널 */}
-        <OverlayPanel
-            ref={profileOpRef}
-            // showCloseIcon
-            id='overlay_panel'
-            className='profileOverlayPanel'
+        <ProfilePanel
+            domRef={profileOpRef}
+            logout={logout}
         >
-            <ul className='userInfo'>
-                <li className='border-bottom'>홍길동 S12345</li>
-                <li>IT그룹</li>
-                <li className='border-bottom'>관리자</li>
-                <li>
-                    <Button onClick={logout} icon='pi pi-sign-out' className="p-button-link logoutBtn xxl" label='Logout' />
-                </li>
-            </ul>
-        </OverlayPanel>
+            {/* border-bottom : 하단 라인이 있는 부분 */}
+            <li className='border-bottom'>홍길동 S12345</li>
+            <li>IT그룹</li>
+            <li className='border-bottom'>관리자</li>
+        </ProfilePanel>
     </div>
     )
 }
