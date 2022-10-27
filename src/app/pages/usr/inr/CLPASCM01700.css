@@ -1,0 +1,22 @@
+.CLPASCM01700 .item{
+    width:45%;
+}
+.CLPASCM01700 .cartBtn{
+    background: transparent !important;
+    color: var(--gray-scale-gray800) !important;
+}
+.CLPASCM01700 .cartBtn .p-button-icon {
+    padding:10px;
+    border-radius: 50%;
+    font-size:22px
+}
+.CLPASCM01700 .cartBtn .p-button-icon:hover {
+    color:#EE5800 !important; 
+}
+.CLPASCM01700 .cartBtn.on .p-button-icon {
+    color:#EE5800 !important; 
+    background-color: #FFEFE4;
+    padding:10px;
+    border-radius: 50%;
+    font-size:22px
+}

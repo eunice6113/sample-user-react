@@ -5,7 +5,7 @@ import './CLPMNLM04010.css';
 import Visual from "../../../shared/components/ui/visual/Visual";
 import Card from "../../../shared/components/ui/card/Card";
 import useBasePage from "../../../shared/hooks/base-page.hook";
-import listImg from '../../../../assets/images/manual_img.png';
+import listImg from '../../../../assets/images/manual-img.png';
 
 
 // 매뉴얼 화면

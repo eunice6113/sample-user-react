@@ -7,3 +7,7 @@
     text-align: center;
     width:25%;
 }
+.reply{
+    background: url(../../../../../assets/images/icon-reply.png) no-repeat;
+    padding-left : 25px;
+}

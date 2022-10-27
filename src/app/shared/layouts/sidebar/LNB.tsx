@@ -48,6 +48,11 @@ const LNB: React.FC<IProps> = ({open, children}) => {
             className: getClsName('/man')
         },
         {
+            label:'신청하기',
+            url: '/asc/request',
+            className: getClsName('/asc/request') 
+        },
+        {
             label:'UI',
             visible: true,
             expanded: curLocation === 'ui',

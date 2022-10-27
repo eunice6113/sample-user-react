@@ -5,8 +5,8 @@ import './CLPMANM00100.css';
 import Visual from "../../../shared/components/ui/visual/Visual";
 import Card from "../../../shared/components/ui/card/Card";
 import useBasePage from "../../../shared/hooks/base-page.hook";
-import mainImg from '../../../../assets/images/main_img.png';
-import listImg from '../../../../assets/images/manual_img.png';
+import mainImg from '../../../../assets/images/main-img.png';
+import listImg from '../../../../assets/images/manual-img.png';
 import { Link } from 'react-router-dom';
 
 // 매뉴얼 화면

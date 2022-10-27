@@ -219,7 +219,6 @@ const CLPENTM07320:React.FC = () => {
             },
             {
                 value: 
-                <>
                    <DataTable value={eventWinData} paginator paginatorTemplate={paginator} 
                     className='evnWin'
                     first={first} rows={rows} 
@@ -228,7 +227,6 @@ const CLPENTM07320:React.FC = () => {
                         <Column key={col.header} field={col.field} header={col.header} ></Column>
                     ))}
                 </DataTable>
-                </>
             },
             
             

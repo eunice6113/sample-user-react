@@ -45,6 +45,7 @@ const CLPIASM00500 = Loadable(lazy(() => import('../pages/usr/inr/CLPIASM00500')
 const CLPISCM00800 = Loadable(lazy(() => import('../pages/usr/inr/CLPISCM00800')));
 const CLPASCM01700 = Loadable(lazy(() => import('../pages/usr/inr/CLPASCM01700')));
 const CLPASCM08900 = Loadable(lazy(() => import('../pages/usr/inr/CLPASCM08900')));
+const CLPASCM08800 = Loadable(lazy(() => import('../pages/usr/inr/CLPASCM08800')));
 
 // 매뉴얼
 const CLPMNLM04010 = Loadable(lazy(() => import('../pages/usr/mnl/CLPMNLM04010')));
@@ -205,6 +206,7 @@ const portalRoutes = [
       { path: 'asc', 
         name: '신청하기', 
         children: [
+          {path: 'request', name:'신청하기', element: <CLPASCM08800 />},
           {path: 'cat-req', name:'서비스 카탈로그 신청 화면', element: <CLPASCM01700 />},
           {path: 'tfc-req', name:'The fast cloud 서비스 신청', element: <CLPISCM00800 />},
           {path: 'cat-basket', name:'서비스 카탈로그 신청 장바구니', element: <CLPASCM08900 />},

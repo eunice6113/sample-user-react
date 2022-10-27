@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Chip } from 'primereact/chip';
-import listImg from '../../../../../assets/images/manual_img.png';
+import listImg from '../../../../../assets/images/manual-img.png';
 import './Card.css';
 
 
