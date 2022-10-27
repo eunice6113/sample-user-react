@@ -1,11 +1,9 @@
-import { InputText, Button } from "primereact";
+import { Button } from "primereact";
 import * as React from "react";
 import { BasePage } from "../../../shared/components/base/BasePage";
 import './CLPASCM01700.css';
-import Visual from "../../../shared/components/ui/visual/Visual";
 import Card from "../../../shared/components/ui/card/Card";
 import useBasePage from "../../../shared/hooks/base-page.hook";
-import listImg from '../../../../assets/images/manual-img.png';
 
 
 // 매뉴얼 화면
@@ -43,7 +41,7 @@ const CLPASCM01700: React.FC = ({}) => {
                     label: 'v.11.12.1.2',
                 },
             ],
-            button: 
+            button:  //className on추가 시 주황색 아이콘으로 활성화
             <div className="d-flex">
             <Button className='cartBtn mr10 on' icon='pi pi-shopping-cart' onClick={addBtn} />
             <Button label='메뉴얼 보기' className="p-button xxl" onClick={btnClick}/>
@@ -59,7 +57,7 @@ const CLPASCM01700: React.FC = ({}) => {
                 },
                
             ],
-            button: 
+            button:
             <div className="d-flex">
             <Button className='cartBtn mr10' icon='pi pi-shopping-cart' onClick={addBtn} />
             <Button label='메뉴얼 보기' className="p-button xxl" onClick={btnClick}/>
