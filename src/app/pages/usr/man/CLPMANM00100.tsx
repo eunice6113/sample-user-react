@@ -7,8 +7,7 @@ import Card from "../../../shared/components/ui/card/Card";
 import useBasePage from "../../../shared/hooks/base-page.hook";
 import mainImg from '../../../../assets/images/main_img.png';
 import listImg from '../../../../assets/images/manual_img.png';
-import banner01 from '../../../../assets/images/main-bn01.png';
-
+import { Link } from 'react-router-dom';
 
 // 매뉴얼 화면
 const CLPMANM00100: React.FC = ({}) => {
@@ -155,12 +154,6 @@ const CLPMANM00100: React.FC = ({}) => {
             ],
             button: <Button label='메뉴얼 보기' className="p-button xxl" onClick={btnClick}/>
         },
-
-
-
-        
-        
-        
     ]
        
     //visual 배너
@@ -189,6 +182,52 @@ const CLPMANM00100: React.FC = ({}) => {
 
     ]
     
+    //최근게시물
+    const noticeList = [
+        {
+            title:'클라우드포탈이 오픈하였습니다.',
+            date:'2022-08-01',
+        },
+        {
+            title:'클라우드포탈이 오픈하였습니다.',
+            date:'2022-08-01',
+        },
+        {
+            title:'클라우드포탈이 오픈하였습니다.',
+            date:'2022-08-01',
+        },
+        {
+            title:'클라우드포탈이 오픈하였습니다.',
+            date:'2022-08-01',
+        },
+        {
+            title:'클라우드포탈이 오픈하였습니다.',
+            date:'2022-08-01',
+        },
+    ]
+    const communicationList = [
+        {
+            title:'소통공간입니다. 소통공간입니다.',
+            date:'2022-08-01',
+        },
+        {
+            title:'소통공간입니다. 소통공간입니다.',
+            date:'2022-08-01',
+        },
+        {
+            title:'소통공간입니다. 소통공간입니다.',
+            date:'2022-08-01',
+        },
+        {
+            title:'소통공간입니다. 소통공간입니다.',
+            date:'2022-08-01',
+        },
+        {
+            title:'소통공간입니다. 소통공간입니다.',
+            date:'2022-08-01',
+        },
+    ]
+
     return(
     <BasePage className="CLPMANM00100">
         {/* 배너 */}
@@ -223,18 +262,62 @@ const CLPMANM00100: React.FC = ({}) => {
 
             <Button className='iconBtnAdd p-button-text mr10' icon='pi pi-plus-circle' onClick={addBtn} />
         </div>
+
         <div>
-        
             <h2 className="contentTitle mt60">다양한 클라우드 지원을 받으세요.</h2>
 
-            <div className="banner">
+            <div className="banner mt40">
                 <div className="bannerItem">
-                <p>정보화사업의 예산산정을 효율적으로 <br/>산정하도록 도와드립니다.</p>
-                <Button label='The-Fast Cloud 신청하기' className="p-button outline" onClick={btnClick}/>
+                    <p>정보화사업의 예산산정을 효율적으로 <br/>산정하도록 도와드립니다.</p>
+                    <Button label='The-Fast Cloud 신청하기' className="p-button outline" onClick={btnClick}/>
+                </div>
+                <div className="bannerItem item2">
+                    <p>클라우드 주요 기능을 신청해서<br/>적극 활용해보세요.</p>
+                    <Button label='서비스 카탈로그 신청하기' className="p-button outline" onClick={btnClick}/>
                 </div>
             </div>
         </div>
-        
+
+        <div className="recentPost mt60">
+            <div className="recentList">
+                <div className="title">
+                    <h2>공지사항</h2>
+                    <p>
+                        <Link to='/' className='more'>더보기<i className="pi pi-angle-right"></i></Link> 
+                    </p>
+                </div>
+
+                <ul>
+                    {
+                        noticeList.map((noticeList,index) => (
+                                <li key={`noticeList${index}`}>
+                                    <span>{noticeList.title}</span>
+                                    <span>{noticeList.date}</span>
+                                </li>
+                        ))
+                    }
+                </ul>
+            </div>
+            <div className="recentList">
+                <div className="title">
+                    <h2>소통공간</h2>
+                    <p>
+                        <Link to='/' className='more'>더보기<i className="pi pi-angle-right"></i></Link> 
+                    </p>
+                </div>
+                
+                <ul>
+                    {
+                        communicationList.map((communicationList,index) => (
+                                <li key={`communicationList${index}`}>
+                                    <span>{communicationList.title}</span>
+                                    <span>{communicationList.date}</span>
+                                </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>        
     </BasePage>)
 }
 export default CLPMANM00100;

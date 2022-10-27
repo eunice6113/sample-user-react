@@ -73,6 +73,7 @@ color: var(--gray-scale-gray800) !important;
 .CLPMANM00100 .banner{
     display: flex;
     justify-content: space-evenly;
+
 }
 .bannerItem{
     width:580px;
@@ -80,6 +81,17 @@ color: var(--gray-scale-gray800) !important;
     border-radius: 10px;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../../../assets/images/main-bn01.png');
     color:#fff;
+    padding:30px 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+}
+.bannerItem:hover{
+    background: linear-gradient(0deg, rgba(10, 29, 105, 0.5), rgba(10, 29, 105, 0.5)),  url('../../../../assets/images/main-bn01.png');
+}
+.bannerItem p{
+    font-size: 30px;
+    font-weight: bold;
 }
 .bannerItem .outline {
     background: transparent !important;
@@ -88,4 +100,44 @@ color: var(--gray-scale-gray800) !important;
     height: 40px;
     border-radius: 20px;
     font-size: 17px;
+    margin-top: 20px;
+}
+.bannerItem.item2 {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../../../assets/images/main-bn02.png');
+
+}
+.bannerItem.item2:hover {
+    background: linear-gradient(0deg, rgba(10, 29, 105, 0.5), rgba(10, 29, 105, 0.5)), url('../../../../assets/images/main-bn02.png');
+
+}
+.recentPost {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #F8F8F8;
+    width: 100%;
+    padding: 40px 0;
+}
+.recentPost .recentList{
+    width:580px;
+}
+.recentPost .recentList .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    color:#333;
+}
+.recentPost .recentList .title a {
+    color:#333;
+}
+.recentPost .recentList .title a:hover {
+    text-decoration: underline;
+}
+.recentPost .recentList ul{
+    list-style: none;
+
+}
+.recentPost .recentList ul li{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
