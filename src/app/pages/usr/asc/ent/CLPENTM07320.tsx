@@ -1,4 +1,4 @@
-import { Button, Calendar, Dropdown, Editor, FileUpload, InputText, InputTextarea, RadioButton } from 'primereact';
+import { Button } from 'primereact';
 import * as React from 'react';
 import { BasePage } from '../../../../shared/components/base/BasePage';
 import useBasePage from '../../../../shared/hooks/base-page.hook';
@@ -8,6 +8,10 @@ import CommentRegister from '../../../../shared/components/ui/comment/CommentReg
 import BoardDetail from '../../../../shared/components/template/BoardDetail';
 import { updateItemInList } from '../../../../shared/utils/com-utils';
 import { IComment } from '../../../../core/models/i-comment';
+import { DataTable } from 'primereact/datatable';
+import { eventWinData } from '../../../../shared/demo/data/eventWinData';
+import { paginator } from "../../../../shared/utils/table-paginator";
+import { Column } from 'primereact/column';
 
 //이벤트 상세
 const CLPENTM07320:React.FC = () => {
@@ -126,10 +130,17 @@ const CLPENTM07320:React.FC = () => {
         updateItemInList(id, 'value', e.target.value, comments, setComments)
     }
 
+    //table
+    const [first, setFirst] = React.useState(0);
+    const [rows, setRows] = React.useState(10);
+    const onCustomPage = (event:any) => {
+        setFirst(event.first);
+        setRows(event.rows);
+    }
 
     
     //api 읽어와서 업데이트 할 내용
-    
+    //이벤트 상세내용
     const contentsInfo = {
         rows: [
             {
@@ -165,7 +176,66 @@ const CLPENTM07320:React.FC = () => {
         ],
         
     }
-
+    //이벤트 당첨 리스트  
+    const headerTemplate = [
+        {
+            field: 'name',
+            header: '성명',
+            sortable: false,
+        },
+        {
+            field: 'num',
+            header: '직번',
+            sortable: false,
+        },
+        {
+            field: 'department',
+            header: '부서',
+            sortable: false,
+        },
+        {
+            field: 'comment',
+            header: '댓글',
+            sortable: false,
+        },
+    ]
+    //이벤트 당첨결과
+    const contentsResult = {
+        rows: [
+            {
+                value: 
+                <>  
+                <div className='tableInfo'>
+                    <h2 className='title reply'>
+                        [당첨자 발표]클라우드 추진 Cell 응원 댓글 이벤트에 많은 참여바라. 
+                        <Button className='iconBtn p-button-text mr10' icon='pi pi-copy' onClick={link} />
+                    </h2>
+                    <ul className='info mt10'>
+                        <li className='mr20'><span>이벤트 유형</span> 댓글-랜덤당첨</li>
+                        <li><span>이벤트 기간</span> 2023.03.01 ~2023.04.01</li>
+                    </ul>
+                </div>
+                </>
+            },
+            {
+                value: 
+                <>
+                   <DataTable value={eventWinData} paginator paginatorTemplate={paginator} 
+                    className='evnWin'
+                    first={first} rows={rows} 
+                    onPage={onCustomPage} responsiveLayout='scroll'>
+                    {headerTemplate.map((col, index) => (
+                        <Column key={col.header} field={col.field} header={col.header} ></Column>
+                    ))}
+                </DataTable>
+                </>
+            },
+            
+            
+        ],
+    }
+    
+    
      //더보기 할 댓글수
      let moreCommentLen = 120;
 
@@ -181,6 +251,10 @@ const CLPENTM07320:React.FC = () => {
         {/* 내용 */}
         <BoardDetail {...contentsInfo} />
 
+        {/* 당첨 결과 */}
+        <BoardDetail {...contentsResult} />
+
+        {/* 버튼 */}
         <div className='text-center mt30'>
                 <Button className='xl' onClick={list}>목록</Button>
         </div>

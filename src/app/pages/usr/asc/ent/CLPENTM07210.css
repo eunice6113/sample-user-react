@@ -21,4 +21,7 @@
 .p-datatable.ent tr th:nth-child(5) {
     width: 20%;
 }
-
+.reply{
+    background: url(../../../../../assets/images/icon-reply.png) no-repeat;
+    padding-left : 25px;
+}

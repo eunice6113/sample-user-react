@@ -1,7 +1,8 @@
 //[이벤트]
 export const eventDummyData = [
+    
     {
-        no: 0,
+        no: 1,
         subject: '제목입니다',
         type: '댓글-실시간',
         author: '신재문',
@@ -11,8 +12,8 @@ export const eventDummyData = [
         period:'2023.02.20 ~2023.03.20',
     },
     {
-        no: 1,
-        subject: '제목입니다',
+        no: 0,
+        subject: <sapn class="reply">당첨자 결과 안내</sapn>,
         type: '댓글-실시간',
         author: '신재문',
         hit: 100,

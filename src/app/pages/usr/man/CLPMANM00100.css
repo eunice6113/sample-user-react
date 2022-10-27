@@ -140,4 +140,5 @@ color: var(--gray-scale-gray800) !important;
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+    cursor: pointer;
 }

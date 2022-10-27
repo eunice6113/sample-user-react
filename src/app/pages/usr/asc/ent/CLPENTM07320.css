@@ -1,0 +1,9 @@
+.p-datatable.evnWin {
+    width:800px;
+    margin: 0 auto;
+}
+.p-datatable.evnWin tr th, 
+.p-datatable.evnWin tr td {
+    text-align: center;
+    width:25%;
+}
