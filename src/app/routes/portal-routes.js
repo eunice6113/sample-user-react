@@ -76,6 +76,7 @@ const CLPMMBM08500 = Loadable(lazy(() => import('../pages/usr/asc/mmb/CLPMMBM085
 // 소통공간
 const CLPCMNM08610 = Loadable(lazy(() => import('../pages/usr/asc/cmn/CLPCMNM08610')));
 const CLPCMNM08720 = Loadable(lazy(() => import('../pages/usr/asc/cmn/CLPCMNM08720')));
+const CLPCMNM08730 = Loadable(lazy(() => import('../pages/usr/asc/cmn/CLPCMNM08730')));
 
 
 
@@ -244,6 +245,7 @@ const portalRoutes = [
             children: [
               {path: 'list', name:'소통공간 목록', element: <CLPCMNM08610 />},
               {path: ':id', name:'소통공간 상세', element: <CLPCMNM08720 />},
+              {path: 'register', name:'소통공간 등록', element: <CLPCMNM08730 />},
             ],
           },
           { 

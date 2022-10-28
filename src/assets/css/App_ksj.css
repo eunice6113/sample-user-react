@@ -55,7 +55,8 @@
 }
 .profileName{
   color:#64748B;
-  font-weight: bold;
+  font-weight: 500;
+  font-size:14px;
 }
 
 /* the fast cloud 신청 관리 목록*/
