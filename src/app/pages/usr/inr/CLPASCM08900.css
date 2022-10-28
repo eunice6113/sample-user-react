@@ -1,14 +1,101 @@
+.CLPASCM08900 .cartList .cld-table td, .p-datatable td{
+    padding:0;
+}
 .CLPASCM08900 .userInfo {
     color:#333;
     font-size: 16px;
     font-weight: 500;
+    padding: 0 20px;
 }
 .CLPASCM08900 .userInfo span{
     color:#4881DE;
 }
-.CLPASCM08900 .cartList {
-  align-items: center;
+.CLPASCM08900 .title{
+    font-size: 20px;
+    margin-bottom: 10px;
+    color:#333;
 }
-.CLPASCM08900 .categoryImg {
+.CLPASCM08900 .title .point {
+    color:#F5701C;
+}
+.CLPASCM08900 .cartItme {
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
+}
+.CLPASCM08900 .cartItme:hover {
+    background-color: #EEF9FF;
+    
+}
+.CLPASCM08900 .cartItme .categoryImg {
     width: 170px;
+    height: 100px;
+    border:1px solid #ccc;
+    margin:0 20px;
+}
+.CLPASCM08900 .cartItme .categoryImg img{
+    width:100%;
+    height: 100%;
+}
+.CLPASCM08900 .cartItme .name{
+    flex-grow: 1;
+}
+.CLPASCM08900 .cartItme .name p {
+    color:#667085;
+}
+.CLPASCM08900 .cartItme .delt .p-button-icon{
+    font-size: 30px !important;
+    color:#CCCCCC;
+}
+.CLPASCM08900 .cartItme .delt .p-button-icon:hover{
+    color: #1D5DC4;
+}
+.CLPASCM08900 .sum{
+    display: flex;
+    width:100%;
+    justify-content: end;
+    padding:10px 85px 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.cartResult {
+    width: 100%;
+
+}
+.cartResult .cartRstDl {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width:1000px;
+    margin: 0 auto;
+    font-size:16px;
+}
+.cartResult .cartRstDl dt{
+    width:30%;
+    font-weight: bold;
+}
+.cartResult .cartRstDl dd{
+    width:70%;
+}
+.cartResult .cartRstDl ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    width:100%;
+    padding-bottom:20px; 
+    font-weight: 500;
+}
+.sale{
+    text-decoration: line-through;
+    color:#888888;
+}
+.cartResult .cartRstDl ul li {
+    width:25%;
+}
+.CLPASCM08900 .catRqsBtn {
+    height: 60px;
+    border-radius: 30px;
+    padding:0 30px !important;
+    font-size: 20px;
 }
