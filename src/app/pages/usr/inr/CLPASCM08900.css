@@ -1,0 +1,14 @@
+.CLPASCM08900 .userInfo {
+    color:#333;
+    font-size: 16px;
+    font-weight: 500;
+}
+.CLPASCM08900 .userInfo span{
+    color:#4881DE;
+}
+.CLPASCM08900 .cartList {
+  align-items: center;
+}
+.CLPASCM08900 .categoryImg {
+    width: 170px;
+}

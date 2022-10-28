@@ -36,6 +36,7 @@ const CLPMNLM04010: React.FC = ({}) => {
     //card list
     const cards =[
         {
+            listImg:listImg,
             title:'Cloud DB for PostgreSQL Cloud DB for PostgreSQL Cloud DB for PostgreSQL',
             description:'PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.',
             tags: [
@@ -55,6 +56,7 @@ const CLPMNLM04010: React.FC = ({}) => {
             button: <Button label='메뉴얼 보기' className="p-button xxl" onClick={btnClick}/>
         },
         {
+            listImg:listImg,
             title:'Cloud DB for PostgreSQL Cloud DB for PostgreSQL Cloud DB for PostgreSQL',
             description:'PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.',
             tags: [
@@ -75,6 +77,7 @@ const CLPMNLM04010: React.FC = ({}) => {
         },
         
         {
+            listImg:listImg,
             title:'Cloud DB for PostgreSQL Cloud DB for PostgreSQL Cloud DB for PostgreSQL',
             description:'PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.',
             tags: [
@@ -95,6 +98,7 @@ const CLPMNLM04010: React.FC = ({}) => {
         },
         
         {
+            listImg:listImg,
             title:'Cloud DB for PostgreSQL Cloud DB for PostgreSQL Cloud DB for PostgreSQL',
             description:'PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.',
             tags: [
@@ -115,6 +119,7 @@ const CLPMNLM04010: React.FC = ({}) => {
         },
         
         {
+            listImg:listImg,
             title:'Cloud DB for PostgreSQL Cloud DB for PostgreSQL Cloud DB for PostgreSQL',
             description:'PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.',
             tags: [
@@ -135,6 +140,7 @@ const CLPMNLM04010: React.FC = ({}) => {
         },
         
         {
+            listImg:listImg,
             title:'Cloud DB for PostgreSQL Cloud DB for PostgreSQL Cloud DB for PostgreSQL',
             description:'PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.PostgreSQL 서비스를 손쉽게 구축하고 자동으로 관리합니다.',
             tags: [

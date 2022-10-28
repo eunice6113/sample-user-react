@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Chip } from 'primereact/chip';
-import listImg from '../../../../../assets/images/manual-img.png';
 import './Card.css';
 
 
@@ -13,6 +12,7 @@ interface ICard {
     description?:string;
     tags?:Tag[];
     button?:any;
+    listImg?:any;
 }
 
 //Card
@@ -21,12 +21,13 @@ const Card:React.FC<ICard> = ({
     description,
     tags,
     button,
+    listImg
 }) => {
 
     return (
         <div className="item"> 
             <div className="imgWrap">
-                <img className="listImg" src={listImg} alt="매뉴얼 이미지"></img>
+                <img className="listImg" src={listImg} alt={listImg}></img>
                 
                 <div className="labelWrap d-flex-default">
                     {tags?.map((tag:any, index: number) => (
