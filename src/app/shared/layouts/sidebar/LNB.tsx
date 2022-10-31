@@ -53,6 +53,21 @@ const LNB: React.FC<IProps> = ({open, children}) => {
             className: getClsName('/asc/request') 
         },
         {
+            label:'자주 묻는 질문',
+            url: '/spr/faq',
+            className: getClsName('/spr/faq') 
+        },
+        {
+            label:'알림센터',
+            url: '/spr/mmb',
+            className: getClsName('/spr/mmb') 
+        },
+        {
+            label:'설문',
+            url: '/spr/sgs/list',
+            className: getClsName('/spr/sgs/list') 
+        },
+        {
             label:'UI',
             visible: true,
             expanded: curLocation === 'ui',
