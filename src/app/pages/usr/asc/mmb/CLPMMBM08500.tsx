@@ -12,49 +12,49 @@ const CLPMMBM08500: React.FC<IProps> = ({children}) => {
     const delt = () => {
         console.log('삭제')
     }
+    const more = () => {
+        console.log('더보기')
+    }
     const ntfctList = [
         {
             date: '2022.10.31',
-            reply:'ddd',
-            content:'dfdfdf',
-           
             ntfcts: [
                 {
                     state:'new',
-                    content: 'ddd',
+                    content: '클라우드 오픈안내, 다양한 클라우드 서비스를 만드는데 활용하세요.',
                     reply: null,
                 },
                 {
-                    content: 'ddd',
-                    reply:'sdd'
+                    content: '(질문) 클라우드 서비스를 진행하고 싶어요. 절차를 알려주세요.',
+                    reply:'(답변) The-Fast Cloud 프로그램을 이용해주세요.'
                 },
                 {
-                    content: 'ddd',
-                    reply:'sdd'
+                    content: '(질문) 클라우드 서비스를 진행하고 싶어요. 절차를 알려주세요.',
+                    reply:'(답변) The-Fast Cloud 프로그램을 이용해주세요.'
                 },
+               
             ]
         },
         {
             date: '2022.10.31',
-            reply:'ddd',
-            content:'dfdfdf',
-           
             ntfcts: [
                 {
                     state:'new',
-                    content: 'ddd',
+                    content: '클라우드 오픈안내, 다양한 클라우드 서비스를 만드는데 활용하세요.',
                     reply: null,
                 },
                 {
-                    content: 'ddd',
-                    reply:'sdd'
+                    content: '(질문) 클라우드 서비스를 진행하고 싶어요. 절차를 알려주세요.',
+                    reply:'(답변) The-Fast Cloud 프로그램을 이용해주세요.'
                 },
                 {
-                    content: 'ddd',
-                    reply:'sdd'
+                    content: '(질문) 클라우드 서비스를 진행하고 싶어요. 절차를 알려주세요.',
+                    reply:'(답변) The-Fast Cloud 프로그램을 이용해주세요.'
                 },
+               
             ]
         },
+        
         
     ]
    
@@ -99,7 +99,10 @@ const CLPMMBM08500: React.FC<IProps> = ({children}) => {
                     ))
                 }
                
-                
+                <div className='d-flex justify-center mt10 mb10'>
+
+                    <Button className='iconBtnAdd p-button-text mr10' icon='pi pi-plus-circle' onClick={more} />
+                </div>
             </div>
         </div>
     </BasePage>)

@@ -63,6 +63,11 @@ const LNB: React.FC<IProps> = ({open, children}) => {
             className: getClsName('/spr/mmb') 
         },
         {
+            label:'설문',
+            url: '/spr/sgs/list',
+            className: getClsName('/spr/sgs/list') 
+        },
+        {
             label:'UI',
             visible: true,
             expanded: curLocation === 'ui',

@@ -10,7 +10,8 @@ const CLPSGSM07910: React.FC<IProps> = ({children}) => {
 
     return(
     <BasePage>
-        <h1>notice list!!</h1>
+        <p>3개의 설문이 진행 중 입니다.</p>
+        <div></div>
     </BasePage>)
 }
 export default CLPSGSM07910;
