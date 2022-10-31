@@ -263,7 +263,7 @@ const portalRoutes = [
           },
           {
             path: 'mmb', 
-            name: '알림 이벤트 노출 상세 화면', 
+            name: '알림센터', 
             element: <CLPMMBM08500 />,
           },
         ]

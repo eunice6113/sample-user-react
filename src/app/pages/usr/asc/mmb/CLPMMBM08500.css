@@ -1,0 +1,72 @@
+.CLPMMBM08500 .sortList{
+    width:200px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px -2px rgb(16 24 40 / 10%), 0px 2px 4px -2px rgb(16 24 40 / 6%);
+    overflow: hidden;
+    height: 100%;
+}
+.CLPMMBM08500 .sortList ul{
+    list-style: none;
+}
+.CLPMMBM08500 .sortList ul li {
+    height: 50px;
+    padding:0 20px;
+    line-height: 50px;
+    cursor: pointer;
+    border-bottom: 1px solid #e6e6e6;
+}
+.CLPMMBM08500 .sortList ul li:last-child {
+    border-bottom: 0;
+}
+.CLPMMBM08500 .sortList ul li.on{
+    background-color: var(--brand-primary);
+    color:#fff;
+    font-weight: bold;
+}
+.CLPMMBM08500 .ntfctList {
+    margin-left: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    flex-grow: 1;
+    height: 100%;
+    box-shadow: 0px 4px 8px -2px rgb(16 24 40 / 10%), 0px 2px 4px -2px rgb(16 24 40 / 6%);
+}
+.CLPMMBM08500 .ntfctList dl {
+    border-bottom: 1px solid #e6e6e6;
+}
+.CLPMMBM08500 .ntfctList dl:last-child{
+    border-bottom: 0;
+}
+.CLPMMBM08500 .ntfctList dt {
+    font-size: 16px;
+    font-weight: 500;
+    padding:10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e6e6e6;
+}
+.CLPMMBM08500 .ntfctList dd {
+    justify-content: space-between;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid #e6e6e6;
+}
+.CLPMMBM08500 .ntfctList dd.new{
+    background: #EEF9FF;
+    padding: 20px;
+}
+.deltBtn.p-button {
+    padding:0 !important;
+    width: auto;
+}
+.reply{
+    background: url(../../../../../assets/images/icon-reply.png) no-repeat;
+    padding-left : 25px;
+    margin-top: 5px;
+    color: #667085;
+    font-size: 16px;
+}
