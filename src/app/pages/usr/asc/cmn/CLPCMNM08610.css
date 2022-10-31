@@ -1,3 +1,7 @@
+.infinite-scroll-component {
+    overflow: hidden !important;
+}
+
 .CLPCMNM08610 {
     padding-top: 50px;
     background-color: #F9F9F9;
@@ -10,13 +14,11 @@ body.theme-dark .CLPCMNM08610 {
     background-color: #000;
 }
 
-
 .CLPCMNM08610 .listContainer {
     position: relative;
     top:0;
     left:0;
     width: 870px;
-
 }
 
 .CLPCMNM08610 .listContainer .wirteWrapper {
@@ -54,6 +56,8 @@ body.theme-dark .CLPCMNM08610 {
     background-color: #fff;
     padding: 20px 25px 15px;
     margin-bottom: 30px;
+    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .CLPCMNM08610 .listContainer .boardWrapper:last-child {
