@@ -1,0 +1,9 @@
+.thumbsUp.p-togglebutton.p-button.p-highlight .p-button-icon-left, 
+.thumbsUp.p-togglebutton.p-button.p-highlight .p-button-icon-right {
+    color: var(--cta-color);
+}
+
+/* 
+.thumbsUp.p-togglebutton.p-button {
+    padding-left: 0;
+} */

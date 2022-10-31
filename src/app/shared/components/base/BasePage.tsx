@@ -33,6 +33,10 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
         curLocation[2] = ':id'
     }
 
+    
+    let showTitle = location.pathname !== '/man'
+    console.log('showTitle', showTitle)
+
     //이 방법 말고 path + children path 를 / 로 flatten 해서 읽어오게 개선하기
     //breadcrumb 도 개발해야함
     routes.map((item) => {
@@ -74,8 +78,10 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
     }, [location.pathname]);
     
     return(<>
-        <PageTitle title={pageTitle} subTitle={subTitle} />
-        {/* <AdminPageTitle title={pageTitle} /> */}
+        {
+            showTitle && <PageTitle title={pageTitle} subTitle={subTitle} />
+        }
+
         <div className={`pl20 pr20 basePage ${className}`}>
          {children}
         </div>
