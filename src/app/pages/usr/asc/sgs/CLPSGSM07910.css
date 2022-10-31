@@ -1,0 +1,69 @@
+.CLPSGSM07910{
+    background-color: #f9f9f9;
+}
+.CLPSGSM07910 .p-tabview .p-tabview-nav li .p-tabview-nav-link,
+.CLPSGSM07910 .p-tabview .p-tabview-nav,
+.CLPSGSM07910 .p-tabview .p-tabview-panels{
+    background-color: transparent;
+}
+.CLPSGSM07910 .contentList {
+    display: flex;
+    gap:40px 2%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+.CLPSGSM07910 .contentList .content {
+    width:48%;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px -2px rgb(16 24 40 / 10%), 0px 2px 4px -2px rgb(16 24 40 / 6%);
+    padding: 20px;
+}
+.CLPSGSM07910 .contentList .content .title {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+}
+.CLPSGSM07910 .contentList .content .state {
+    font-size: 14px;
+    color:#666;
+}
+.CLPSGSM07910 .contentList .content .state .ongoing{
+    background: #E8F1FF;
+    color:var(--brand-primary);
+    height:25px;
+    font-weight: 500;
+    margin: 20px 0 ;
+    font-size: 12px;
+    margin-left: 10px;
+}
+.CLPSGSM07910 .contentList .content .state .end{
+    background: #EEF0F1;
+    color:#666;
+    height:25px;
+    font-weight: 500;
+    margin: 20px 0 ;
+    font-size: 12px;
+    margin-left: 10px;
+}
+.CLPSGSM07910 .contentList .content .description{
+    width: 100%;
+    white-space: normal;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    -moz-line-clamp: 2;
+    -moz-box-orient: vertical;
+    overflow: hidden;
+    height: 46px;
+}
+.CLPSGSM07910 .contentList .content .date{
+   margin: 20px 0px 30px 0px
+}
+    
+.CLPSGSM07910 .color-blue {
+    color: var(--brand-primary) !important;
+}
