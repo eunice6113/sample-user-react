@@ -2,7 +2,7 @@ import * as React from "react";
 import { useLocation } from "react-router-dom";
 import portalRoutes from "../../../routes/portal-routes";
 import PageTitle from "../page-title/PageTitle";
-
+import './base-page.css';
 interface IProps {
     className?: string;
     children: React.ReactNode;
