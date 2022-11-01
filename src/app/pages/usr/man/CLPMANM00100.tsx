@@ -238,92 +238,100 @@ const CLPMANM00100: React.FC = ({}) => {
     <BasePage className="CLPMANM00100">
         {/* 배너 */}
         <Visual banners={banners} />
-        
-        <h2 className="contentTitle mt60">다양한 클라우드를 만나고, 경험하세요.</h2>
-        <div className="text-center mt30">
-            <span className="p-input-icon-right">
-                <i className="pi pi-search" />
-                <InputText value={value} onChange={(e) => setValue(e.target.value)} className='mainSearch' />
-            </span>
-        </div>
-        
-        <div className="d-flex justify-center category mt60 mb40">
-            {/* 카테고리 버튼*/}
-            {categoryItem}
-        </div>
-       
-        <div className="content">
-        {/* 리스트 카드 */}
-        {
-            cards?.map((card, index) => ( 
-                <Card 
-                    key={'card-'+index} 
-                    { ...card }
-                />
-            ))
-        }
-        </div>
-           
-        <div className='d-flex justify-center'>
-
-            <Button className='iconBtnAdd p-button-text mr10' icon='pi pi-plus-circle' onClick={addBtn} />
-        </div>
-
-        <div>
-            <h2 className="contentTitle mt60">다양한 클라우드 지원을 받으세요.</h2>
-
-            <div className="banner mt40">
-                <div className="bannerItem">
-                    <p>정보화사업의 예산산정을 효율적으로 <br/>산정하도록 도와드립니다.</p>
-                    <Button label='The-Fast Cloud 신청하기' className="p-button outline" onClick={btnClick}/>
-                </div>
-                <div className="bannerItem item2">
-                    <p>클라우드 주요 기능을 신청해서<br/>적극 활용해보세요.</p>
-                    <Button label='서비스 카탈로그 신청하기' className="p-button outline" onClick={btnClick}/>
-                </div>
-            </div>
-        </div>
-
-        <div className="recentPost mt60">
-            <div className="recentList">
-                <div className="title">
-                    <h2>공지사항</h2>
-                    <p>
-                        <Link to='/' className='more'>더보기<i className="pi pi-angle-right"></i></Link> 
-                    </p>
-                </div>
-
-                <ul>
-                    {
-                        noticeList.map((noticeList,index) => (
-                                <li key={`noticeList${index}`}>
-                                    <span>{noticeList.title}</span>
-                                    <span>{noticeList.date}</span>
-                                </li>
-                        ))
-                    }
-                </ul>
-            </div>
-            <div className="recentList">
-                <div className="title">
-                    <h2>소통공간</h2>
-                    <p>
-                        <Link to='/' className='more'>더보기<i className="pi pi-angle-right"></i></Link> 
-                    </p>
+        <div className="contentWrap">
+            <div>
+                <h2 className="contentTitle mt60">다양한 클라우드를 만나고, 경험하세요.</h2>
+                <div className="text-center mt30">
+                    <span className="p-input-icon-right">
+                        <i className="pi pi-search" />
+                        <InputText value={value} onChange={(e) => setValue(e.target.value)} className='mainSearch' />
+                    </span>
                 </div>
                 
-                <ul>
-                    {
-                        communicationList.map((communicationList,index) => (
-                                <li key={`communicationList${index}`}>
-                                    <span>{communicationList.title}</span>
-                                    <span>{communicationList.date}</span>
-                                </li>
-                        ))
-                    }
-                </ul>
+                <div className="d-flex justify-center category mt60 mb40">
+                    {/* 카테고리 버튼*/}
+                    {categoryItem}
+                </div>
             </div>
-        </div>        
+            
+        
+            <div className="content">
+            {/* 리스트 카드 */}
+            {
+                cards?.map((card, index) => ( 
+                    <Card 
+                        key={'card-'+index} 
+                        { ...card }
+                    />
+                ))
+            }
+            </div>
+            
+            <div className='d-flex justify-center'>
+
+                <Button className='iconBtnAdd p-button-text mr10' icon='pi pi-plus-circle' onClick={addBtn} />
+            </div>
+
+            <div>
+                <h2 className="contentTitle mt60">다양한 클라우드 지원을 받으세요.</h2>
+
+                <div className="banner mt40">
+                    <div className="bannerItem">
+                        <p>정보화사업의 예산산정을 효율적으로 <br/>산정하도록 도와드립니다.</p>
+                        <Button label='The-Fast Cloud 신청하기' className="p-button outline" onClick={btnClick}/>
+                    </div>
+                    <div className="bannerItem item2">
+                        <p>클라우드 주요 기능을 신청해서<br/>적극 활용해보세요.</p>
+                        <Button label='서비스 카탈로그 신청하기' className="p-button outline" onClick={btnClick}/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div className="recentPostWrap mt60">
+            <div className="recentPost">
+                <div className="recentList">
+                    <div className="title">
+                        <h2>공지사항</h2>
+                        <p>
+                            <Link to='/' className='more'>더보기<i className="pi pi-angle-right"></i></Link> 
+                        </p>
+                    </div>
+
+                    <ul>
+                        {
+                            noticeList.map((noticeList,index) => (
+                                    <li key={`noticeList${index}`}>
+                                        <span>{noticeList.title}</span>
+                                        <span>{noticeList.date}</span>
+                                    </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+                <div className="recentList">
+                    <div className="title">
+                        <h2>소통공간</h2>
+                        <p>
+                            <Link to='/' className='more'>더보기<i className="pi pi-angle-right"></i></Link> 
+                        </p>
+                    </div>
+                    
+                    <ul>
+                        {
+                            communicationList.map((communicationList,index) => (
+                                    <li key={`communicationList${index}`}>
+                                        <span>{communicationList.title}</span>
+                                        <span>{communicationList.date}</span>
+                                    </li>
+                            ))
+                        }
+                    </ul>
+                </div>  
+            </div>
+            
+        </div> 
+               
     </BasePage>)
 }
 export default CLPMANM00100;

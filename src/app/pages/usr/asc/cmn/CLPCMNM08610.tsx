@@ -276,7 +276,7 @@ const CLPCMNM08610: React.FC<IProps> = ({children}) => {
 
     return(
     <BasePage className='CLPCMNM08610'>
-    <div className="d-flex">
+    <div className="d-flex wrap">
 
         <div className='listContainer'>
             <div className='wirteWrapper' onClick={write} >

@@ -82,7 +82,7 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
             showTitle && <PageTitle title={pageTitle} subTitle={subTitle} />
         }
 
-        <div className={`pl20 pr20 basePage ${className}`}>
+        <div className={` basePage ${className}`}>
          {children}
         </div>
     </>)
