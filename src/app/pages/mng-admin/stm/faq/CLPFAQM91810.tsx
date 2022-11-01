@@ -148,8 +148,8 @@ const CLPFAQM91810: React.FC = () => {
             onRowClick={(e) => goDetail(e)}
             first={first} rows={rows} 
             onPage={onCustomPage} responsiveLayout='scroll'>
-            {headerTemplate.map((col, index) => (
-                <Column key={col.header} field={col.field} header={col.header} style={col.style} className={col.className}></Column>
+            {headerTemplate.map((col:any, index) => (
+                <Column key={col.header+index} field={col.field} header={col.header} style={col.style} className={col.className}></Column>
             ))}
         </DataTable>
     </BasePage>)
