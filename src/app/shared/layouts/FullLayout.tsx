@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Outlet } from 'react-router-dom';
+import FloatMenu from '../components/float-menu/FloatMenu';
 import Header from './header/Header';
 import './layout.css'
 import LNB from './sidebar/LNB';
@@ -30,6 +31,8 @@ const FullLayout: React.FC = () => {
                 <Outlet />
             </div>
         </div>
+
+        <FloatMenu />
     </>
     )
 }

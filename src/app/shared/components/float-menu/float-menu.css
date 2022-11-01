@@ -1,0 +1,113 @@
+
+
+.floatMenuBox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--global-bg-color);
+    color: var(--global-text-color);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    list-style: none;
+    padding-left: 0;
+    padding: 20px 10px;
+}
+
+
+
+
+
+.floatMenuBox li {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.floatMenuBox li:last-child {
+    margin-bottom: 0;   
+}
+
+.floatMenuBox li p {
+    font-size: 12px;
+    color: var(--global-text-color);
+    margin-top: 5px;
+}
+
+.floatMenuBox li i {
+    font-size: 40px;
+}
+
+.icon-cart {
+    color: #000;
+}
+
+.icon-cart:hover {
+    color: var(--global-text-color);
+}
+
+.icon-req {
+    position: relative;
+    top:0;
+    left:0;
+    background-image: url(../../../../assets/images/icon/icon-qna.svg);
+    background-size: 35px auto;
+    background-repeat: no-repeat;
+    display: block;
+    width: 35px;
+    min-width: 35px;
+    height: 52px;
+    text-align: center;
+    margin:0 auto;
+}
+
+.icon-req:hover {
+    position: relative;
+    top:0;
+    left:0;
+    background-image: url(../../../../assets/images/icon/icon-qna-on.svg);
+    background-size: 35px auto;
+    background-repeat: no-repeat;
+    display: block;
+    width: 35px;
+    min-width: 35px;
+    height: 52px;
+    text-align: center;
+    margin:0 auto;
+}
+
+.icon-faq {
+    position: relative;
+    top:0;
+    left:0;
+    background: url('../../../../assets/images/icon/icon-faq.svg');
+    background-size: 40px auto;
+    background-repeat: no-repeat;
+    display: block;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    text-align: center;
+    margin:0 auto;
+    margin-bottom: 7px;
+}
+
+.icon-faq:hover {
+    position: relative;
+    top:0;
+    left:0;
+    background: url('../../../../assets/images/icon/icon-faq-on.svg');
+    background-size: 40px auto;
+    background-repeat: no-repeat;
+    display: block;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    text-align: center;
+    margin:0 auto;
+    margin-bottom: 7px; 
+
+}
+
+.faqBtn {
+    border: 0 none;
+    background: transparent;
+}
