@@ -173,10 +173,10 @@ const CLPCMNM08610: React.FC<IProps> = ({children}) => {
                 createAt: '7월 2일 오후 3:39'
             },
             title: '클라우드 활용 여신 심사업무 활용 방안 기획안',
-            content: `
-                클라우드 환경에서 여신 심사업무의 활용 방안을 효율적으로 할 수 있는지 기획안을 구성하였습니다. 
-                <img src={${listImg}}></img>
-            `,
+            content: <>
+                클라우드 환경에서 여신 심사업무의 활용 방안을 효율적으로 할 수 있는지 기획안을 구성하였습니다.<br/> 
+                클라우드 환경에서 여신 심사업무의 활용 방안을 효율적으로 할 수 있는지 기획안을 구성하였습니다.
+            </>,
             like: false,
             likeCnt: 100,
             viewCnt: 100,
@@ -190,10 +190,10 @@ const CLPCMNM08610: React.FC<IProps> = ({children}) => {
                 createAt: '7월 2일 오후 3:39'
             },
             title: '클라우드 활용 여신 심사업무 활용 방안 기획안',
-            content: `
+            content: <>
                 클라우드 환경에서 여신 심사업무의 활용 방안을 효율적으로 할 수 있는지 기획안을 구성하였습니다. 
-                <img src={${listImg}}></img>
-            `,
+                <img src={listImg}></img>
+            </>,
             like: true,
             likeCnt: 300,
             viewCnt: 1000,
@@ -207,10 +207,10 @@ const CLPCMNM08610: React.FC<IProps> = ({children}) => {
                 createAt: '7월 2일 오후 3:39'
             },
             title: '클라우드 활용 여신 심사업무 활용 방안 기획안',
-            content: `
+            content: <>
                 클라우드 환경에서 여신 심사업무의 활용 방안을 효율적으로 할 수 있는지 기획안을 구성하였습니다. 
-                <img src={${listImg}}></img>
-            `,
+                <img src={listImg}></img>
+            </>,
             like: true,
             likeCnt: 30000,
             viewCnt: 100,
@@ -314,7 +314,7 @@ const CLPCMNM08610: React.FC<IProps> = ({children}) => {
                             <span>{item?.author?.createAt}</span>
                         </div>
                         <h5 className="title">{index} {item?.title}</h5>
-                        <div className="content" dangerouslySetInnerHTML={{__html: item?.content }} />
+                        <div className="content">{item?.content}</div>
 
                         <div className='btnsWrapper'>
                             {/* 좋아요 버튼 */}
