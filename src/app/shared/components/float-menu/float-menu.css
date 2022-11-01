@@ -4,7 +4,8 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: var(--global-bg-color);
+    background-color: #fff;
+    background-color: var(--dialog-background-color);
     color: var(--global-text-color);
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     border-radius: 12px;
@@ -12,10 +13,6 @@
     padding-left: 0;
     padding: 20px 10px;
 }
-
-
-
-
 
 .floatMenuBox li {
     text-align: center;
@@ -42,6 +39,36 @@
 
 .icon-cart:hover {
     color: var(--global-text-color);
+}
+
+.icon-cart {
+    position: relative;
+    top:0;
+    left:0;
+    background-image: url(../../../../assets/images/icon/icon-cart.svg);
+    background-size: 40px auto;
+    background-repeat: no-repeat;
+    display: block;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    text-align: center;
+    margin:0 auto;
+}
+
+.icon-cart:hover {
+    position: relative;
+    top:0;
+    left:0;
+    background-image: url(../../../../assets/images/icon/icon-cart-on.svg);
+    background-size: 40px auto;
+    background-repeat: no-repeat;
+    display: block;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    text-align: center;
+    margin:0 auto;
 }
 
 .icon-qna {
@@ -78,7 +105,7 @@
     position: relative;
     top:0;
     left:0;
-    background: url('../../../../assets/images/icon/icon-faq.svg');
+    background: url(../../../../assets/images/icon/icon-faq.svg);
     background-size: 40px auto;
     background-repeat: no-repeat;
     display: block;
@@ -94,7 +121,7 @@
     position: relative;
     top:0;
     left:0;
-    background: url('../../../../assets/images/icon/icon-faq-on.svg');
+    background: url(../../../../assets/images/icon/icon-faq-on.svg);
     background-size: 40px auto;
     background-repeat: no-repeat;
     display: block;
@@ -107,7 +134,19 @@
 
 }
 
-.faqBtn {
+body.theme-dark .icon-cart {
+    background-image: url(../../../../assets/images/icon/icon-cart-white.svg);
+}
+
+body.theme-dark .icon-qna {
+    background-image: url(../../../../assets/images/icon/icon-qna-white.svg);
+}
+
+body.theme-dark .icon-faq {
+    background: url(../../../../assets/images/icon/icon-faq-white.svg);
+}
+
+.qnaBtn {
     border: 0 none;
     background: transparent;
 }
@@ -115,12 +154,21 @@
 .qnaBox {
     position: fixed;
     bottom: 20px;
-    right: 20px;
-    background-color: var(--global-bg-color);
+    right: 120px;
+    background-color: var(--dialog-background-color);
     color: var(--global-text-color);
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     list-style: none;
     padding-left: 0;
-    padding: 20px 10px;
+    padding: 20px;
+    width: 400px;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
 }
