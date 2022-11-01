@@ -16,8 +16,10 @@
     display: flex;
     align-items: center;
     padding: 0 20px 0 0;
-    max-width: calc(1180px + 230px);
+    /* max-width: calc(1180px + 230px); */
     height: 55px;
+    width:1180px;
+    margin: 0 auto;
 }
 .customHeader a {
     color: #fff !important;

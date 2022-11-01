@@ -6,13 +6,19 @@
 .galleria-demo .custom-indicator-galleria .p-highlight .indicator-text {
     color: var(--primary-color);
 }
-
+.CLPMANM00100.basePage {
+    width:100%;
+}
 .CLPMANM00100 .swiper {
-    width: 100%;
+    width: 1180px;
     height: 550px;
 }
 .CLPMANM00100 .visual {
     height: 510px;
+}
+.contentWrap{
+    width:1180px;
+    margin: 0 auto;
 }
 .CLPMANM00100 .mainSearch {
     border-radius: 9999px;
@@ -72,7 +78,8 @@ color: var(--gray-scale-gray800) !important;
  /* 배너이미지 */
 .CLPMANM00100 .banner{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    gap: 40px;
 
 }
 .bannerItem{
@@ -110,15 +117,22 @@ color: var(--gray-scale-gray800) !important;
     background: linear-gradient(0deg, rgba(10, 29, 105, 0.5), rgba(10, 29, 105, 0.5)), url('../../../../assets/images/main-bn02.png');
 
 }
-.recentPost {
-    display: flex;
-    justify-content: space-evenly;
+.recentPostWrap {
+   
     background-color: #F8F8F8;
     width: 100%;
     padding: 40px 0;
 }
+.recentPostWrap .recentPost{
+    width:1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
 .recentPost .recentList{
     width:580px;
+
 }
 .recentPost .recentList .title {
     display: flex;

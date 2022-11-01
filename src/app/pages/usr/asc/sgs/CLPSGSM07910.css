@@ -1,5 +1,10 @@
 .CLPSGSM07910{
     background-color: #f9f9f9;
+    width:100%;
+}
+.CLPSGSM07910 .wrap {
+    width:1180px;
+    margin: 0 auto;
 }
 .CLPSGSM07910 .p-tabview .p-tabview-nav li .p-tabview-nav-link,
 .CLPSGSM07910 .p-tabview .p-tabview-nav,
