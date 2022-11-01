@@ -4,6 +4,7 @@ import './CLPSGSM07910.css';
 import { TabView, TabPanel } from 'primereact/tabview';
 import { Button } from "primereact";
 import { Chip } from 'primereact/chip';
+import  useBasePage  from '../../../../shared/hooks/base-page.hook';
 
 
 interface IProps {
@@ -11,10 +12,11 @@ interface IProps {
 }
 // 설문 목록
 const CLPSGSM07910: React.FC<IProps> = ({children}) => {
-    const participation = () => {
-
+    const { goPage } = useBasePage()
+    const participation = ( e:any ) => {
+        goPage(`/spr/sgs/${e.index}`);
     }
-
+    
     //진행중인 설문
     const survey= [
         {

@@ -252,7 +252,7 @@ const CLPASCM08900: React.FC<IProps> = ({children}) => {
         </div>
 
         <div className="text-center mt40">
-            <Button label="서비스 카탈로그 신청하기" className="catRqsBtn" onClick={catRqsBtn}/>
+            <Button label="서비스 카탈로그 신청하기" className="roundBtn p-button-rounded" onClick={catRqsBtn}/>
         </div>
         
     </BasePage>)
