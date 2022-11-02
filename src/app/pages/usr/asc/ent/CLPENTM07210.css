@@ -22,6 +22,8 @@
     width: 20%;
 }
 .reply{
-    background: url(../../../../../assets/images/icon/icon-reply.png) no-repeat;
-    padding-left : 25px;
+    background: url(../../../../../assets/images/icons/icon-reply.svg) no-repeat;
+    background-size: 16px;
+    position: relative;
+    padding-left: 20px;
 }

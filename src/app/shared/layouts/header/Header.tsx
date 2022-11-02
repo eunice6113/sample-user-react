@@ -6,6 +6,7 @@ import './header.css';
 import { InputSwitch } from 'primereact/inputswitch';
 import ProfilePanel from './ProfilePanel';
 import SubMenuPanel from './SubMenuPanel';
+import useBasePage from '../../hooks/base-page.hook';
 
 interface IProps {
     handleOpen: React.MouseEventHandler<HTMLButtonElement>;
@@ -13,6 +14,8 @@ interface IProps {
 }
 
 const Header: React.FC<IProps> = ({handleOpen, children}) => {
+
+    const { goPage } = useBasePage()
 
     const [theme, setTheme] = React.useState(false);
     const [submenuOpen, setsubmenuOpen] = React.useState(false);
@@ -203,7 +206,7 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
                 }
             </ul>
 
-            <Button icon='pi pi-bell' className='mr5 p-overlay-badge alarmBtn'>
+            <Button icon='pi pi-bell' className='mr5 p-overlay-badge alarmBtn' onClick={(e) => goPage('/spr/mmb')}>
                 <Badge severity='success' className='badgeDot'></Badge>
             </Button>
 

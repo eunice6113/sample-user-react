@@ -82,7 +82,7 @@ const CLPFAQM07600: React.FC<IProps> = ({children}) => {
         <Accordion multiple activeIndex={[0]} className='faqList'>
             {
                 faq.map((faq,index) => (
-                    <AccordionTab header= {faq.faqTitle} key={'faq-'+index} >
+                    <AccordionTab header= {faq.faqTitle} key={'faq-'+index} tabIndex={index} >
                     <div className="answer d-flex">
                         <div className="aNum">A.</div>
                         <div className="ml20 pr20">{faq.faqContent}</div>
