@@ -12,6 +12,7 @@
     list-style: none;
     padding-left: 0;
     padding: 20px 10px;
+    z-index: var(--z-index-floating);
 }
 
 .floatMenuBox li {
@@ -151,6 +152,10 @@ body.theme-dark .icon-faq {
     background: transparent;
 }
 
+.qnaBtn.on .icon-qna {
+    background-image: url(../../../../assets/images/icons/icon-qna-on.svg);
+}
+
 .qnaBox {
     position: fixed;
     bottom: 20px;
@@ -163,6 +168,7 @@ body.theme-dark .icon-faq {
     padding-left: 0;
     padding: 20px;
     width: 400px;
+    z-index: var(--z-index-floating);
 }
 
 .show {

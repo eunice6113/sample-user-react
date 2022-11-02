@@ -23,7 +23,20 @@ const FloatMenu = () => {
     }
     
     const handleQnaPanel = () => {
-        toggleShowQna(!showQna)
+        // toggleShowQna(!showQna)
+        if(showQna) {
+            closeQnaPanel()
+        } else {
+            openQnaPanel()  
+        }
+    }
+
+    const openQnaPanel = () => {
+        toggleShowQna(true)
+    }
+
+    const closeQnaPanel = () => {
+        toggleShowQna(false)
     }
 
     return (
@@ -36,11 +49,11 @@ const FloatMenu = () => {
                     </Link>
                 </li>
                 <li>
-                    <button className='qnaBtn' onClick={handleQnaPanel}>
+                    <button className={`qnaBtn ${showQna ? 'on':''}`} onClick={handleQnaPanel}>
                         <i className='icon-qna'></i>
                         <p>건의 및 개선</p>
                     </button>
-                </li>2010
+                </li>
                 <li>
                     <Link to='/spr/faq'>
                         <i className='icon-faq'></i>
