@@ -9,6 +9,7 @@ import { FileUpload } from 'primereact/fileupload';
 import { Tooltip } from 'primereact/tooltip';
 import { Toast } from 'primereact/toast';
 import NoData from '../../shared/components/ui/NoData';
+import { confirmDialog } from 'primereact';
 
 const demoData = [
     {'id': '1000','code': 'f230fh0g3','name': 'Bamboo Watch','description': 'Product Description','image': 'bamboo-watch.jpg','price': 65,'category': 'Accessories','quantity': 24,'inventoryStatus': 'INSTOCK','rating': 5},
@@ -70,38 +71,6 @@ const ExcelGuide: React.FC = () => {
         reader.readAsText(file, 'UTF-8');
     }
 
-    const importExcel = (e:any) => {
-        console.log('importExcel', e)
-        const file = e.files[0];
-
-        import('xlsx').then(xlsx => {
-            const reader = new FileReader();
-            reader.onload = (e:any) => {
-                const wb = xlsx.read(e.target.result, { type: 'array' });
-                const wsname = wb.SheetNames[0];
-                const ws = wb.Sheets[wsname];
-                const data = xlsx.utils.sheet_to_json(ws, { header: 1 });
-
-                // Prepare DataTable
-                const cols:any = data[0];
-                data.shift();
-
-                let _importedCols:any = cols.map((col:any) => ({ field: col, header: toCapitalize(col) }));
-                let _importedData:any = data.map((d:any) => {
-                    return cols.reduce((obj:any, c:any, i:any) => {
-                        obj[c] = d[i];
-                        return obj;
-                    }, {});
-                });
-
-                setImportedCols(_importedCols);
-                setImportedData(_importedData);
-            };
-
-            reader.readAsArrayBuffer(file);
-        });
-    }
-
     const exportCSV = (selectionOnly:any) => {
         dt?.current?.exportCSV({ selectionOnly });
     }
@@ -130,7 +99,7 @@ const ExcelGuide: React.FC = () => {
     }
 
     const toCapitalize = (s:any) => {
-        return s.charAt(0).toUpperCase() + s.slice(1);
+        return s.toString().charAt(0).toUpperCase() + s.toString().slice(1);
     }
 
     const clear = () => {
@@ -138,15 +107,78 @@ const ExcelGuide: React.FC = () => {
         setImportedCols([{ field: '', header: 'Header' }]);
     }
 
+    const onFileChange = (e:any) => {
+        console.log('onFileChange', e)
+
+        importExcel(e.target.files[0])
+    }
+
+    const importExcel = ( _file:any ) => {
+        console.log('importExcel', _file)
+        const file = _file
+
+        import('xlsx').then(xlsx => {
+            const reader = new FileReader();
+            reader.onload = (e:any) => {
+
+                const wb = xlsx.read(e.target.result, { type: 'array' });
+                const wsname = wb.SheetNames[0];
+                const ws = wb.Sheets[wsname];
+                const data = xlsx.utils.sheet_to_json(ws, { header: 1 });
+
+                // Prepare DataTable
+                const cols:any = data[0];
+                data.shift();
+
+                let _importedCols:any = cols.map((col:any) => {
+                    return { field: col, header: toCapitalize(col) }
+                });
+
+                let _importedData:any = data.map((d:any) => {
+                    return cols.reduce((obj:any, c:any, i:any) => {
+                        console.log('cols', obj, c, i )
+                        obj[c] = d[i];
+                        return obj;
+                    }, {});
+                });
+
+                setImportedCols(_importedCols);
+                setImportedData(_importedData);
+            };
+
+            reader.readAsArrayBuffer(file);
+        });
+    }
+
+    const importExcelInputDiv = window.document.getElementById('importExcelInput')
+
+    const handleInputClick = ( e:any ) => {
+        importExcelInputDiv?.click()
+    }
+
     return(
     <BasePage>
         <div className='card'>
                 <h3>Import (작업중입니다)</h3>
 
+                <input onChange={(e) => onFileChange(e)} 
+                        id='importExcelInput'
+                        accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
+                        hidden 
+                        multiple={false} 
+                        type="file" />
+
                 <div className='d-flex-default export-buttons mb10'>
-                    <FileUpload chooseOptions={{ label: 'CSV', icon: 'pi pi-file' }} mode='basic' name='demo[]' auto url='./upload.php' accept='.csv' className='mr5 d-inline-block' onUpload={importCSV} />
-                    <FileUpload chooseOptions={{ label: 'Excel', icon: 'pi pi-file-excel', className: 'p-button-success' }} mode='basic' name='demo[]' auto url='./upload.php'
-                        accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel' className='mr5 d-inline-block' onUpload={importExcel} />
+                    <Button label='Excel Import' onClick={(e) => handleInputClick(e)} />
+
+                    {/* <FileUpload chooseOptions={{ label: 'CSV', icon: 'pi pi-file' }} mode='basic' name='demo[]' auto url='./upload.php' accept='.csv' className='mr5 d-inline-block' onUpload={importCSV} />
+                    <FileUpload chooseOptions={{ label: 'Excel', icon: 'pi pi-file-excel', className: 'p-button-success' }} 
+                        mode='basic' name='demo[]' auto url='./upload.php'
+                        accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel' 
+                        className='mr5 d-inline-block' 
+                        uploadHandler={(e) => console.log(e)}
+                        onUpload={importExcel} />
+                         */}
                     <Button type='button' label='Clear' icon='pi pi-times' onClick={clear} className='outline ml-auto mr0' />
                 </div>
 
