@@ -1,9 +1,0 @@
-.p-datatable {
-    width:800px;
-    margin: 0 auto;
-}
-.p-datatable.evn tr th, 
-.p-datatable.evn tr td {
-    text-align: center;
-    width:25%;
-}
