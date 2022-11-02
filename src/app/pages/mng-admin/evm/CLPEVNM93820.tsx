@@ -192,7 +192,7 @@ const CLPEVNM93820:React.FC = () => {
         </div>
 
         <Accordion multiple activeIndex={[0]}>
-            <AccordionTab header={`이벤트 댓글 리스트 (${comments.length})`} tabIndex={0}>
+            <AccordionTab header={`이벤트 댓글 리스트 (${comments.length})`}>
                 <div className='commentWrap'>
                     {
                         comments.map(( item, index ) => (
@@ -212,7 +212,7 @@ const CLPEVNM93820:React.FC = () => {
                 </div>
                 
             </AccordionTab>
-            <AccordionTab header={`이벤트 당첨 리스트 (${eventWinData.length})`} tabIndex={1}>
+            <AccordionTab header={`이벤트 당첨 리스트 (${eventWinData.length})`} >
                 <DataTable value={eventWinData} paginator paginatorTemplate={paginator} 
                     className='evnWin'
                     first={first} rows={rows} 
