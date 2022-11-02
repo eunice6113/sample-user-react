@@ -7,6 +7,7 @@ interface Tag {
     label?:string;
     type?:string;
 }
+
 interface ICard {
     title?:string;
     description?:string;
