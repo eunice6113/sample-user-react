@@ -1,4 +1,4 @@
-import { Button } from 'primereact';
+import { Button, confirmDialog } from 'primereact';
 import * as React from 'react';
 import { BasePage } from '../../../../shared/components/base/BasePage';
 import useBasePage from '../../../../shared/hooks/base-page.hook';
@@ -12,6 +12,7 @@ import { DataTable } from 'primereact/datatable';
 import { eventWinData } from '../../../../shared/demo/data/eventWinData';
 import { paginator } from "../../../../shared/utils/table-paginator";
 import { Column } from 'primereact/column';
+import EventPopupMotion from '../../../../shared/components/motion/EventPopupMotion';
 
 //이벤트 상세
 const CLPENTM07320:React.FC = () => {
@@ -78,6 +79,17 @@ const CLPENTM07320:React.FC = () => {
     //(하나만 있는) 댓글 등록
     const registerComment = () => {
         console.log('등록')
+
+        confirmDialog({
+            message: <div className='text-center'>
+                <EventPopupMotion />
+                <p className='mt10 text-bold'>(%성명%)님<br/>실시간 이벤트에 당첨되었습니다. 축하드립니다.<br/>경품은 이벤트 종료 후 지급 될 예정입니다.</p>
+                <p className='f12 color-red d-flex-default mt10 text-center'><i className='pi pi-info-circle mr5'></i> 댓글 수정 또는 삭제 시 당첨이 취소될 수 있으니 주의해주세요</p>
+            </div>,
+            acceptLabel: '확인',
+            className: 'noHeader oneButton',
+            accept: () => {},
+        })
     }
     
 
