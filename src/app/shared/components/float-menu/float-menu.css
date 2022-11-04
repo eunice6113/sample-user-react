@@ -150,6 +150,7 @@ body.theme-dark .icon-faq {
 .qnaBtn {
     border: 0 none;
     background: transparent;
+    margin-right: 0 !important;
 }
 
 .qnaBtn.on .icon-qna {

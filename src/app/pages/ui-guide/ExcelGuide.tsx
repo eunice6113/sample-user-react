@@ -5,11 +5,8 @@ import './ui-guide.css';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
-import { FileUpload } from 'primereact/fileupload';
 import { Tooltip } from 'primereact/tooltip';
-import { Toast } from 'primereact/toast';
 import NoData from '../../shared/components/ui/NoData';
-import { confirmDialog } from 'primereact';
 
 const demoData = [
     {'id': '1000','code': 'f230fh0g3','name': 'Bamboo Watch','description': 'Product Description','image': 'bamboo-watch.jpg','price': 65,'category': 'Accessories','quantity': 24,'inventoryStatus': 'INSTOCK','rating': 5},
@@ -27,9 +24,12 @@ const demoData = [
 const ExcelGuide: React.FC = () => {
 
     const [products, setProducts] = React.useState<any>([]);
-    const [importedData, setImportedData] = React.useState([]);
-    const [importedCols, setImportedCols] = React.useState([{ field: '', header: 'Header' }]);
+    const [importedData, setImportedData] = React.useState<any[]>([]);
+    const [importedCols, setImportedCols] = React.useState<any[]>([{ field: '', header: 'Header' }]);
     const dt = React.useRef<any>(null);
+
+    const [sheetNames, setSheetNames] = React.useState<string[]>([]);
+    const [activeIndex, setActiveIndex] = React.useState<number>(0);
 
     const cols = [
         { field: 'code', header: 'Code' },
@@ -37,8 +37,6 @@ const ExcelGuide: React.FC = () => {
         { field: 'category', header: 'Category' },
         { field: 'quantity', header: 'Quantity' }
     ];
-
-    const exportColumns = cols.map(col => ({ title: col.header, dataKey: col.field }));
 
     React.useEffect(() => {
         setProducts(demoData)
@@ -108,19 +106,66 @@ const ExcelGuide: React.FC = () => {
     }
 
     const onFileChange = (e:any) => {
-        console.log('onFileChange', e)
-
         importExcel(e.target.files[0])
+        return e.target.value = null
     }
-
+    
     const importExcel = ( _file:any ) => {
         console.log('importExcel', _file)
+        
+        const file = _file
+        let colList: any[] = [];
+        let dataList: any[] = [];
+
+        import('xlsx').then(xlsx => {
+            const reader = new FileReader();
+            reader.onload = (e:any) => {
+                const wb = xlsx.read(e.target.result, { type: 'array' });
+                const sheetNames = wb.SheetNames
+                setSheetNames(wb.SheetNames)
+
+                sheetNames.forEach(( wsname:any, index:any ) => {
+                    const ws = wb.Sheets[wsname];
+                    const data = xlsx.utils.sheet_to_json(ws, { header: 1 });
+
+                    // Prepare DataTable
+                    const cols:any = data[0];
+                    data.shift();
+
+                    let _importedCols:any = cols.map((col:any) => {
+                        return { field: col, header: toCapitalize(col) }
+                    });
+
+                    let _importedData:any = data.map((d:any) => {
+                        return cols.reduce((obj:any, c:any, i:any) => {
+                            obj[c] = d[i];
+                            return obj;
+                        }, {});
+                    });
+
+                    colList.push(_importedCols)
+                    dataList.push(_importedData)
+                })
+
+                // console.log('importedCols ==>', importedCols)
+                // console.log('importedData ==>', importedData)
+
+                setImportedCols(colList)
+                setImportedData(dataList)
+            };
+
+            reader.readAsArrayBuffer(file);
+        });
+    }
+
+    const importExcelOneSheetOnly = ( _file:any ) => {
+        console.log('importExcel', _file)
+
         const file = _file
 
         import('xlsx').then(xlsx => {
             const reader = new FileReader();
             reader.onload = (e:any) => {
-
                 const wb = xlsx.read(e.target.result, { type: 'array' });
                 const wsname = wb.SheetNames[0];
                 const ws = wb.Sheets[wsname];
@@ -136,7 +181,6 @@ const ExcelGuide: React.FC = () => {
 
                 let _importedData:any = data.map((d:any) => {
                     return cols.reduce((obj:any, c:any, i:any) => {
-                        console.log('cols', obj, c, i )
                         obj[c] = d[i];
                         return obj;
                     }, {});
@@ -150,43 +194,53 @@ const ExcelGuide: React.FC = () => {
         });
     }
 
+
     const importExcelInputDiv = window.document.getElementById('importExcelInput')
 
     const handleInputClick = ( e:any ) => {
         importExcelInputDiv?.click()
     }
 
+    const handleExcelView = ( id:any ) => {
+        setActiveIndex(id)
+    }
+
+    
     return(
     <BasePage>
         <div className='card'>
-                <h3>Import (작업중입니다)</h3>
+                <h3>Import</h3>
 
-                <input onChange={(e) => onFileChange(e)} 
-                        id='importExcelInput'
-                        accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
-                        hidden 
-                        multiple={false} 
-                        type="file" />
+                <input onChange={onFileChange} id='importExcelInput' hidden multiple={false} type='file'
+                    accept='application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' />
 
                 <div className='d-flex-default export-buttons mb10'>
                     <Button label='Excel Import' onClick={(e) => handleInputClick(e)} />
-
-                    {/* <FileUpload chooseOptions={{ label: 'CSV', icon: 'pi pi-file' }} mode='basic' name='demo[]' auto url='./upload.php' accept='.csv' className='mr5 d-inline-block' onUpload={importCSV} />
-                    <FileUpload chooseOptions={{ label: 'Excel', icon: 'pi pi-file-excel', className: 'p-button-success' }} 
-                        mode='basic' name='demo[]' auto url='./upload.php'
-                        accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel' 
-                        className='mr5 d-inline-block' 
-                        uploadHandler={(e) => console.log(e)}
-                        onUpload={importExcel} />
-                         */}
                     <Button type='button' label='Clear' icon='pi pi-times' onClick={clear} className='outline ml-auto mr0' />
                 </div>
 
-                <DataTable value={importedData} emptyMessage={<NoData message='데이터가 없습니다' />} paginator rows={10} alwaysShowPaginator={false} responsiveLayout='scroll'>
+                <hr />
+
+                <div className='pt-2 pb-4 mt10 mb10'>
                     {
-                        importedCols.map((col:any, index:number) => <Column key={index} field={col.field} header={col.header} />)
+                        sheetNames.map((sheet, index) => (
+                            <Button key={`sheet-${index}`} onClick={() => handleExcelView(index)} className={activeIndex === index ? 'secondary':'outline'} label={sheet} />
+                        ))
                     }
-                </DataTable>
+                </div>
+                {
+                    importedData.length > 0 ?
+                    <DataTable value={importedData[activeIndex]} emptyMessage={<NoData message='데이터가 없습니다' />} paginator rows={10} alwaysShowPaginator={false} responsiveLayout='scroll'>
+                        {
+                            importedCols[activeIndex]?.map((col:any, index:number) => <Column key={index} field={col.field} header={col.header} />)
+                        }
+                    </DataTable>
+                    :
+                    // 데이터가 없을때
+                    <DataTable value={[]} emptyMessage={<NoData message='데이터가 없습니다' />} paginator rows={10} alwaysShowPaginator={false} responsiveLayout='scroll'>
+                        <Column field='' header=''></Column>
+                    </DataTable>
+                }
             </div>
 
             <div className='card'>
