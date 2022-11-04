@@ -67,16 +67,18 @@ const ExcelGuide: React.FC = () => {
     
     return(
     <BasePage>
-        <div className='card'>
-            <h3>Import</h3>
+        <div className='card mt10'>
+            <h3 className='mb10'>엑셀 미리보기</h3>
 
             <ExcelPreview id={0} buttonLabel='엑셀 미리보기 1' />
+
+            <br/><br/>
 
             <ExcelPreview id={1} buttonLabel='엑셀 미리보기 2' />
 
         </div>
 
-        <div className='card'>
+        <div className='card mt50'>
             <h3>Export</h3>
 
             <Tooltip target='.export-buttons>button' position='bottom' />

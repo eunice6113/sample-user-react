@@ -168,7 +168,7 @@ const ExcelPreview: React.FC<IProps> = ({
 
         <div className='d-flex-default export-buttons mb10'>
             <Button label={buttonLabel} onClick={(e) => handleInputClick(e)} />
-            <Button type='button' label='Clear' icon='pi pi-times' onClick={clear} className='outline ml-auto mr0' />
+            <Button type='button' label='초기화' icon='pi pi-times' onClick={clear} className='outline ml-auto mr0' disabled={importedData.length === 0} />
         </div>
 
         <hr />
