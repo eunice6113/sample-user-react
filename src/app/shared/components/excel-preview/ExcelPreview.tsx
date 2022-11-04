@@ -43,6 +43,8 @@ const ExcelPreview: React.FC<IProps> = ({
 
     const onFileChange = (e:any) => {
         importExcel(e.target.files[0])
+
+        //clear 후 같은 파일을 읽어오면 안 읽힘, return value null 처리하여 문제 해결
         return e.target.value = null
     }
 
