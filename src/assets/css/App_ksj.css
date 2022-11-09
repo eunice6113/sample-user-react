@@ -172,3 +172,7 @@
 .view-container {
   margin: 30px auto 0;
 }
+
+.p-datatable .p-datatable-tbody > tr > td {
+  cursor: pointer;
+}

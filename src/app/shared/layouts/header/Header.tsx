@@ -126,7 +126,7 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
                 },
                 {
                     label:'자주 묻는 질문',
-                    url: '/spr/faq/list',
+                    url: '/spr/faq',
                 },
                 {
                     label:'이벤트',

@@ -47,6 +47,9 @@ body.theme-dark .submenuOverlayPanel .menus li {
     width: 50%;
     border-right: 1px solid var(--global-border-color);
 }
+.submenuOverlayPanel .menus > li:nth-child(2n){
+    border-right: none;
+}
 
 .submenuOverlayPanel .menus > li:last-child {
     padding-bottom: 0 !important;
