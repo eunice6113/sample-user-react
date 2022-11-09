@@ -1,4 +1,4 @@
-.p-datatable .p-datatable-tbody > tr > td:nth-child(1) {
+.p-datatable.ntc .p-datatable-tbody > tr > td:nth-child(1) {
     color: var(--brand-primary)
 }
 .p-datatable.ntc tr th, 

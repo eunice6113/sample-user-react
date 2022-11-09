@@ -6,6 +6,7 @@
 .p-datatable.evnWin tr td {
     text-align: center;
     width:25%;
+    cursor: default;
 }
 .reply{
     background: url(../../../../../assets/images/icons/icon-reply.svg) no-repeat;
