@@ -48,7 +48,7 @@
     color: #fff !important;
 }
 .contentTitle{
-    color:#333;
+    color: var(--global-text-color);
     font-size: 40px;
     text-align: center;
 }
@@ -122,10 +122,14 @@ color: var(--gray-scale-gray800) !important;
     background: linear-gradient(0deg, rgba(10, 29, 105, 0.5), rgba(10, 29, 105, 0.5)), url('../../../../assets/images/main-bn02.png');
 
 }
-.recentPostWrap {
-   
+
+body.theme-light .recentPostWrap {
     background-color: #F8F8F8;
     width: 100%;
+    padding: 40px 0;
+}
+body.theme-dark .recentPostWrap {
+    background-color: #4B4B4B;
     padding: 40px 0;
 }
 .recentPostWrap .recentPost{
@@ -143,10 +147,10 @@ color: var(--gray-scale-gray800) !important;
     display: flex;
     justify-content: space-between;
     align-items: end;
-    color:#333;
+    color:var(--global-text-color);
 }
 .recentPost .recentList .title a {
-    color:#333;
+    color:var(--global-text-color);
 }
 .recentPost .recentList .title a:hover {
     text-decoration: underline;
