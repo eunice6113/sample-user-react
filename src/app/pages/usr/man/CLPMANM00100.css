@@ -165,3 +165,14 @@ body.theme-dark .recentPostWrap {
     margin-top: 10px;
     cursor: pointer;
 }
+
+.dialogLikeWindowPopup .p-dialog-footer {
+    padding: 0;
+    width: 500px;
+    min-width: 500px;
+}
+
+.dialogLikeWindowPopup .p-dialog-footer > div {
+    width: 100%;
+    flex: 1;
+}

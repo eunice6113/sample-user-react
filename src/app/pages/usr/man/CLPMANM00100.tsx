@@ -1,4 +1,4 @@
-import { InputText, Button } from "primereact";
+import { InputText, Button, Dialog, Checkbox } from "primereact";
 import * as React from "react";
 import { BasePage } from "../../../shared/components/base/BasePage";
 import './CLPMANM00100.css';
@@ -17,6 +17,96 @@ const CLPMANM00100: React.FC = ({}) => {
     const btnClick = () => {
         alert(0)
     }
+
+
+    /******* Window Popup (같은 다이얼로그..) ********/
+    const commonPopupStyle = {top:60, width: 500}
+
+    const windowPopupStyles = [
+        {left:0, ...commonPopupStyle},
+        {left:510, ...commonPopupStyle},
+        {left:1020, ...commonPopupStyle}
+    ]
+
+    //관리자에서 등록한 윈도우 팝업
+    const windowPopups = [
+        {
+            header: 'popup 1',
+            content: <>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.</p>
+            <br />
+            <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+            qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
+            quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
+            vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+            <br />
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+            similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+            cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
+            eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+            <br />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.</p>
+            <br />
+            <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+            qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
+            quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
+            vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+            <br />
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
+            similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+            cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
+        eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+            </>
+        },
+        {
+            header: 'popup 2',
+            content: 'hello!'
+        },
+        {
+            header: 'popup 3',
+            content: '팝업은 3개까지!!!! 보여주는게 좋아요'
+        },
+
+    ]
+
+    //초기 윈도우 팝업 보여주기 값을 true/false 로 초기화해준다
+    const initial_winpop = { display: true, chkHide7days: false }
+    let windowPopup_display = Array(windowPopups.length).fill(initial_winpop)
+
+    const [displayModal, setDisplayModal] = React.useState(windowPopup_display);
+
+    console.log('displayModal', displayModal)
+    const onHide = (index:number) => {
+        // windowPopup_display[index].display = false;
+
+        displayModal.map((data, i) => {
+            if(index === i) {
+                return { display: false, chkHide7days: false }
+            } else {
+                return data;
+            }
+        })
+
+        setDisplayModal(displayModal);
+    }
+
+    const renderFooter = (index:number) => {
+        return (
+            <div className="bgcolor-black d-flex-default">
+                <Checkbox inputId={`cb${index}`} value="New York" onChange={()=>{}} checked={false}></Checkbox>
+                <label htmlFor={`cb${index}`} className="p-checkbox-label color-white">7일간 팝업창 열지 않기</label>
+                <Button icon='pi' iconPos="right" label="닫기" onClick={() => onHide(index)} autoFocus />
+            </div>
+        );
+    }
+
+
     //더보기 버튼
     const addBtn = () => {
 
@@ -332,6 +422,27 @@ const CLPMANM00100: React.FC = ({}) => {
             
         </div> 
                
+
+        {/* 윈도우 팝업 */}
+        {
+            windowPopups.map( (popup, index) =>
+                <Dialog 
+                    position='top-left'
+                    closable={true}
+                    blockScroll={false} //true 이면 배경 스크롤을 막는다
+                    key={`winpop-${index}`}
+                    className="dialogLikeWindowPopup" 
+                    header={popup.header}
+                    visible={displayModal[index]} 
+                    modal={false} 
+                    style={windowPopupStyles[index]} 
+                    footer={renderFooter(index)} 
+                    onHide={() => onHide(index)}
+                >
+                    {popup.content}
+                </Dialog>
+            )
+        }
     </BasePage>)
 }
 export default CLPMANM00100;
