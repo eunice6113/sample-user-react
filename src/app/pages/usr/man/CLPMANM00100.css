@@ -171,4 +171,18 @@ color: var(--gray-scale-gray800) !important;
 .dialogLikeWindowPopup .p-dialog-footer > div {
     width: 100%;
     flex: 1;
+    height: 40px;
+}
+
+.dialogLikeWindowPopup.p-dialog .p-dialog-footer .closeBtn {
+    width: initial !important;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    height: 25px;
+    margin-left: 10px;
+}
+
+.dialogLikeWindowPopup.p-dialog .p-dialog-footer .closeBtn:hover {
+    background-color: #333;
 }

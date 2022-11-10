@@ -1,10 +1,10 @@
-import { InputText, Button, Dialog, Checkbox } from "primereact";
-import * as React from "react";
-import { BasePage } from "../../../shared/components/base/BasePage";
+import { InputText, Button, Dialog, Checkbox, Toast, ToastMessageType } from 'primereact';
+import * as React from 'react';
+import { BasePage } from '../../../shared/components/base/BasePage';
 import './CLPMANM00100.css';
-import Visual from "../../../shared/components/ui/visual/Visual";
-import Card from "../../../shared/components/ui/card/Card";
-import useBasePage from "../../../shared/hooks/base-page.hook";
+import Visual from '../../../shared/components/ui/visual/Visual';
+import Card from '../../../shared/components/ui/card/Card';
+import useBasePage from '../../../shared/hooks/base-page.hook';
 import mainImg from '../../../../assets/images/main-img.png';
 import listImg from '../../../../assets/images/manual-img.png';
 import { Link } from 'react-router-dom';
@@ -18,15 +18,16 @@ const CLPMANM00100: React.FC = ({}) => {
         alert(0)
     }
 
-
-    /******* Window Popup (같은 다이얼로그..) ********/
+    /**************************************************** WINDOW POPUP START ****************************************************/
     const commonPopupStyle = {top:60, width: 500}
-
+    
+    //윈도우 팝업이 뜨는 위치
     const windowPopupStyles = [
         {left:0, ...commonPopupStyle},
         {left:510, ...commonPopupStyle},
-        {left:1020, ...commonPopupStyle}
+        {left:1020, ...commonPopupStyle},
     ]
+    
 
     //관리자에서 등록한 윈도우 팝업
     const windowPopups = [
@@ -37,7 +38,7 @@ const CLPMANM00100: React.FC = ({}) => {
             ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.</p>
             <br />
-            <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+            <p>'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
             dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
             qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
             quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
@@ -52,7 +53,7 @@ const CLPMANM00100: React.FC = ({}) => {
             ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.</p>
             <br />
-            <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+            <p>'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
             dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
             qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
             quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
@@ -75,36 +76,72 @@ const CLPMANM00100: React.FC = ({}) => {
 
     ]
 
-    //초기 윈도우 팝업 보여주기 값을 true/false 로 초기화해준다
-    const initial_winpop = { display: true, chkHide7days: false }
-    let windowPopup_display = Array(windowPopups.length).fill(initial_winpop)
+    //초기 윈도우 팝업 보여주기 값을 초기화해준다
+    let windowPopup_display = Array(windowPopups.length).fill({ chkHide7days: false, display: true })
 
-    const [displayModal, setDisplayModal] = React.useState(windowPopup_display);
+    const [displayWinPop, setDisplayWinPop] = React.useState(windowPopup_display);
 
-    console.log('displayModal', displayModal)
-    const onHide = (index:number) => {
-        // windowPopup_display[index].display = false;
-
-        displayModal.map((data, i) => {
-            if(index === i) {
-                return { display: false, chkHide7days: false }
-            } else {
-                return data;
-            }
-        })
-
-        setDisplayModal(displayModal);
+    const handleWinPopHide = (index:number) => {
+        let updateModal = displayWinPop.map((data, i) => index === i ? { chkHide7days: false, display: false } : data )
+        setDisplayWinPop(updateModal);
     }
 
-    const renderFooter = (index:number) => {
-        return (
-            <div className="bgcolor-black d-flex-default">
-                <Checkbox inputId={`cb${index}`} value="New York" onChange={()=>{}} checked={false}></Checkbox>
-                <label htmlFor={`cb${index}`} className="p-checkbox-label color-white">7일간 팝업창 열지 않기</label>
-                <Button icon='pi' iconPos="right" label="닫기" onClick={() => onHide(index)} autoFocus />
-            </div>
-        );
+    const handleChkHide7days = (index:number) => {
+        let updateModal = displayWinPop.map((data, i) => index === i ? { ...data, chkHide7days: !displayWinPop[index].chkHide7days } : data )
+        setDisplayWinPop(updateModal);
     }
+
+    const renderFooter = (index:number) => (
+        <div className='bgcolor-black d-flex-default pr10'>
+            <Checkbox className='ml-auto' inputId={`cb${index}`} value='New York' onChange={()=>{ handleChkHide7days(index) }} checked={displayWinPop[index].chkHide7days}></Checkbox>
+            <label htmlFor={`cb${index}`} className='p-checkbox-label color-white'>7일간 팝업창 열지 않기</label>
+            <Button className='closeBtn ml40' icon='pi pi-times' iconPos='right' label='닫기' onClick={() => handleWinPopHide(index)} autoFocus />
+        </div>
+    );
+
+    /**************************************************** WINDOW POPUP START ****************************************************/
+
+
+
+
+    /**************************************************** TOAST START ****************************************************/
+    
+    const toasts = [
+        {
+            severity:'success', 
+            summary: 'Success Message', 
+            detail:'Message Content',
+            sticky: true
+        },
+        {
+            severity:'info', 
+            summary: 'Info Message', 
+            detail:'Message Content',
+            sticky: true
+        },
+        {
+            severity:'warn', 
+            summary: 'Warn Message', 
+            detail:'Message Content',
+            sticky: true
+        },
+        {
+            severity:'error', 
+            summary: 'Error Message', 
+            detail:'Message Content',
+            sticky: true
+        },
+    ]
+
+    const toastRef = React.useRef<any>(null);
+
+    React.useEffect(() => {
+        toastRef?.current?.show(toasts)
+    }, [])
+
+    /**************************************************** TOAST END ****************************************************/
+
+
 
 
     //더보기 버튼
@@ -144,7 +181,7 @@ const CLPMANM00100: React.FC = ({}) => {
                     type: 'tag-info',
                 },
             ],
-            button: <Button label='메뉴얼 보기' className="p-button xxl" onClick={btnClick}/>
+            button: <Button label='메뉴얼 보기' className='p-button xxl' onClick={btnClick}/>
         },
         {
             listImg:listImg,
@@ -164,7 +201,7 @@ const CLPMANM00100: React.FC = ({}) => {
                     type: 'tag-info',
                 },
             ],
-            button: <Button label='메뉴얼 보기' className="p-button xxl" onClick={btnClick}/>
+            button: <Button label='메뉴얼 보기' className='p-button xxl' onClick={btnClick}/>
         },
         
         {   
@@ -185,7 +222,7 @@ const CLPMANM00100: React.FC = ({}) => {
                     type: 'tag-info',
                 },
             ],
-            button: <Button label='메뉴얼 보기' className="p-button xxl" onClick={btnClick}/>
+            button: <Button label='메뉴얼 보기' className='p-button xxl' onClick={btnClick}/>
         },
         
         {
@@ -206,7 +243,7 @@ const CLPMANM00100: React.FC = ({}) => {
                     type: 'tag-info',
                 },
             ],
-            button: <Button label='메뉴얼 보기' className="p-button xxl" onClick={btnClick}/>
+            button: <Button label='메뉴얼 보기' className='p-button xxl' onClick={btnClick}/>
         },
         
         {
@@ -227,7 +264,7 @@ const CLPMANM00100: React.FC = ({}) => {
                     type: 'tag-info',
                 },
             ],
-            button: <Button label='메뉴얼 보기' className="p-button xxl" onClick={btnClick}/>
+            button: <Button label='메뉴얼 보기' className='p-button xxl' onClick={btnClick}/>
         },
         
         {
@@ -248,7 +285,7 @@ const CLPMANM00100: React.FC = ({}) => {
                     type: 'tag-info',
                 },
             ],
-            button: <Button label='메뉴얼 보기' className="p-button xxl" onClick={btnClick}/>
+            button: <Button label='메뉴얼 보기' className='p-button xxl' onClick={btnClick}/>
         },
     ]
        
@@ -262,7 +299,7 @@ const CLPMANM00100: React.FC = ({}) => {
             textAlign: 'text-left',
             buttonClick: () => { goPage('') },
             showButton:false,
-            images:<img src={mainImg} alt="메인 이미지"></img>,
+            images:<img src={mainImg} alt='메인 이미지'></img>,
 
         },
         {
@@ -272,7 +309,7 @@ const CLPMANM00100: React.FC = ({}) => {
             textAlign: 'text-left',
             buttonClick: () => { goPage('') },
             showButton:false,
-            images:<img src={listImg} alt="매뉴얼 이미지"></img>,
+            images:<img src={listImg} alt='매뉴얼 이미지'></img>,
         },
         
 
@@ -325,27 +362,27 @@ const CLPMANM00100: React.FC = ({}) => {
     ]
 
     return(
-    <BasePage className="CLPMANM00100">
+    <BasePage className='CLPMANM00100'>
         {/* 배너 */}
         <Visual banners={banners} />
-        <div className="contentWrap">
+        <div className='contentWrap'>
             <div>
-                <h2 className="contentTitle mt60">다양한 클라우드를 만나고, 경험하세요.</h2>
-                <div className="text-center mt30">
-                    <span className="p-input-icon-right">
-                        <i className="pi pi-search" />
+                <h2 className='contentTitle mt60'>다양한 클라우드를 만나고, 경험하세요.</h2>
+                <div className='text-center mt30'>
+                    <span className='p-input-icon-right'>
+                        <i className='pi pi-search' />
                         <InputText value={value} onChange={(e) => setValue(e.target.value)} className='mainSearch' />
                     </span>
                 </div>
                 
-                <div className="d-flex justify-center category mt60 mb40">
+                <div className='d-flex justify-center category mt60 mb40'>
                     {/* 카테고리 버튼*/}
                     {categoryItem}
                 </div>
             </div>
             
         
-            <div className="content">
+            <div className='content'>
             {/* 리스트 카드 */}
             {
                 cards?.map((card, index) => ( 
@@ -363,28 +400,28 @@ const CLPMANM00100: React.FC = ({}) => {
             </div>
 
             <div>
-                <h2 className="contentTitle mt60">다양한 클라우드 지원을 받으세요.</h2>
+                <h2 className='contentTitle mt60'>다양한 클라우드 지원을 받으세요.</h2>
 
-                <div className="banner mt40">
-                    <div className="bannerItem">
+                <div className='banner mt40'>
+                    <div className='bannerItem'>
                         <p>정보화사업의 예산산정을 효율적으로 <br/>산정하도록 도와드립니다.</p>
-                        <Button label='The-Fast Cloud 신청하기' className="p-button outline" onClick={btnClick}/>
+                        <Button label='The-Fast Cloud 신청하기' className='p-button outline' onClick={btnClick}/>
                     </div>
-                    <div className="bannerItem item2">
+                    <div className='bannerItem item2'>
                         <p>클라우드 주요 기능을 신청해서<br/>적극 활용해보세요.</p>
-                        <Button label='서비스 카탈로그 신청하기' className="p-button outline" onClick={btnClick}/>
+                        <Button label='서비스 카탈로그 신청하기' className='p-button outline' onClick={btnClick}/>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div className="recentPostWrap mt60">
-            <div className="recentPost">
-                <div className="recentList">
-                    <div className="title">
+        <div className='recentPostWrap mt60'>
+            <div className='recentPost'>
+                <div className='recentList'>
+                    <div className='title'>
                         <h2>공지사항</h2>
                         <p>
-                            <Link to='/' className='more'>더보기<i className="pi pi-angle-right"></i></Link> 
+                            <Link to='/' className='more'>더보기<i className='pi pi-angle-right'></i></Link> 
                         </p>
                     </div>
 
@@ -399,11 +436,11 @@ const CLPMANM00100: React.FC = ({}) => {
                         }
                     </ul>
                 </div>
-                <div className="recentList">
-                    <div className="title">
+                <div className='recentList'>
+                    <div className='title'>
                         <h2>소통공간</h2>
                         <p>
-                            <Link to='/' className='more'>더보기<i className="pi pi-angle-right"></i></Link> 
+                            <Link to='/' className='more'>더보기<i className='pi pi-angle-right'></i></Link> 
                         </p>
                     </div>
                     
@@ -429,20 +466,24 @@ const CLPMANM00100: React.FC = ({}) => {
                 <Dialog 
                     position='top-left'
                     closable={true}
-                    blockScroll={false} //true 이면 배경 스크롤을 막는다
+                    blockScroll={false}               //true 이면 배경 스크롤을 막는다
                     key={`winpop-${index}`}
-                    className="dialogLikeWindowPopup" 
+                    className='dialogLikeWindowPopup' 
                     header={popup.header}
-                    visible={displayModal[index]} 
+                    visible={displayWinPop[index].display} 
                     modal={false} 
                     style={windowPopupStyles[index]} 
                     footer={renderFooter(index)} 
-                    onHide={() => onHide(index)}
+                    onHide={() => handleWinPopHide(index)}
                 >
                     {popup.content}
                 </Dialog>
             )
         }
+
+        {/* TOAST */}
+        <Toast ref={toastRef} position='bottom-right' />   
+
     </BasePage>)
 }
 export default CLPMANM00100;
