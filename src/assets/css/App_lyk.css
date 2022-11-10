@@ -13,8 +13,8 @@
 }
 
 .infoBoard .titleArea {
-    display: flex;
-    align-items: flex-end;
+    /* display: flex;
+    align-items: flex-end; */
     background-color: #F2F2F2;
     padding: 12px 20px;
 }
@@ -39,7 +39,7 @@
 
 .infoBoard ul.links li a {
     display: inline-block;
-    color: #000;
+    color: var(--global-text-color);
     width: 100%;
     text-overflow: ellipsis;
     overflow:hidden;

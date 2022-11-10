@@ -320,7 +320,7 @@ table .required {
   padding:20px;
 }
 .boardDtailTable .tableInfo .title{
-  color:#333;
+  color:var(--global-text-color)
 }
 .boardDtailTable .downloadFiles{
   border:none;
