@@ -51,4 +51,6 @@
     color: var(--hover-text-color);
 }
 
-
+.p-toast {
+    z-index: 3000;
+}
