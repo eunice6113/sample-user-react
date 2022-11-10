@@ -176,3 +176,36 @@
 .p-datatable .p-datatable-tbody > tr > td {
   cursor: pointer;
 }
+.cld-table th, 
+.cld-table .p-datatable-thead tr th, 
+.p-datatable th, 
+.p-datatable .p-datatable-thead tr th,
+.cld-table td, 
+.cld-table .p-datatable-thead tr td, 
+.p-datatable td, 
+.p-datatable .p-datatable-thead tr td {
+  border-bottom: 1px solid var(--global-border-color) !important;
+}
+
+/* editor 수정*/
+.p-editor-container .p-editor-toolbar.ql-snow .ql-stroke {
+  stroke: var(--global-text-color);
+}
+.p-editor-container .p-editor-toolbar.ql-snow .ql-picker .ql-picker-label {
+  color: var(--global-text-color);
+}
+body.theme-dark .p-editor-container .p-editor-toolbar {
+  background-color: var(--dialog-background-color);
+}
+body.theme-dark .p-editor-container .p-editor-toolbar.ql-snow {
+  border: var(--global-border-color)
+}
+.p-editor-container .p-editor-content .ql-editor {
+  background-color: var(--input-background-color);
+}
+.p-editor-container .p-editor-content.ql-snow {
+  border: 1px solid var(--global-border-color) !important;
+}
+.p-editor-container .p-editor-content .ql-editor {
+  color: var(--global-text-color);
+}

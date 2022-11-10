@@ -9,6 +9,9 @@
     padding:12px 20px;
     background-color: #E7EEF5;
 }
+body.theme-dark .pageTitleContainer {
+    background-color: #4b4b4b;
+}
 .pageTitleContainer .pageTitle{
     display: flex;
     justify-content: space-around;
