@@ -2,13 +2,19 @@
     background-color: #f9f9f9;
     width:100%;
 }
+body.theme-dark .CLPSGSM07910{
+    background-color: #000;
+}
 .CLPSGSM07910 .wrap {
     width:1180px;
     margin: 0 auto;
 }
 .CLPSGSM07910 .p-tabview .p-tabview-nav li .p-tabview-nav-link,
 .CLPSGSM07910 .p-tabview .p-tabview-nav,
-.CLPSGSM07910 .p-tabview .p-tabview-panels{
+.CLPSGSM07910 .p-tabview .p-tabview-panels,
+body.theme-dark .CLPSGSM07910 .p-tabview .p-tabview-nav li .p-tabview-nav-link,
+body.theme-dark .CLPSGSM07910 .p-tabview .p-tabview-nav,
+body.theme-dark .CLPSGSM07910 .p-tabview .p-tabview-panels{
     background-color: transparent;
 }
 .CLPSGSM07910 .contentList {
@@ -26,14 +32,21 @@
     box-shadow: 0px 4px 8px -2px rgb(16 24 40 / 10%), 0px 2px 4px -2px rgb(16 24 40 / 6%);
     padding: 20px;
 }
+body.theme-dark .CLPSGSM07910 .contentList .content {
+    background-color: #777;
+    border: 1px solid #000;
+}
 .CLPSGSM07910 .contentList .content .title {
     font-weight: bold;
     font-size: 20px;
-    color: #333;
+    color: var(--global-text-color);
 }
 .CLPSGSM07910 .contentList .content .state {
     font-size: 14px;
     color:#666;
+}
+body.theme-dark .CLPSGSM07910 .contentList .content .state {
+    color:#fff;
 }
 .CLPSGSM07910 .contentList .content .state .ongoing{
     background: #E8F1FF;

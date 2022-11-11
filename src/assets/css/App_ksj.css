@@ -249,3 +249,16 @@ body.theme-dark .p-tabview .p-tabview-nav li .p-tabview-nav-link {
   background-color: #454545;
   color:#fff;
 }
+body.theme-dark .boardDtailPagination td a {
+  color:#cccccc !important;
+}
+
+body.theme-dark .boardDtailPagination td a {
+    color: #cccccc !important;
+}
+body.theme-dark .boardDtailPagination td a:hover {
+    color: var(--brand-primary) !important;
+}
+body.theme-dark .boardDtailPagination td .iconTitle {
+  color:#999;
+}
