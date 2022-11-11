@@ -20,7 +20,7 @@
   display: flex;flex-direction: column;flex: 1;
 }
 .comment .content{
-  color: #333;
+  color:var(--global-text-color);
   font-size: 13px;
 }
 .comment .date{
@@ -40,6 +40,9 @@
   background: transparent !important;
   color: var(--brand-primary) !important;
 }
+body.theme-dark .comment{
+  background: var(--dialog-overay-color);
+}
 .profile {
   background-color: #fff;
   border-radius: 4px;
@@ -57,6 +60,9 @@
   color:#64748B;
   font-weight: 500;
   font-size:14px;
+}
+body.theme-dark .profileName{
+  color:var(--global-text-color);
 }
 
 /* the fast cloud 신청 관리 목록*/
@@ -208,4 +214,51 @@ body.theme-dark .p-editor-container .p-editor-toolbar.ql-snow {
 }
 .p-editor-container .p-editor-content .ql-editor {
   color: var(--global-text-color);
+}
+body.theme-dark .p-paginator .p-paginator-pages .p-paginator-page.p-highlight{
+  background-color: #666;
+  color: #fff;
+}
+body.theme-dark .p-paginator .p-paginator-pages .p-paginator-page{
+  border-left: none;
+}
+body.theme-dark .p-togglebutton.p-button .p-button-icon-left, 
+body.theme-dark .p-togglebutton.p-button .p-button-icon-right {
+ color: #fff;
+}
+body.theme-dark .infoBoard{
+  border:none;
+  background-color: #454545;
+}
+body.theme-dark .infoBoard .titleArea {
+  background-color: #333;
+  border-radius: 8px 8px 0 0;
+}
+body.theme-dark .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text{
+  color:#fff;
+}
+body.theme-dark .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon{
+ color:#fff; 
+}
+body.theme-dark .p-tabview .p-tabview-panels,
+body.theme-dark .p-tabview .p-tabview-nav {
+  background-color: #454545;
+  color:#fff;
+}
+body.theme-dark .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  background-color: #454545;
+  color:#fff;
+}
+body.theme-dark .boardDtailPagination td a {
+  color:#cccccc !important;
+}
+
+body.theme-dark .boardDtailPagination td a {
+    color: #cccccc !important;
+}
+body.theme-dark .boardDtailPagination td a:hover {
+    color: var(--brand-primary) !important;
+}
+body.theme-dark .boardDtailPagination td .iconTitle {
+  color:#999;
 }

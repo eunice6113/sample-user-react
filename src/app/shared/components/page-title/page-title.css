@@ -41,6 +41,10 @@ body.theme-dark .pageTitleContainer {
     border: 0 none !important;
     background-color: transparent !important;
 }
+body.theme-dark .breadCrumbs .p-menubar, 
+body.theme-dark .breadCrumbs .menuTxt {
+    color:#fff !important;
+}
 .breadCrumbs .pi-chevron-right {
     font-size: 12px;
 }
