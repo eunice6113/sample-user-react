@@ -7,12 +7,16 @@ import Card from '../../../shared/components/ui/card/Card';
 import useBasePage from '../../../shared/hooks/base-page.hook';
 import mainImg from '../../../../assets/images/main-img.png';
 import listImg from '../../../../assets/images/manual-img.png';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData, useLocation } from 'react-router-dom';
 import ReviewPopupMotion from '../../../shared/components/motion/ReviewPopupMotion';
 
 // 메인 화면
 const CLPMANM00100: React.FC = ({}) => {
-    const {goPage} = useBasePage()
+    const {goPage, location} = useBasePage()
+
+    const state = location?.state?.id;
+
+    console.log('GET DATA!!!', state)
 
     const [value, setValue] = React.useState('');
     const btnClick = () => {
@@ -147,21 +151,27 @@ const CLPMANM00100: React.FC = ({}) => {
 
     /**************************************************** The-Fast 클라우드 독려 팝업 START ****************************************************/
 
-    confirmDialog({
-        message: <div className='text-center'>
-            <h1 className='mb10'>축하합니다!</h1>
-            <ReviewPopupMotion />
-            <p className='mt10 mb10'>
-                <strong>The-Fast Cloud 프로그램 과정을<br/>잘 따라와주셔서 감사합니다.</strong>
-            </p>
-            <p>
-                앞으로도 클라우드 업무를 진행하실 때 클라우드 추진 Cell과 함께 협업하셔서 많은 도움이 되시길 바라며, The- Fast Cloud 프로그램 과정에 참여하셔서 도움이 되신 후기를 <strong><u>아래의 소통공간에 남겨주시면 클라우드 추진 Cell 에게 더없을 큰 응원</u></strong>이 될 것 같습니다.
-            </p>
-        </div>,
-        acceptLabel: '소통공간에 후기 남기러 가기',
-        className: 'noHeader oneButton',
-        accept: () => {},
-    })
+
+    React.useEffect(() => {
+
+        confirmDialog({
+            message: <div className='text-center'>
+                <h1 className='mb10'>축하합니다!</h1>
+                <ReviewPopupMotion />
+                <p className='mt10 mb10'>
+                    <strong>The-Fast Cloud 프로그램 과정을<br/>잘 따라와주셔서 감사합니다.</strong>
+                </p>
+                <p>
+                    앞으로도 클라우드 업무를 진행하실 때 클라우드 추진 Cell과 함께 협업하셔서 많은 도움이 되시길 바라며, The- Fast Cloud 프로그램 과정에 참여하셔서 도움이 되신 후기를 <strong><u>아래의 소통공간에 남겨주시면 클라우드 추진 Cell 에게 더없을 큰 응원</u></strong>이 될 것 같습니다.
+                </p>
+            </div>,
+            acceptLabel: '소통공간에 후기 남기러 가기',
+            className: 'noHeader oneButton',
+            accept: () => { goPage('/spr/cmn/list') },
+        })
+
+    }, [])
+
 
     /**************************************************** The-Fast 클라우드 독려 팝업 END ****************************************************/
 

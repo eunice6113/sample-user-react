@@ -1,6 +1,8 @@
+import { Button } from "primereact";
 import * as React from "react";
 import { useLocation } from "react-router-dom";
 import portalRoutes from "../../../routes/portal-routes";
+import useBasePage from "../../hooks/base-page.hook";
 import PageTitle from "../page-title/PageTitle";
 import './base-page.css';
 interface IProps {
@@ -10,6 +12,7 @@ interface IProps {
 
 export const BasePage: React.FC<IProps> = ({className, children}) => {
 
+    const { goPageWithData} = useBasePage()
     const location = useLocation();
     const curLocation = location.pathname.split('/')
     let pageTitle = '';
@@ -78,6 +81,7 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
     }, [location.pathname]);
     
     return(<>
+        {/* <Button onClick={(e) => { goPageWithData('/man', { id: 'hello !!!' } ) }} label='data with data' /> */}
         {
             showTitle && <PageTitle title={pageTitle} subTitle={subTitle} />
         }

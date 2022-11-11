@@ -12,9 +12,8 @@ const useBasePage = () => {
 
     const navigator = useNavigate();
     const params = useParams();
-
     const paramId = params.id;
-    console.log(params.id);
+    // console.log(params.id);
 
     const goBack = () => {
         navigator(-1);
@@ -24,11 +23,18 @@ const useBasePage = () => {
         navigator(url);
     }
 
+    const goPageWithData = ( url:string, data:object ) => {
+        navigator(url, { state: data });
+    }
+
     return {
         goBack,
         goPage,
+        goPageWithData,
+        params,
         paramId,
 
+        location,
         curLocation,
         isRegister
     }
