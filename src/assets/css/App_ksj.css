@@ -262,3 +262,9 @@ body.theme-dark .boardDtailPagination td a:hover {
 body.theme-dark .boardDtailPagination td .iconTitle {
   color:#999;
 }
+
+/* fileUpload */
+.fileUpload > div {
+  width:25%;
+  text-align: left;
+}
