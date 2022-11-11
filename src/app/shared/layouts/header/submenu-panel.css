@@ -9,7 +9,10 @@
     padding: 10px 40px 40px;
     display: block !important;
 }
-
+.submenuOverlayPanel.p-overlaypanel .p-overlaypanel-content{
+    width:1180px ;
+    margin: 0 auto;
+}
 body.theme-light .submenuOverlayPanel {
     background-color: #F0F0F0;
 }
