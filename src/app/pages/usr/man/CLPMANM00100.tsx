@@ -165,9 +165,11 @@ const CLPMANM00100: React.FC = ({}) => {
                     앞으로도 클라우드 업무를 진행하실 때 클라우드 추진 Cell과 함께 협업하셔서 많은 도움이 되시길 바라며, The- Fast Cloud 프로그램 과정에 참여하셔서 도움이 되신 후기를 <strong><u>아래의 소통공간에 남겨주시면 클라우드 추진 Cell 에게 더없을 큰 응원</u></strong>이 될 것 같습니다.
                 </p>
             </div>,
+            className: 'goReviewPopup noHeader',
             acceptLabel: '소통공간에 후기 남기러 가기',
-            className: 'noHeader oneButton',
+            rejectLabel: '닫기',
             accept: () => { goPage('/spr/cmn/list') },
+            reject: () => {}
         })
 
     }, [])

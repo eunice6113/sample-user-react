@@ -54,3 +54,10 @@
 .p-toast {
     z-index: 3000;
 }
+
+.goReviewPopup .p-dialog-footer .p-button:first-child {
+    width: 20%;
+}
+.goReviewPopup .p-dialog-footer .p-button:last-child  {
+    width: 80%;
+}
