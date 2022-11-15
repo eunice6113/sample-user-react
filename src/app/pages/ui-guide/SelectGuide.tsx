@@ -15,6 +15,8 @@ const Select: React.FC = () => {
 
     const handleChange1 = (e: { value: any}) => {
         setSelect1(e.value);
+
+        console.log('select1 =>', select1)
     }
     const groupedCities = [
         {

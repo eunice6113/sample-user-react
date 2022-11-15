@@ -95,7 +95,8 @@ const portalRoutes = [
     path: '/',
     element: <FullLayout />,
     children: [
-      { path: 'ui',
+      { 
+        path: 'ui',
         name: 'UI guide', 
         children: [
           {
@@ -184,40 +185,37 @@ const portalRoutes = [
             element: <NoDataGuide />
           },
         ]
-      }
-    ]
-  },
-  {
-    path: '/',
-    element: <FullLayout />,
-    children: [
+      },
       { path: 'man', 
         name: '메인', 
         element: <CLPMANM00100 />,
       },
       { path: 'inr', 
-        name: '클라우드소개', 
+        name: '클라우드 소개', 
         children: [
           {path: 'cell', name:'클라우드 추진 Cell 소개', element: <CLPCLTM00200 />},
-          {path: 'tfc', name:'The fast claoud 지원 프로그램', element: <CLPTFCM00300 />},
+          {path: 'tfc', name:'The fast cloud 지원 프로그램', element: <CLPTFCM00300 />},
           {path: 'portal', name:'클라우드 포털 소개', element: <CLPICPM00400 />},
           {path: 'cloud',  name:'클라우드 서비스 소개',element: <CLPIASM00500 />},
         ],
       },
-      { path: 'asc', 
+      { 
+        path: 'asc', 
         name: '신청하기', 
         children: [
-          {path: 'request', name:'신청하기', element: <CLPASCM08800 />},
+          {path: 'request', name:'신청하기 메인', element: <CLPASCM08800 />},
           {path: 'cat-req', name:'서비스 카탈로그 신청 화면', element: <CLPASCM01700 />},
           {path: 'tfc-req', name:'The fast cloud 서비스 신청', element: <CLPISCM00800 />},
           {path: 'cat-basket', name:'서비스 카탈로그 신청 장바구니', element: <CLPASCM08900 />},
         ],
       },
-      { path: 'mnl', 
+      { 
+        path: 'mnl', 
         name: '매뉴얼 목록', 
         element: <CLPMNLM04010 />,
       },
-      { path: 'spr',
+      { 
+        path: 'spr',
         name: '클라우드 지원', 
         children: [
           { path: 'ntc',

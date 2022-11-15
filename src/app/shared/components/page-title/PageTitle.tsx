@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Menubar } from 'primereact/menubar';
 import './page-title.css'
 import { Link, useMatches } from 'react-router-dom';
+import BreadCrumbs from '../breadcrumbs/BreadCrumbs';
 
 interface IProps {
     title: string;
@@ -79,15 +80,7 @@ const PageTitle: React.FC<IProps> = ({title, breadcrumbs, subTitle}) => {
         <div className='pageTitle'>
             <h1>{title}</h1>
 
-            <div className='breadCrumbs'>
-                <Link to='/' className='menuTxt'>Home</Link> 
-                <i className='pi pi-chevron-right' />
-                <Menubar model={items} />
-                <i className='pi pi-chevron-right' />
-                <Menubar model={items2} />
-                <i className='pi pi-chevron-right' />
-                <Menubar model={items3} />
-            </div>
+            <BreadCrumbs />
         </div>
         
         <div className='subTitle'>{subTitle}</div>
