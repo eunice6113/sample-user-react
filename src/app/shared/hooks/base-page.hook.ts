@@ -1,5 +1,4 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom"
-import { BasePage } from "../components/base/BasePage";
 
 
 const useBasePage = () => {
