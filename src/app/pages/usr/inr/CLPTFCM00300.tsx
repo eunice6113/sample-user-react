@@ -5,7 +5,7 @@ import './CLPTFCM00300.css';
 interface IProps {
     children: React.ReactNode;
 }
-// the fast claoud 지원 프로그램
+// the fast cloud 지원 프로그램
 const CLPTFCM00300: React.FC<IProps> = ({children}) => {
 
     return(

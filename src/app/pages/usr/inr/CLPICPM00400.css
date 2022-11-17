@@ -1,0 +1,55 @@
+.CLPICPM00400.basePage {
+    width:100%;
+}
+.content01{
+    width:100%;
+    background: url(../../../../assets/images/cloudportal_img.jpg) no-repeat;
+    background-size: cover;
+    height: 510px;
+    color: #fff;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+.content01 p {
+    width:1180px;
+    margin: 0 auto;
+}
+.contentBox {
+    width:1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+}
+.contentBox > div{
+    width:50%;
+}
+.contentBox .title {
+    font-size: 35px;
+    color: var(--global-text-color);
+    line-height: 1.15em;
+}
+.contentBox .title span{
+    font-size: 45px;
+    color: var(--brand-primary);
+}
+.contentBox .subTitle {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--global-text-color);
+    margin:10px 0 10px 0;
+}
+.contentBox .text {
+    font-size: 20px;
+}
+.contentBg {
+    background: #F8FAFC;
+    width:100%;
+    padding: 40px 0;
+}
+.communicationImg{
+    text-align: right;
+    width:500px !important;
+}

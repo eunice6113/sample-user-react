@@ -37,7 +37,7 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
                     url: '/inr/cell',
                 },
                 {
-                    label:'The fast claoud 지원 프로그램',
+                    label:'The fast cloud 지원 프로그램',
                     url: '/inr/tfc',
                 },
                 {
