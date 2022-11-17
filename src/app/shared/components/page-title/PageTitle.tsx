@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { Menubar } from 'primereact/menubar';
-import './page-title.css'
-import { Link, useMatches } from 'react-router-dom';
 import BreadCrumbs from '../breadcrumbs/BreadCrumbs';
+import './page-title.css'
 
 interface IProps {
     title: string;
@@ -15,65 +13,6 @@ const PageTitle: React.FC<IProps> = ({title, breadcrumbs, subTitle}) => {
     React.useEffect(() => {
 
     }, [])
-
-    const items = [
-        {
-            label: 'menu1',
-            items: [
-                {
-                    label: 'Left',
-                    url: '',
-                },
-                {
-                    label: 'Right',
-                    url: '',
-                },
-                {
-                    label: 'Center',
-                    url: '',
-                },
-                {
-                    label: 'Justify',
-                    url: '',
-                },
-
-            ]
-        },
-    ];
-
-    const items2 = [
-        {
-            label: 'menu2',
-            items: [
-                {
-                    label: 'Left',
-                    url: '',
-                },
-                {
-                    label: 'Right',
-                    url: '',
-                },
-
-            ]
-        },
-    ];
-
-    const items3 = [
-        {
-            label: 'menu3',
-            items: [
-                {
-                    label: 'Left',
-                    url: '',
-                },
-                {
-                    label: 'Right',
-                    url: '',
-                },
-
-            ]
-        },
-    ];
 
     return(
     <div className='pageTitleContainer'>

@@ -13,9 +13,9 @@ const BreadCrumbs: React.FC = () => {
     const routes = portalRoutes;
     const curLocation = location.pathname.split('/')
     const mainPath = `/${curLocation[1]}`
-    const subPath = curLocation[2] === undefined ? null : `/${curLocation[1]}/${curLocation[2]}`
 
     let option:any = []
+    let subOptions:any = [];
 
     const setOptions = () => {
 
@@ -23,12 +23,12 @@ const BreadCrumbs: React.FC = () => {
 
         // 메인화면, ui 가이드는 제외
         // url : 자기 자신의 url
-        // path : 실제 active 시켜야하는 자식의 url (예를 들어 클라우드 지원 > 공지사항. 클라우드 지원을 클릭시 공지사항이 활성화 될 수 있도록 (/list 를 끝에 붙이기 위해 만듦))
+        // path : 실제 active 시켜야하는 자식의 url (예를 들어 클라우드 지원 > 공지사항. 클라우드 지원 클릭시 공지사항 목록이 활성화 될 수 있도록 (/list 를 주소 끝에 붙이기 위해 만듦))
         option = routes[1]?.children?.filter((menu:any) => menu.path !== 'ui' && menu.path !== 'man')
             .map((item:any, mid: number) => {
 
             let obj = {
-                // level: 1,
+                level: 1,
                 label: item?.name,
                 id: mid,
                 value: mid,
@@ -49,7 +49,7 @@ const BreadCrumbs: React.FC = () => {
                 }),
                 children: item?.children?.map((sitem:any, sid:number) => {
                     let sobj = {
-                        // level: 2,
+                        level: 2,
                         label: sitem.name,
                         value: sid,//sitem.name,
                         id: sid,
@@ -62,7 +62,7 @@ const BreadCrumbs: React.FC = () => {
                         }),
                         children: sitem?.children?.map((titem:any, tid:number) => {
                             let tobj = {
-                                // level: 3,
+                                level: 3,
                                 label: titem.name, 
                                 value: tid,
                                 id: tid,
@@ -73,6 +73,7 @@ const BreadCrumbs: React.FC = () => {
                             return tobj;
                         })
                     }
+                    subOptions.push(sobj)
                     return sobj;
                 }),
             }
@@ -80,6 +81,18 @@ const BreadCrumbs: React.FC = () => {
         })
 
         return option
+    }
+
+    //2뎁스 메뉴의 path가 배열인 경우, 배열의 첫 번째 값으로 바꿔주기 위해 
+    const setSubMenus = ( list:any ) => {
+        let cutDepth2 = list.map((item:any) => {
+            let ls = {
+                ...item,
+                path: getFirstValueOfList(item.path)
+            }
+            return ls
+        });
+        return cutDepth2;
     }
 
     //option 한 번만 만들어서 (option 값이 없으면 setOptions 돌리고 아니면 option 리턴) 렌더링시마다 재사용 (useMemo)
@@ -93,31 +106,36 @@ const BreadCrumbs: React.FC = () => {
 
     React.useEffect(() => {
 
-        // console.log('options', options)
-        // console.log('mainPath =>', mainPath, 'subPath =>', subPath)
-
         let curMenus:any = [];
+
+        //1뎁스 메뉴의 활성화 번호
         options.forEach((item:any) => { 
-            if(getFirstValue(item.url) === mainPath) {
-                curMenus.push(item.value)
-                item.children?.forEach((sitem:any) => {
-                    if(getFirstValue(sitem.url) === subPath) {
-                        curMenus.push(item.value)
-                        return false;
-                    }
-                })
+            if(getFirstValueOfList(item.url) === mainPath) {
+                curMenus[0] = item.value
             }
         })
 
-        console.log('curMenus =>', curMenus)
+        //2뎁스 메뉴의 활성화 번호
+        let depth2 = setSubMenus(subOptions)
+        depth2.forEach((item:any) => { 
+            if(item.path === location.pathname) {
+                curMenus[1] = item.value
+            }
+        })
+
+        //1뎁스, 2뎁스의 활성화 값을 세팅
+        // console.log('curMenus =>', curMenus)
         setSelectedMenus(curMenus)
 
-        let temp = getSubMenus(curMenus[0]);
-        setSelectedMenuOptions(temp)
+        //2뎁스 옵션 목록을 세팅
+        let submenu = getActiveSubMenus(options, curMenus[0]);
+        // console.log('submenu =>', submenu)
+        setSelectedMenuOptions([options, submenu])
 
     }, [])
 
-    const getFirstValue = ( list:any ) => {
+    //배열의 첫 번째 값만 리턴한다 (주소를 전부 string 으로 얻어 와서 단순 값 비교하기 위함!)
+    const getFirstValueOfList = ( list:any ) => {
         let res = list;
         if(typeof res === 'object' && res.length > 0) {
             res = res[0]
@@ -125,10 +143,15 @@ const BreadCrumbs: React.FC = () => {
         return res;
     }
 
-    const getSubMenus = ( mid:number ) => {
-        let nextOptions = options[mid].children
-        let temp = nextOptions === undefined ? [options] : [options, options[mid].children]
+    //활성화 된 1뎁스 메뉴의 하위 메뉴(children, sub menu) 목록을 리턴
+    const getActiveSubMenus = ( list:any, mid:number ) => {
+        let childOptions = list[mid].children
+        let temp = childOptions === undefined ? undefined : childOptions
 
+        if(temp !== undefined) {
+            let firstOption = { label: '메뉴 선택', value: '' }
+            temp.unshift(firstOption)
+        }
         return temp;
     }
 
@@ -139,30 +162,31 @@ const BreadCrumbs: React.FC = () => {
         let selectedId = e.value
         if(id === 0) {
             //2뎁스 메뉴 목록을 재구성해서 뿌려줌 (선택한 1 뎁스 메뉴의 하위메뉴로 )
-            let temp = getSubMenus(selectedId);
-            setSelectedMenuOptions(temp)
+            let activeSubMenus = getActiveSubMenus(options, selectedId);
+            // console.log('activeSubMenus', activeSubMenus)
+            setSelectedMenuOptions([options, activeSubMenus])
         }
 
         let menu = [ ...selectedMenus ]
         menu[id] = e.value
 
-        //1뎁스 선택하면 2뎁스 메뉴의 첫번째 것을 기본 선택하도록 유도
-        if(id === 0)    menu[1] = 0
+        //1뎁스 선택하면 2뎁스 메뉴 목록의 첫번째 값 (메뉴 선택)을 active
+        if(id === 0)    menu[1] = ''
         setSelectedMenus(menu)
         // console.log(id, 'menu', menu, 'selectedMenus', selectedMenus, menu === selectedMenus)
 
         if(id === 1) {
-            let selectedSubMenu = selectedMenuOptions[id][selectedId]
-            // console.log('*** selectedSubMenu', selectedSubMenu)
+            // 맨 위에 '메뉴 선택' 이 있기 때문에 selectedId+1 해줘서 활성화 메뉴 선택
+            let selectedSubMenu = selectedMenuOptions[id][selectedId+1]
+            console.log('*** selectedSubMenu', selectedSubMenu)
             if(selectedSubMenu) {
-                let path = getFirstValue(selectedSubMenu.path);
+                let path = getFirstValueOfList(selectedSubMenu.path);
                 // console.log('*** selectedSubMenu.url', selectedSubMenu.url)
                 // console.log('*** selectedSubMenu.path', selectedSubMenu.path)
                 // console.log('*** path', path)
                 goPage(path)
             }
         }
-        
     }
 
     return(
@@ -172,17 +196,17 @@ const BreadCrumbs: React.FC = () => {
                 <i className='pi pi-chevron-right' />
                 {
                     selectedMenus.map((menu, index) => (
+                        selectedMenuOptions[index] &&
                         <React.Fragment key={`breadCrumb-${index}`}>
                             <Dropdown 
-                                value={selectedMenus[index]} 
+                                value={selectedMenus[index]}
                                 options={selectedMenuOptions[index]} 
                                 onChange={(e:any) => handleChange(e, index)} 
                                 optionLabel='label'
                                 placeholder='메뉴 선택'
                             />
                             {
-                                selectedMenus.length-1 === index ? null :
-                                <i className='pi pi-chevron-right' />
+                                selectedMenus.length-1 === index ? null : <i className='pi pi-chevron-right' />
                             }
                         </React.Fragment>
                     ))

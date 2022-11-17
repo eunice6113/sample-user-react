@@ -13,7 +13,7 @@ export const eventDummyData = [
     },
     {
         no: 0,
-        subject: <span class="reply">당첨자 결과 안내</span>,
+        subject: <span className="reply">당첨자 결과 안내</span>,
         type: '댓글-실시간',
         author: '신재문',
         hit: 100,
