@@ -18,13 +18,9 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
     const { goPage } = useBasePage()
 
     const [theme, setTheme] = React.useState(false);
-    const [submenuOpen, setsubmenuOpen] = React.useState(false);
+    const [submenuOpen, setSubmenuOpen] = React.useState(false);
 
     const profileOpRef = React.useRef<any>(null);
-    const submenuOpRef = React.useRef<any>(null);
-    // const profileOpRef = React.useRef<OverlayPanel>(null);
-    // const submenuOpRef = React.useRef<OverlayPanel>(null);
-    const headerRef = React.useRef<HTMLElement>(null);
 
     //서브메뉴
     const menus = [
@@ -62,26 +58,6 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
                     label:'',
                     url: '',
                 },
-                {
-                    label:'',
-                    url: '',
-                },
-                {
-                    label:'',
-                    url: '',
-                },
-                {
-                    label:'',
-                    url: '',
-                },
-                {
-                    label:'',
-                    url: '',
-                },
-                {
-                    label:'',
-                    url: '',
-                },
             ]
         },
         {
@@ -106,14 +82,7 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
                     label:'',
                     url: '',
                 },
-                {
-                    label:'',
-                    url: '',
-                },
-                {
-                    label:'',
-                    url: '',
-                },
+                
             ]
         },
         {
@@ -145,6 +114,12 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
         {
             label:'매뉴얼',
             url: '/mnl',
+            children: [
+                {
+                    label:'매뉴얼',
+                    url: '/mnl',
+                }
+            ]
         },
         
     ]
@@ -164,16 +139,21 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
 
     let userName = '홍길동'
 
-    const openSubmenu = ( e:any ) => {
-        console.log('ㅋㅋㅋㅋㅋㅋ', e)
-        console.log('submenuOpRef', submenuOpRef)
-        console.log('submenuOpRef', submenuOpRef.current.getElement)
-        // if(!submenuOpen) {
-            submenuOpRef.current?.show(e, e.target)
-            // setsubmenuOpen(false)
-        // } else {
-        //     setsubmenuOpen(true)
-        // }
+    const toggleSubmenu = ( e:any ) => {
+        if(submenuOpen) {
+            closeSubmenu()
+        } else {
+            openSubmenu()
+        }
+    }
+
+    const openSubmenu = () => {
+        setSubmenuOpen(true)
+    }
+
+    const closeSubmenu = () => {
+        console.log('closeSubmenu')
+        setSubmenuOpen(false)
     }
 
     const logout = () => {
@@ -193,19 +173,14 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
 
             <InputSwitch className='ml10' checked={theme} onChange={handleTheme} />
 
-            <ul className='mainMenus' 
-                // onClick={(e) => submenuOpRef.current?.show(e, e.target)}
-                onClick={(e) => openSubmenu(e)}
-            >
+            <ul className='mainMenus' onClick={(e) => toggleSubmenu(e)}>
                 {
                     menus.map((menu, index) => (
-                        <li key={`gnb-${index}`} 
-                            // onClick={(e) => submenuOpRef.current?.show(e, e.target)}
-                        >{menu.label}</li>
+                        <li key={`gnb-${index}`} onClick={(e) => toggleSubmenu(e)}>{menu.label}</li>
                     ))
                 }
             </ul>
-
+            
             <Button icon='pi pi-bell' className='mr5 p-overlay-badge alarmBtn' onClick={(e) => goPage('/spr/mmb')}>
                 <Badge severity='success' className='badgeDot'></Badge>
             </Button>
@@ -226,10 +201,10 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
         </div>
 
         {/* 서브메뉴 클릭시 메뉴 이름 나오는 패널 */}
-        <SubMenuPanel 
-            domRef={submenuOpRef}
-            menus={menus}
-        />
+        {
+            submenuOpen &&
+            <SubMenuPanel menus={menus} closeFunc={closeSubmenu} />
+        }
 
         {/* 프로필 이름 클릭시 나오는 패널 */}
         <ProfilePanel
