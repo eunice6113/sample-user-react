@@ -1,4 +1,3 @@
-import { Button } from "primereact";
 import * as React from "react";
 import { useLocation } from "react-router-dom";
 import portalRoutes from "../../../routes/portal-routes";
@@ -15,13 +14,15 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
     const location = useLocation();
     const curLocation = location.pathname.split('/')
     // let pageTitle = '';
-    let subTitle = '';
+    // let subTitle = '';
     const routes = portalRoutes;
 
+    // main 화면이 아니면 타이틀 영역을 노출한다
     let showTitle = location.pathname !== '/man'
     // console.log('showTitle', showTitle)
     
     const [pageTitle, setPageTitle] = React.useState('')
+    const [pageSubTitle, setPageSubTitle] = React.useState('')
 
     const getLocPath = ( loc:string ) => {
         let res = '';
@@ -48,16 +49,19 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
             let obj = {
                 level: 1,
                 label: item?.name,
+                subTitle: item?.subTitle === undefined ? '' : item?.subTitle,
                 url: `/${item.path}`,
                 items: item?.children?.forEach((sitem:any) => {
                     let sobj = {
                         level: 2,
                         label: sitem.name, 
+                        subTitle: sitem?.subTitle === undefined ? '' : sitem?.subTitle,
                         url: `/${item.path}/${sitem.path}`,
                         items: sitem?.children?.forEach((titem:any) => {
                             let tobj = {
                                 level: 3,
                                 label: titem.name, 
+                                subTitle: titem?.subTitle === undefined ? '' : titem?.subTitle,
                                 url: `/${item.path}/${sitem.path}/${titem.path}`,
                             }
                             list.push(tobj)
@@ -68,7 +72,6 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
             }
             list.push(obj)
         })
-
         return list
     }
 
@@ -82,14 +85,12 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
         lists.forEach( (menu:any) => {
             if(menu.url === curPath) {
                 setPageTitle(menu.label)
+                setPageSubTitle(menu.subTitle)
                 return false;
             }
         })
 
     }, [])
-
-    // pageTitle= '공지사항'
-    // subTitle='클라우드 포탈의 다양한 내용을 확인하세요.'
 
     //새로운 곳으로 이동시 페이지 상단으로 스크롤 이동
     React.useEffect(() => {
@@ -99,7 +100,7 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
     return(<>
         {/* <Button onClick={(e) => { goPageWithData('/man', { id: 'hello !!!' } ) }} label='data with data' /> */}
         {
-            showTitle && <PageTitle title={pageTitle} subTitle={subTitle} />
+            showTitle && <PageTitle title={pageTitle} subTitle={pageSubTitle} />
         }
 
         <div className={` basePage ${className}`}>

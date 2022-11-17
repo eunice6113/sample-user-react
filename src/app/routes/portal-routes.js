@@ -186,83 +186,86 @@ const portalRoutes = [
           },
         ]
       },
-      { path: 'man', 
+      { 
+        path: 'man', 
         name: '메인', 
         element: <CLPMANM00100 />,
       },
-      { path: 'inr', 
+      { 
+        path: 'inr', 
         name: '클라우드 소개', 
         children: [
-          {path: 'cell', name:'클라우드 추진 Cell 소개', element: <CLPCLTM00200 />},
-          {path: 'tfc', name:'The fast cloud 지원 프로그램', element: <CLPTFCM00300 />},
-          {path: 'portal', name:'클라우드 포털 소개', element: <CLPICPM00400 />},
-          {path: 'cloud',  name:'클라우드 서비스 소개',element: <CLPIASM00500 />},
+          {path: 'cell', name:'클라우드 추진 Cell 소개', element: <CLPCLTM00200 />, subTitle: 'IBK 클라우드의 미래와 함께하는 클라우드 추진 Cell을 소개합니다.'},
+          {path: 'tfc', name:'The fast cloud 지원 프로그램', element: <CLPTFCM00300 />, subTitle: '사업 추진부서가 손쉽게 클라우드를 도입하도록 맞춤형 멘토링을 제공합니다.'},
+          {path: 'portal', name:'클라우드 포털 소개', element: <CLPICPM00400 />, subTitle: '클라우드 포탈은 IBK 맞춤형 클라우드를 신속하게 도입/운영 할 수 있도록 지원합니다.'},
+          {path: 'cloud',  name:'클라우드 서비스 소개',element: <CLPIASM00500 />, subTitle: '클라우드 서비스의 관련 용어와 지식을 소개해드립니다.'},
         ],
       },
       { 
         path: 'asc', 
         name: '신청하기', 
         children: [
-          {path: 'request', name:'신청하기 메인', element: <CLPASCM08800 />},
-          {path: 'cat-req', name:'서비스 카탈로그 신청 화면', element: <CLPASCM01700 />},
-          {path: 'tfc-req', name:'The fast cloud 서비스 신청', element: <CLPISCM00800 />},
-          {path: 'cat-basket', name:'서비스 카탈로그 신청 장바구니', element: <CLPASCM08900 />},
+          {path: 'request', name:'신청하기', element: <CLPASCM08800 />, subTitle: '클라우드 사업을 원활하게 추진하기 위해 빠르게 신청하세요.'},
+          {path: 'cat-req', name:'서비스 카탈로그 신청', element: <CLPASCM01700 />, subTitle: '클라우드 허브에서 제공하는 주요 기능을 신청해주세요.'},
+          {path: 'tfc-req', name:'The fast cloud 서비스 신청', element: <CLPISCM00800 />, subTitle: '정보보호사업의 예산과 진행을 원활하게 도와드립니다.'},
+          {path: 'cat-basket', name:'서비스 카탈로그 신청 장바구니', element: <CLPASCM08900 />, subTitle: '클라우드 허브에서 제공하는 주요 기능을 신청해주세요.'},
         ],
       },
       { 
         path: 'mnl', 
         name: '매뉴얼 목록', 
         element: <CLPMNLM04010 />,
+        subTitle: '다양한 클라우드 업무에 활용한 적용사례와 매뉴얼을 확인하세요.'
       },
       { 
         path: 'spr',
         name: '클라우드 지원', 
         children: [
-          { path: 'ntc',
+          { 
+            path: 'ntc',
             name: '공지사항',
             children: [
-              {path: 'list', name:'공지사항 목록', element: <CLPNTCM07410 />},
-              {path: ':id', name:'공지사항 상세', element: <CLPNTCM07520 />},
+              {path: 'list', name:'공지사항 목록', element: <CLPNTCM07410 />, subTitle: '클라우드 포탈의 다양한 내용을 확인하세요.'},
+              {path: ':id', name:'공지사항 상세', element: <CLPNTCM07520 />, subTitle: '클라우드 포탈의 다양한 내용을 확인하세요.'},
             ],
           },
           {
             path: 'faq', 
             name: '자주 묻는 질문', 
             element: <CLPFAQM07600 />,
+            subTitle: '클라우드 포탈 이용에 대한 선별된 질문과 답변을 확인하세요.'
           },
-          { path: 'ent',
+          { 
+            path: 'ent',
             name: '이벤트',
             children: [
-              {path: 'list', name:'이벤트 목록', element: <CLPENTM07210 />},
-              {path: ':id', name:'이벤트 상세', element: <CLPENTM07320 />},
-              {path: 'register', name:'이벤트 등록', element: <CLPENTM07330 />},
+              {path: 'list', name:'이벤트 목록', element: <CLPENTM07210 />, subTitle: '클라우드 포탈에서 다양한 이벤트를 등록하고, 참여도 해보세요.'},
+              {path: ':id', name:'이벤트 상세', element: <CLPENTM07320 />, subTitle: '클라우드 포탈에서 다양한 이벤트를 등록하고, 참여도 해보세요.'},
+              {path: 'register', name:'이벤트 등록', element: <CLPENTM07330 />, subTitle: '클라우드 포탈에서 다양한 이벤트를 등록하고, 참여도 해보세요.'},
             ],
           },
-          { path: 'cmn',
+          { 
+            path: 'cmn',
             name: '소통공간',
             children: [
-              {path: 'list', name:'소통공간 목록', element: <CLPCMNM08610 />},
-              {path: ':id', name:'소통공간 상세', element: <CLPCMNM08720 />},
-              {path: 'register', name:'소통공간 등록', element: <CLPCMNM08730 />},
+              {path: 'list', name:'소통공간 목록', element: <CLPCMNM08610 />, subTitle: '클라우드 포탈에서 다양한 소통을 즐겨보세요.'},
+              {path: ':id', name:'소통공간 상세', element: <CLPCMNM08720 />, subTitle: '클라우드 포탈에서 다양한 소통을 즐겨보세요.'},
+              {path: 'register', name:'소통공간 등록', element: <CLPCMNM08730 />, subTitle: '클라우드 포탈에서 다양한 소통을 즐겨보세요.'},
             ],
           },
           { 
             path: 'sgs',
             name: '설문',
             children: [
-              {path: 'list', name:'설문 목록', element: <CLPSGSM07910 />},
-              {path: ':id', name:'설문 상세', element: <CLPSGSM08020 />},
+              {path: 'list', name:'설문 목록', element: <CLPSGSM07910 />, subTitle: '다양한 설문에 적극 참여해주세요.'},
+              {path: ':id', name:'설문 상세', element: <CLPSGSM08020 />, subTitle: '다양한 설문에 적극 참여해주세요.'},
             ],
           },
-          // {
-          //   path: 'qna', 
-          //   name: '건의 및 개선', 
-          //   element: <CLPQNAM07800 />,
-          // },
           {
             path: 'mmb', 
             name: '알림센터', 
             element: <CLPMMBM08500 />,
+            subTitle: '클라우드 포탈의 다양한 알림을 확인할 수 있습니다.'
           },
         ]
       }
