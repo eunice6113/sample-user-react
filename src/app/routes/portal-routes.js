@@ -254,11 +254,11 @@ const portalRoutes = [
               {path: ':id', name:'설문 상세', element: <CLPSGSM08020 />},
             ],
           },
-          {
-            path: 'qna', 
-            name: '건의 및 개선', 
-            element: <CLPQNAM07800 />,
-          },
+          // {
+          //   path: 'qna', 
+          //   name: '건의 및 개선', 
+          //   element: <CLPQNAM07800 />,
+          // },
           {
             path: 'mmb', 
             name: '알림센터', 

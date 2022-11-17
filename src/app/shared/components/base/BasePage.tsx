@@ -19,7 +19,7 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
     const routes = portalRoutes;
 
     let showTitle = location.pathname !== '/man'
-    console.log('showTitle', showTitle)
+    // console.log('showTitle', showTitle)
     
     const [pageTitle, setPageTitle] = React.useState('')
 

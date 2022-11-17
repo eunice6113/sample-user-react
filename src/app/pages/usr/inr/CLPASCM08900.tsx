@@ -84,23 +84,22 @@ const CLPASCM08900: React.FC<IProps> = ({children}) => {
                 <>  
                     <div>
                     {
-                        categories.map((category) => {
-                            return (
-                                <div key={category.key} className="field-checkbox">
-                                    <div className="d-flex-default cartItme">
-                                        <Checkbox inputId={category.key} name="category" value={category} onChange={onCategoryChange} 
-                                        checked={selectedCategories.some((item:any) => item.key === category.key)} disabled={category.key === 'R'} />
-                                        <div className="categoryImg"><img src={category.images} alt={category.images}></img></div>
-                                        <div className="name">
-                                            <label htmlFor={category.key}>{category.name}</label>
-                                            <p>{category.version}</p>
-                                        </div>
-                                        <div className="mr20 ml20">￦{category.price}</div>
-                                        <div className="delt"><Button className='p-button-text' icon='pi pi-times' onClick={deltBtn} /></div>
+                        categories.map((category) => (
+                            <div key={`cat-${category.key}`} className="field-checkbox">
+                                <div className="d-flex-default cartItme">
+                                    <Checkbox inputId={category.key} name="category" value={category} onChange={onCategoryChange} 
+                                    checked={selectedCategories.some((item:any) => item.key === category.key)} disabled={category.key === 'R'} />
+                                    <div className="categoryImg"><img src={category.images} alt={category.images}></img></div>
+                                    <div className="name">
+                                        <label htmlFor={category.key}>{category.name}</label>
+                                        <p>{category.version}</p>
                                     </div>
+                                    <div className="mr20 ml20">￦{category.price}</div>
+                                    <div className="delt"><Button className='p-button-text' icon='pi pi-times' onClick={deltBtn} /></div>
                                 </div>
+                            </div>
                             )
-                        })
+                        )
                     }
                     </div>
                 </>
@@ -186,32 +185,30 @@ const CLPASCM08900: React.FC<IProps> = ({children}) => {
                         <dt>서비스 카탈로그 예상 금액</dt>
                         <dd>
                             {
-                                 cartRstLists?.map((cartRstList, ) => {
-                                    return (
-                                        <ul>
+                                 cartRstLists?.map((cartRstList, index) => (
+                                        <ul key={`cartRst-${index}`}>
                                             <li>{cartRstList.name}</li>
                                             <li></li>
                                             <li></li>
                                             <li className="text-right">￦{cartRstList.price}</li>
                                         </ul> 
                                     )
-                                })
+                                )
                             }
                              
                         </dd>
                         <dt>예상 할인율</dt>
                         <dd>
                             {
-                                 discountLists?.map((discount, ) => {
-                                    return (
-                                        <ul>
+                                 discountLists?.map((discount, index) => (
+                                        <ul key={`dscLst-${index}`}>
                                             <li>{discount.name}</li>
                                             <li className="text-right">{discount.rateDiscount}%</li>
                                             <li className="text-right">￦{discount.discount}</li>
                                             <li className="text-right sale">￦{discount.price}</li>
                                         </ul> 
                                     )
-                                })
+                                )
                             }
                         </dd>
                     </dl>
