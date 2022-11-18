@@ -10,20 +10,14 @@ interface Menu {
 }
 
 interface ISubMenu {
-    domRef: any;
     menus: Menu[];
+    closeFunc: Function;
 }
-const SubMenuPanel: React.FC<ISubMenu> = ({ domRef, menus }) => {
+const SubMenuPanel: React.FC<ISubMenu> = ({ menus, closeFunc }) => {
 
     return (
-    <OverlayPanel
-        ref={domRef}
-        // showCloseIcon
-        id='submenu_panel'
-        className='submenuOverlayPanel'
-        appendTo={window.document.body}
-    >
-        <div className='d-flex'>
+    <div className='submenuOverlayPanel'>
+        <div className='d-flex innerPanel'>
             <ul className='menus'>
                 {menus.map((menu, index) => (
                     <li key={`smenu-${index}`}>
@@ -32,7 +26,7 @@ const SubMenuPanel: React.FC<ISubMenu> = ({ domRef, menus }) => {
                         <ul>
                             {menu?.children.map((smenu, sindex) => (
                                 <li key={`smenu-${sindex}`} 
-                                    onClick={(e) => domRef.current?.hide()}>
+                                    onClick={(e) => closeFunc()}>
                                     <Link to={smenu.url}>{smenu.label}</Link>
                                 </li>
                             ))}
@@ -41,7 +35,7 @@ const SubMenuPanel: React.FC<ISubMenu> = ({ domRef, menus }) => {
                 ))}
             </ul>
         </div>
-    </OverlayPanel>
+    </div>
     )
 }
 export default SubMenuPanel;

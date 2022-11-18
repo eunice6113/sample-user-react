@@ -149,7 +149,7 @@ const BreadCrumbs: React.FC = () => {
         let temp = childOptions === undefined ? undefined : childOptions
 
         if(temp !== undefined) {
-            let firstOption = { label: '메뉴 선택', value: '' }
+            let firstOption = { label: '--- 메뉴 선택 ---', value: '' }
             temp.unshift(firstOption)
         }
         return temp;

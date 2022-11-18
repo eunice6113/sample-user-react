@@ -14,6 +14,7 @@ const CLPICPM00400: React.FC<IProps> = ({children}) => {
 
     return(
     <BasePage className="CLPICPM00400">
+
         <div className="content01">
             <p className="text-center">
                 <b>클라우드 기반의 생태계를 구축하기 위해</b><br/>
@@ -77,9 +78,6 @@ const CLPICPM00400: React.FC<IProps> = ({children}) => {
                 노력하고 있습니다.</p>
             </div>
         </div>
-        
-        
-        
     </BasePage>)
 }
 export default CLPICPM00400;
