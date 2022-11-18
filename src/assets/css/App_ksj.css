@@ -61,8 +61,15 @@ body.theme-dark .comment{
   font-weight: 500;
   font-size:14px;
 }
+
+body.theme-dark .comment{
+  background-color: var(--dialog-background-color);
+}
 body.theme-dark .profileName{
-  color:var(--global-text-color);
+  color:#fff;
+}
+body.theme-dark .comment .date{
+  color:#e6e6e6;
 }
 
 /* the fast cloud 신청 관리 목록*/
@@ -91,13 +98,31 @@ body.theme-dark .profileName{
   margin-bottom: 12px;
 }
 .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link{
-  background-color: #fff;
-  color: #333;
-  border: 1px solid #e6e6e6;
+  background-color: var(--layout-background);
+  color: var(--global-text-color);
+  border: 1px solid var(--global-border-color);
 }
 .p-accordion .p-accordion-header .p-accordion-header-link {
-  background: #fff;
-  border: 1px solid #e6e6e6;
+  background: transparent;
+  border: 1px solid var(--global-border-color);
+}
+.p-accordion .p-accordion-content {
+  background: transparent;
+  border: 1px solid var(--global-border-color);
+  border-top: none;
+}
+body.theme-dark .p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link,
+body.theme-dark .p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {
+  background: #666;
+  color:#fff;
+}
+body.theme-dark .p-accordion .p-accordion-header .p-accordion-header-link {
+  color:#fff;
+  background-color: #333;
+}
+body.theme-dark .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link,
+body.theme-dark .p-accordion .p-accordion-content {
+  background-color: #333;
 }
 
 .error-text{
@@ -242,12 +267,15 @@ body.theme-dark .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link
 }
 body.theme-dark .p-tabview .p-tabview-panels,
 body.theme-dark .p-tabview .p-tabview-nav {
-  background-color: #454545;
+  background-color: transparent;
   color:#fff;
 }
 body.theme-dark .p-tabview .p-tabview-nav li .p-tabview-nav-link {
-  background-color: #454545;
-  color:#fff;
+  background-color: transparent;
+  color:#fff !important;
+}
+body.theme-dark .p-tabview .p-tabview-nav li .p-tabview-nav-link:hover{
+  color:#E6E6E6 !important;
 }
 body.theme-dark .boardDtailPagination td a {
   color:#cccccc !important;
@@ -267,4 +295,40 @@ body.theme-dark .boardDtailPagination td .iconTitle {
 .fileUpload > div {
   width:25%;
   text-align: left;
+}
+.p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link{
+  background: transparent;
+}
+.p-tabview .p-tabview-nav .p-tabview-ink-bar{
+  background-color:var(--brand-primary);
+}
+body.theme-dark .p-fileupload .p-fileupload-buttonbar {
+  border:1px solid var(--global-border-color) !important;
+  background-color: var(--dialog-background-color) !important;
+  border-bottom: 0 !important;
+}
+body.theme-dark .p-fileupload .p-fileupload-content{
+  background-color: var(--dialog-background-color);
+  border:1px solid var(--global-border-color) !important;
+}
+
+/* calendar icon 배경 */
+.pi-calendar:before {
+  background: url(../../assets/images/btn-icon-calandar.svg) no-repeat;
+  content: '';
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  background-size: contain;
+}
+.p-button.p-datepicker-trigger {
+  background-color: transparent !important;
+  border:1px solid var(--global-border-color) !important;
+  border-left: none !important;
+}
+.p-calendar .p-inputtext{
+  border-right: none !important;
+}
+.p-button.p-datepicker-trigger:not([disabled]):hover, .p-splitbutton .p-button.p-datepicker-trigger:not([disabled]):hover{
+  background: transparent;
 }
