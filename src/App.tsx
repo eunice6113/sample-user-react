@@ -13,6 +13,7 @@ import "./assets/css/token-rewrite.css";
 import './assets/css/App.css';
 import './assets/css/App_ksj.css';
 import './assets/css/App_lyk.css';
+import './assets/css/media-query.css';
 import { ConfirmDialog, Toast } from 'primereact';
 
 function App() {

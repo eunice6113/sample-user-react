@@ -1,13 +1,14 @@
 /* content */
 .content{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 2.3%;
 }
 .item{
     border: 1px solid var(--global-border-color);
     margin-bottom: 40px;
-    width:30%;
+    width:31%;
 }
 .item .imgWrap{ 
     position: relative;

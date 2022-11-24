@@ -47,7 +47,7 @@
     font-size: 45px;
     color: var(--brand-primary);
 }
-.contentBox .subTitle {
+.contentBox .boxSubTitle {
     font-size: 28px;
     font-weight: 500;
     color: var(--global-text-color);

@@ -1,0 +1,61 @@
+@media (max-width:1280px){
+  .CLPMANM00100 .swiper,
+  .contentWrap,
+  .recentPostWrap .recentPost,
+  .pageTitleContainer .pageTitle, 
+  .subTitle,
+  .CLPCMNM08610 .wrap,
+  .basePage,
+  .CLPMANM00100 .category,
+  .CLPSGSM07910 .wrap,
+  .CLPMNLM04010 .category{
+    width:980px !important;
+  }
+  .CLPMANM00100 .category{
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  .CLPMANM00100 .roundBtn,
+  .CLPMNLM04010 .roundBtn{
+    height:45px !important;
+    font-size: 17px !important;
+  }
+  .bannerItem p{
+      font-size: 24px !important;
+  }
+  
+  .labelWrap .p-chip{
+    font-size: 12px;
+  }
+  body.theme-light .CLPCMNM08610{
+    width:100% !important;
+    background-color: #F9F9F9;
+  }
+  .CLPMANM00100.basePage{
+    width:100% !important;
+  }
+  .CLPCMNM08610 .wrap{
+    width:980px !important;
+  }
+  .CLPCMNM08610 .listContainer,
+  .CLPCMNM08610 .listContainer .wirteWrapper,
+  .CLPCMNM08610 .listContainer .boardWrapper{
+    width:710px !important;
+  }
+  .CLPCMNM08610 .infoContainer{
+    width:250px !important;
+    margin-left: 20px !important;
+  }
+  .CLPSGSM07910{
+    width: 100% !important;
+  }
+  .CLPICPM00400.basePage{
+    width: 100% !important;
+  }
+ 
+}
+@media (max-width:1180px) {
+  .floatMenuBox{
+    display: none;
+  }   
+}

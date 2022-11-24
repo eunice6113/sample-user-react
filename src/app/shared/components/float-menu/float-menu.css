@@ -1,8 +1,9 @@
 .floatMenuBox {
     position: fixed;
     bottom: 20px;
-    right: 50%;
-    margin-right: -690px;
+    /* right: 50%;
+    margin-right: -690px; */
+    right:20px;
     background-color: #fff;
     background-color: var(--dialog-background-color);
     color: var(--global-text-color);
@@ -159,8 +160,7 @@ body.theme-dark .icon-faq {
 .qnaBox {
     position: fixed;
     bottom: 20px;
-    right: 50%;
-    margin-right: -590px;
+    right: 120px;
     background-color: var(--dialog-background-color);
     color: var(--global-text-color);
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
@@ -179,3 +179,4 @@ body.theme-dark .icon-faq {
 .hide {
     display: none;
 }
+
