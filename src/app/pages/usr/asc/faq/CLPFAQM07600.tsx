@@ -79,7 +79,7 @@ const CLPFAQM07600: React.FC<IProps> = ({children}) => {
             
         </div>
         
-        <Accordion multiple activeIndex={[0]} className='faqList'>
+        {/* <Accordion multiple activeIndex={[0]} className='faqList'>
             {
                 faq.map((faq,index) => (
                     <AccordionTab header= {faq.faqTitle} key={'faq-'+index} >
@@ -90,7 +90,7 @@ const CLPFAQM07600: React.FC<IProps> = ({children}) => {
                     </AccordionTab>
                 ))
             }
-        </Accordion>
+        </Accordion> */}
     </BasePage>)
 }
 export default CLPFAQM07600;
