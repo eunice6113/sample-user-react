@@ -18,7 +18,7 @@ export const BasePage: React.FC<IProps> = ({className, children}) => {
     const routes = portalRoutes;
 
     // main 화면이 아니면 타이틀 영역을 노출한다
-    let showTitle = location.pathname !== '/man'
+    let showTitle = location.pathname !== '/man' && location.pathname !== '/test' 
     // console.log('showTitle', showTitle)
     
     const [pageTitle, setPageTitle] = React.useState('')

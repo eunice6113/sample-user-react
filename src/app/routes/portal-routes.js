@@ -36,6 +36,7 @@ const ToggleGuide = Loadable(lazy(() => import('../pages/ui-guide/ToggleGuide'))
 
 // 메인
 const CLPMANM00100 = Loadable(lazy(() => import('../pages/usr/man/CLPMANM00100')));
+const Main = Loadable(lazy(() => import('../pages/usr/man/Main')));
 
 // 클라우드소개
 const CLPCLTM00200 = Loadable(lazy(() => import('../pages/usr/inr/CLPCLTM00200')));
@@ -190,6 +191,11 @@ const portalRoutes = [
         path: 'man', 
         name: '메인', 
         element: <CLPMANM00100 />,
+      },
+      { 
+        path: 'test', 
+        name: '메인', 
+        element: <Main />,
       },
       { 
         path: 'inr', 

@@ -180,6 +180,9 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
                     ))
                 }
             </ul>
+
+            <Button icon='pi pi-home' className='mr5 p-overlay-badge ' onClick={(e) => goPage('/test')}>
+            </Button>
             
             <Button icon='pi pi-bell' className='mr5 p-overlay-badge alarmBtn' onClick={(e) => goPage('/spr/mmb')}>
                 <Badge severity='success' className='badgeDot'></Badge>
