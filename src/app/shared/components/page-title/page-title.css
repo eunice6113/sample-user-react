@@ -25,6 +25,9 @@ body.theme-dark .pageTitleContainer {
     width:1180px;
     margin: 0 auto;
 }
+body.theme-dark .subTitle {
+    color:#ccc;
+  }
 .pageTitleContainer h1 {
     font-size: 24px;
 }

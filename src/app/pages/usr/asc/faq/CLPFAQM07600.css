@@ -43,3 +43,23 @@
     background-color: #EEF1F8;
     border-color:#B6C2E2;
 }
+body.theme-dark .CLPFAQM07600 .p-accordion .p-accordion-header .p-accordion-header-link,
+body.theme-dark .CLPFAQM07600 .p-accordion .p-accordion-content {
+    border-color: var(--global-border-color);
+}
+body.theme-dark .CLPFAQM07600 .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+    background-color: #333;
+    border-color: var(--global-border-color);
+}
+body.theme-dark .faqList .qNum {
+    font-size: 22px;
+    font-weight: bolder;
+    color:#1C94D2;
+}
+body.theme-dark .faqList .type{
+    color:var(--link-text-on-text-color);
+    margin: 0 10px 0 20px;
+}
+body.theme-dark  .CLPFAQM07600 .p-accordion .p-accordion-content {
+    color: #fff;
+}
