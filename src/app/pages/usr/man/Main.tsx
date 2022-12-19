@@ -2,14 +2,31 @@ import * as React from 'react';
 import { BasePage } from '../../../shared/components/base/BasePage';
 import './main.css';
 import useBasePage from '../../../shared/hooks/base-page.hook';
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from "swiper";
+
 
 import visual41 from '../../../../assets/images/main/main4-1.png';
 import visual42 from '../../../../assets/images/main/main4-2.png';
 import visual43 from '../../../../assets/images/main/main4-3.png';
-import visual5 from '../../../../assets/images/main/main5.jpg';
 import visual61 from '../../../../assets/images/main/main6-1.png';
 import visual62 from '../../../../assets/images/main/main6-2.png';
 import visual63 from '../../../../assets/images/main/main6-3.png';
+
+import video1 from '../../../../assets/videos/gettyimages-1333586824-640_adpp.mp4';
+import video2 from '../../../../assets/videos/gettyimages-1249114501-640_adpp.mp4';
+import video3 from '../../../../assets/videos/gettyimages-1136493849-640_adpp.mp4';
+import videoStarLink from '../../../../assets/videos/gettyimages-158708666-640_adpp.mp4';
+
+
+
 import { Button } from 'primereact';
 
 // 메인 화면
@@ -40,15 +57,111 @@ const Main: React.FC = ({}) => {
         return () => window.removeEventListener("scroll", onScroll);
     }, [scrollTop]);
 
+    const customPagination = {
+        clickable: true,
+        renderBullet: (index:number, className:string) => {
+            if(index === 0) {
+                return `
+                    <div class='${className}'>
+                        <div class='innerWrapper'>
+                            <h3>DevOps</h3>
+                            <p>정보화 사업 수행에 필요한 프로젝트 개발 환경이 필요하세요?<br/>
+                                클라우드의 DevOps(CICD) 환경을 적용해드립니다.</p>
+                        </div>
+                    </div>
+                `;    
+            }
+            else if(index === 1) {
+                return `
+                    <div class='${className}'>
+                        <div class='innerWrapper'>
+                            <h3>SANDBOX</h3>
+                            <p>새로운 개발을 통한 비즈니스 발굴을 원하세요?<br/>
+                                클라우드의 샌드박스를 활용해 보세요</p>
+                        </div>
+                    </div>
+                `;
+            }
+            else {
+                return `
+                    <div class='${className}'>
+                        <div class='innerWrapper'>
+                            <h3>프로그램 개발환경</h3>
+                            <p>마이크로서비스를 경험해 보고 싶으신가요?<br/>
+                                클라우드 포털 가이드를 참고해보세요</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    };
+
     return(
     <div className='mainContents'>
 
         <section className='content1'>
-            <div className='textWrapper'>
-                <h1 className='keyTitle'>우리가 그려가는<br/>클라우드 세상</h1>
-                <hr />
-                <p className='text'>Digital Innovation, With IBK Cloud</p>
-            </div>
+            <Swiper
+                spaceBetween={0}
+                centeredSlides={true}
+                autoplay={{
+                    delay: 7000,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={false}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper"
+            >
+                <SwiperSlide>
+                    <div className='mainVisual'>
+                        <video muted autoPlay loop className='videoBg'>
+                            <source src={video1} type='video/mp4'></source>
+                        </video>
+                        <div className='copyWrapper'>
+                            <h1 className='keyTitle'>우리가 그려가는<br/>클라우드 세상</h1>
+                            <hr />
+                            <p className='text'>Digital Innovation, With IBK Cloud</p>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='mainVisual'>
+                        <video muted autoPlay loop className='videoBg' preload='false'>
+                            <source src={video2} type='video/mp4'></source>
+                        </video>
+                        <div className='copyWrapper'>
+                            <h1 className='keyTitle'>우리가 그려가는<br/>클라우드 세상</h1>
+                            <hr />
+                            <p className='text'>Digital Innovation, With IBK Cloud</p>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='mainVisual'>
+                        <video muted autoPlay loop className='videoBg' preload='false'>
+                            <source src={video3} type='video/mp4'></source>
+                        </video>
+                        <div className='copyWrapper'>
+                            <h1 className='keyTitle'>우리가 그려가는<br/>클라우드 세상</h1>
+                            <hr />
+                            <p className='text'>Digital Innovation, With IBK Cloud</p>
+                        </div>
+                    </div>
+                </SwiperSlide>
+                
+                <SwiperSlide>
+                    <div className='mainVisual v1'>
+                        <div className='textWrapper'>
+                            <h1 className='keyTitle'>우리가 그려가는<br/>클라우드 세상</h1>
+                            <hr />
+                            <p className='text'>Digital Innovation, With IBK Cloud</p>
+                        </div>
+                    </div>
+                </SwiperSlide>
+            </Swiper>
+
         </section>
 
         <section className='content2'>
@@ -74,18 +187,23 @@ const Main: React.FC = ({}) => {
         </section>
 
         <section className='content3'>
-            <div className='conWrapper'>
-                <div className='leftTextWrapper'>
-                    <h5>Provisioning</h5>
-                    <h2>우리만의 공간</h2>
-                    <p className='subTitle'>IBK만의 퍼블릭, 프라이빗 클라우드를 누구나 쉽게<br/>요청을 하여 빠르게 아이디어를 만들어 갈 수 있습니다.</p>
+            <video muted autoPlay loop className='videoBg'>
+                <source src={videoStarLink} type='video/mp4'></source>
+            </video>
+            <div className='copyWrapper'>
+                <div className='conWrapper'>
+                    <div className='leftTextWrapper'>
+                        <h5>Provisioning</h5>
+                        <h2>우리만의 공간</h2>
+                        <p className='subTitle'>IBK만의 퍼블릭, 프라이빗 클라우드를 누구나 쉽게<br/>요청을 하여 빠르게 아이디어를 만들어 갈 수 있습니다.</p>
+                    </div>
                 </div>
-            </div>
-            <div className='conWrapper'>
-                <div className='rightTextWrapper'>
-                    <h5>Security</h5>
-                    <h2>안전한 공간</h2>
-                    <p className='subTitle'>누구나 쉽게 사용할 수 있지만<br/>어느 누구도 접근 할 수 없습니다.</p>
+                <div className='conWrapper'>
+                    <div className='rightTextWrapper'>
+                        <h5>Security</h5>
+                        <h2>안전한 공간</h2>
+                        <p className='subTitle'>누구나 쉽게 사용할 수 있지만<br/>어느 누구도 접근 할 수 없습니다.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -112,53 +230,69 @@ const Main: React.FC = ({}) => {
         </section>
         
         <section className='content5'>
-            <p className='text underline'>IDEATION</p>
+            <h5 className='text underline'>IDEATION</h5>
             <h2 className='mt25 mb40'>우리가 할 수 있는 클라우드</h2>
-            <p className='subTitle'>클라우드 포탈에서 준비한 다양한 클라우드 활용 매뉴얼을 통해<br/>쉽고, 빠르게 IBK만의 DT를 완성할 수 있습니다.</p>
+            <p className='subText'>클라우드 포탈에서 준비한 다양한 클라우드 활용 매뉴얼을 통해<br/>쉽고, 빠르게 IBK만의 DT를 완성할 수 있습니다.</p>
 
-            <Button label='다양한 클라우드 활용 매뉴얼 보러 가기' className='p-button outline' onClick={(e) => goPage('/man')} />
+            <Button label='다양한 클라우드 활용 매뉴얼 보러 가기' icon='pi pi-arrow-right' iconPos="right" className='outline white roundBtn p-button-rounded mt60' onClick={(e) => goPage('/mml')} />
         </section>
 
-       
-        20 #000
-        Key features
+        <section className='content6'>
+            <h5 className='text underline black'>KEY FEATURES</h5>
+            <h2 className='mt25 mb40'>아이디어를 현실로</h2>
+            <p className='subText'>클라우드 포탈의 주요 기능을 활용하여 빠른 아이디어 현실화를 경험하세요.</p>
 
-        50
-        아이디어를 현실로
+            <div className='aboutService mt75'>
+                <Swiper
+                    direction={'vertical'}
+                    spaceBetween={0}
+                    centeredSlides={true}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={customPagination}
+                    navigation={false}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    className="aboutServiceSwiper"
+                >
+                    <SwiperSlide>
+                        <img src={visual61} alt='DevOps' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={visual62} alt='SANDBOX' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={visual63} alt='프로그램 개발환경' />
+                    </SwiperSlide>
+                </Swiper>
+            </div>
+        </section>
 
-        20
-        클라우드 포탈의 주요 기능을 활용하여 빠른 아이디어 현실화를 경험하세요.
+        <section className='content7'>
+            <div className='banner b1'>
+                <div>
+                    <h3>정보화 사업에 클라우드를 활용하고 싶으신가요?<br/>클라우드 추진셀이 도와드립니다.</h3>
 
-        30
-        DevOps
-        SANDBOX
-        프로그램 개발환경
+                    <Button label='The-Fast Cloud 신청하기' icon='pi pi-arrow-right' iconPos="right" className='outline white roundBtn p-button-rounded mt60' onClick={(e) => goPage('/mml')} />
+                </div>
+            </div>
+            <div className='banner b2'>
+                <div>
+                    <h3>클라우드 주요 기능을<br/>신청해서 적극 활용해 보세요.</h3>
 
+                    <Button label='서비스 카탈로그 신청하기' icon='pi pi-arrow-right' iconPos="right" className='outline white roundBtn p-button-rounded mt60' onClick={(e) => goPage('/mml')} />
+                </div>
+            </div>
+        </section>
 
+        <section className='content8'>
+            <h5 className='text underline'>PLAYING</h5>
+            <h2 className='mt25 mb40'>아이디어가 가치가 되는 공간</h2>
+            <p className='subText'>IBK 모두의 클라우드 아이디어를 소통하는 그 곳.</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        <div style={{width:100, height:300, marginBottom:50, backgroundColor:'red'}}></div>
-        <div style={{width:100, height:300, marginBottom:50, backgroundColor:'red'}}></div>
-        <div style={{width:100, height:300, marginBottom:50, backgroundColor:'red'}}></div>
-        <div style={{width:100, height:300, marginBottom:50, backgroundColor:'red'}}></div>
-        <div style={{width:100, height:300, marginBottom:50, backgroundColor:'red'}}></div>
-        <div style={{width:100, height:300, marginBottom:50, backgroundColor:'red'}}></div>
-
+            <Button label='소통하러 가기' icon='pi pi-arrow-right' iconPos="right" className='outline white roundBtn p-button-rounded mt60' onClick={(e) => goPage('/mml')} />
+        </section>
     </div>)
 }
 export default Main;
