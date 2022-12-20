@@ -25,29 +25,52 @@ import video2 from '../../../../assets/videos/gettyimages-1249114501-640_adpp.mp
 import video3 from '../../../../assets/videos/gettyimages-1136493849-640_adpp.mp4';
 import videoStarLink from '../../../../assets/videos/gettyimages-158708666-640_adpp.mp4';
 
-
-
 import { Button } from 'primereact';
+import { Link } from 'react-router-dom';
 
 // 메인 화면
 const Main: React.FC = ({}) => {
     const {goPage, location} = useBasePage()
 
-    const [scrolling, setScrolling] = React.useState(false);
+    const [isDownscroll, setIsDownscroll] = React.useState(false);
     const [scrollTop, setScrollTop] = React.useState(0);
+    
+    //content1 motion
+    const [activeIdx, setActiveIdx] = React.useState(0);
+
+    //content2 motion
+    const [appearC2, setAppearC2] = React.useState(false);
+    const [appearC3, setAppearC3] = React.useState(false);
+    const [appearC4, setAppearC4] = React.useState(false);
+    const [appearC5, setAppearC5] = React.useState(false);
+    const [appearC6, setAppearC6] = React.useState(false);
+    const [appearC7, setAppearC7] = React.useState(false);
+    const [appearC8, setAppearC8] = React.useState(false);
 
     React.useEffect(() => {
         const onScroll = () => {
             let currentPosition = window.pageYOffset; // or use document.documentElement.scrollTop;
             if (currentPosition > scrollTop) {
                 // downscroll code
-                setScrolling(false);
+                setIsDownscroll(true);
+
+                if(currentPosition > 660) {
+                    setAppearC2(true)
+                } 
+                if(currentPosition > 1300) {
+                    setAppearC3(true)
+                } 
+                if(currentPosition > 2000) {
+                    setAppearC4(true)
+                } 
+                if(currentPosition > 2500) {
+                    setAppearC5(true)
+                }
             } else {
                 // upscroll code
-                setScrolling(true);
+                setIsDownscroll(false);
             }
-
-            console.log('scrolling =>', scrolling)
+            // console.log('isDownscroll =>', isDownscroll)
             console.log('scrollTop =>', scrollTop)
 
             setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
@@ -57,6 +80,11 @@ const Main: React.FC = ({}) => {
         return () => window.removeEventListener("scroll", onScroll);
     }, [scrollTop]);
 
+    React.useEffect(() => {
+        console.log('appearC2', appearC2)
+    }, [appearC2])
+
+    // 하단 서비스 소개 배너 페이지네이션
     const customPagination = {
         clickable: true,
         renderBullet: (index:number, className:string) => {
@@ -103,16 +131,12 @@ const Main: React.FC = ({}) => {
             <Swiper
                 spaceBetween={0}
                 centeredSlides={true}
-                autoplay={{
-                    delay: 7000,
-                    disableOnInteraction: false,
-                }}
-                pagination={{
-                    clickable: true,
-                }}
+                autoplay={{delay: 3500, disableOnInteraction: false}}
+                pagination={{clickable: true}}
                 navigation={false}
                 modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper"
+                className="mainVisualSwiper"
+                onSlideChange={( e ) => setActiveIdx(e.activeIndex)}
             >
                 <SwiperSlide>
                     <div className='mainVisual'>
@@ -120,9 +144,16 @@ const Main: React.FC = ({}) => {
                             <source src={video1} type='video/mp4'></source>
                         </video>
                         <div className='copyWrapper'>
-                            <h1 className='keyTitle'>우리가 그려가는<br/>클라우드 세상</h1>
-                            <hr />
-                            <p className='text'>Digital Innovation, With IBK Cloud</p>
+                            <h1 className='keyTitle'>
+                                <p className={activeIdx === 0 ? 'anim':''}>활용하고</p>
+                                <p className={activeIdx === 0 ? 'anim':''}>도전하고</p>
+                                <p className={activeIdx === 0 ? 'anim':''}>실현하는</p>
+                                <p className={activeIdx === 0 ? 'anim':''}>IBK 클라우드</p>
+                            </h1>
+                            <hr className={activeIdx === 0 ? 'anim':''} />
+                            <p className={`text ${activeIdx === 0 ? 'anim':''}`}>
+                                새로운 도전 클라우드가 지원합니다 
+                            </p>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -132,9 +163,15 @@ const Main: React.FC = ({}) => {
                             <source src={video2} type='video/mp4'></source>
                         </video>
                         <div className='copyWrapper'>
-                            <h1 className='keyTitle'>우리가 그려가는<br/>클라우드 세상</h1>
-                            <hr />
-                            <p className='text'>Digital Innovation, With IBK Cloud</p>
+                            <h1 className='keyTitle'>
+                                <p className={activeIdx === 1 ? 'anim':''}>비즈니스 혁신을</p>
+                                <p className={activeIdx === 1 ? 'anim':''}>가능하게 하는</p>
+                                <p className={activeIdx === 1 ? 'anim':''}>IBK 클라우드</p>
+                            </h1>
+                            <hr className={activeIdx === 1 ? 'anim':''} />
+                            <p className={`text ${activeIdx === 1 ? 'anim':''}`}>
+                                현업의 비즈니스 클라우드가 함께 합니다 
+                            </p>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -144,42 +181,81 @@ const Main: React.FC = ({}) => {
                             <source src={video3} type='video/mp4'></source>
                         </video>
                         <div className='copyWrapper'>
-                            <h1 className='keyTitle'>우리가 그려가는<br/>클라우드 세상</h1>
-                            <hr />
-                            <p className='text'>Digital Innovation, With IBK Cloud</p>
+                            <h1 className='keyTitle'>
+                                <p className={activeIdx === 2 ? 'anim':''}>우리가 그려가는</p>
+                                <p className={activeIdx === 2 ? 'anim':''}>클라우드 세상</p>
+                            </h1>
+                            <hr className={activeIdx === 2 ? 'anim':''} />
+                            <p className={`text ${activeIdx === 2 ? 'anim':''}`}>
+                                우리와 함께 IBK DT를 만들어가요
+                            </p>
                         </div>
                     </div>
                 </SwiperSlide>
-                
-                <SwiperSlide>
+                {/* <SwiperSlide>
                     <div className='mainVisual v1'>
-                        <div className='textWrapper'>
-                            <h1 className='keyTitle'>우리가 그려가는<br/>클라우드 세상</h1>
-                            <hr />
-                            <p className='text'>Digital Innovation, With IBK Cloud</p>
+                        <div className='copyWrapper'>
+                            <h1 className='keyTitle'>
+                                <p className={activeIdx === 3 ? 'anim':''}>우리가 그려가는</p>
+                                <p className={activeIdx === 3 ? 'anim':''}>클라우드 세상</p>
+                            </h1>
+                            <hr className={activeIdx === 3 ? 'anim':''} />
+                            <p className={`text ${activeIdx === 3 ? 'anim':''}`}>
+                                Digital Innovation, With IBK Cloud
+                            </p>
+                        </div>
+                    </div>
+                </SwiperSlide> */}
+                <SwiperSlide>
+                    <div className='mainVisual v2'>
+                        <div className='copyWrapper'>
+                            <h1 className='keyTitle'>
+                                <p className={activeIdx === 3 ? 'anim':''}>정보화 사업에 클라우드를</p>
+                                <p className={activeIdx === 3 ? 'anim':''}>활용하고 싶으신가요?</p>
+                                <p className={activeIdx === 3 ? 'anim':''}>클라우드 추진셀이 도와드립니다.</p>
+                            </h1>
+                            <Button label='The-Fast Cloud 신청하기' 
+                                icon='pi pi-arrow-right' iconPos='right' 
+                                className={`outline white roundBtn p-button-rounded mt60 ${activeIdx === 3 ? 'anim':''} `}
+                                onClick={(e) => goPage('/mml')} />
+                        </div>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='mainVisual v3'>
+                        <div className='copyWrapper'>
+                            <h1 className='keyTitle'>
+                                <p className={activeIdx === 4 ? 'anim':''}>클라우드 주요 기능을</p>
+                                <p className={activeIdx === 4 ? 'anim':''}>신청해서 적극 활용해 보세요.</p>
+                            </h1>
+                            <Button label='서비스 카탈로그 신청하기' 
+                                icon='pi pi-arrow-right' iconPos='right' 
+                                className={`outline white roundBtn p-button-rounded mt60 ${activeIdx === 4 ? 'anim':''} `}
+                                onClick={(e) => goPage('/mml')} />
                         </div>
                     </div>
                 </SwiperSlide>
             </Swiper>
 
+      
         </section>
 
         <section className='content2'>
             <div className='banner c1 hoverScaleEffect'>
-                <h3>
+                <h3 className={appearC2 ? 'anim':''}>
                     클라우드 서비스로<br/>
                     효율성을 높이고
                 </h3>
             </div>
             <div className='banner c2 hoverScaleEffect'>
-                <h3>
+                <h3 className={appearC2 ? 'anim':''}>
                     기술을 몰라도<br/>
                     아이디어를 마음껏<br/>
                     펼칠 수 있도록
                 </h3>
             </div>
             <div className='banner c3 hoverScaleEffect'>
-                <h3>
+                <h3 className={appearC2 ? 'anim':''}>
                     당신의 비즈니스를<br/>
                     가능하게 해 드립니다.
                 </h3>
@@ -190,16 +266,16 @@ const Main: React.FC = ({}) => {
             <video muted autoPlay loop className='videoBg'>
                 <source src={videoStarLink} type='video/mp4'></source>
             </video>
-            <div className='copyWrapper'>
-                <div className='conWrapper'>
-                    <div className='leftTextWrapper'>
+            <div className={`copyWrapper`}>
+                <div className={`conWrapper`}>
+                    <div className={`leftTextWrapper ${appearC3 ? 'anim':''}`}>
                         <h5>Provisioning</h5>
                         <h2>우리만의 공간</h2>
                         <p className='subTitle'>IBK만의 퍼블릭, 프라이빗 클라우드를 누구나 쉽게<br/>요청을 하여 빠르게 아이디어를 만들어 갈 수 있습니다.</p>
                     </div>
                 </div>
                 <div className='conWrapper'>
-                    <div className='rightTextWrapper'>
+                    <div className={`rightTextWrapper ${appearC3 ? 'anim':''}`}>
                         <h5>Security</h5>
                         <h2>안전한 공간</h2>
                         <p className='subTitle'>누구나 쉽게 사용할 수 있지만<br/>어느 누구도 접근 할 수 없습니다.</p>
@@ -211,18 +287,42 @@ const Main: React.FC = ({}) => {
         <section className='content4'>
             <h2 className='mb40'>클라우드 주요 서비스</h2>
             <div className='bannerWrapper'>
-                <div className='banner'>
-                    <img src={visual41}></img>
+                <div className={`banner ${appearC4 ? 'anim':''}`}>
+                    <div className='imgWrapper'>
+                        <img src={visual41}></img>
+                        <div className='textWrapper'>
+                            <div>
+                                <p>새로운 디지털 전환 과제를<br/>고민하시나요?<br/>클라우드와 함께라면 가능합니다.</p>
+                                <Button className='textBtn' label='서비스 신청하기' icon='pi pi-arrow-right' iconPos='right' />
+                            </div>
+                        </div>
+                    </div>
                     <p className='subText'>Consulting Service</p>
                     <h3>PLAN</h3>
                 </div>
-                <div className='banner'>
-                    <img src={visual42}></img>
+                <div className={`banner ${appearC4 ? 'anim':''}`}>
+                    <div className='imgWrapper'>
+                        <img src={visual42}></img>
+                        <div className='textWrapper'>
+                            <div>
+                                <p>Jira를 이용하여<br/>Agile 협업 환경을 경험해보세요.</p>
+                                <Button className='textBtn' label='서비스 신청하기' icon='pi pi-arrow-right' iconPos='right' />
+                            </div>
+                        </div>
+                    </div>
                     <p className='subText'>Work Management</p>
                     <h3>Jira</h3>
                 </div>
-                <div className='banner'>
-                    <img src={visual43}></img>
+                <div className={`banner ${appearC4 ? 'anim':''}`}>
+                    <div className='imgWrapper'>
+                        <img src={visual43}></img>
+                        <div className='textWrapper'>
+                            <div>
+                                <p>부서만의 데이터 대시보드가 필요한가요?<br/>클라우드가 지원합니다.</p>
+                                <Button className='textBtn' label='서비스 신청하기' icon='pi pi-arrow-right' iconPos='right' />
+                            </div>
+                        </div>
+                    </div>
                     <p className='subText'>Analytics Dashboard</p>
                     <h3>ELK</h3>
                 </div>
@@ -247,10 +347,7 @@ const Main: React.FC = ({}) => {
                     direction={'vertical'}
                     spaceBetween={0}
                     centeredSlides={true}
-                    autoplay={{
-                        delay: 3000,
-                        disableOnInteraction: false,
-                    }}
+                    autoplay={{delay: 3000, disableOnInteraction: false}}
                     pagination={customPagination}
                     navigation={false}
                     modules={[Autoplay, Pagination, Navigation]}
@@ -269,24 +366,24 @@ const Main: React.FC = ({}) => {
             </div>
         </section>
 
-        <section className='content7'>
+        {/* <section className='content7'>
             <div className='banner b1'>
                 <div>
-                    <h3>정보화 사업에 클라우드를 활용하고 싶으신가요?<br/>클라우드 추진셀이 도와드립니다.</h3>
+                    <h3>정보화 사업에 클라우드를<br/>활용하고 싶으신가요?<br/>클라우드 추진셀이 도와드립니다.</h3>
 
-                    <Button label='The-Fast Cloud 신청하기' icon='pi pi-arrow-right' iconPos="right" className='outline white roundBtn p-button-rounded mt60' onClick={(e) => goPage('/mml')} />
+                    <Button label='The-Fast Cloud 신청하기' icon='pi pi-arrow-right' iconPos='right' className='outline white roundBtn p-button-rounded mt60' onClick={(e) => goPage('/mml')} />
                 </div>
             </div>
             <div className='banner b2'>
                 <div>
                     <h3>클라우드 주요 기능을<br/>신청해서 적극 활용해 보세요.</h3>
 
-                    <Button label='서비스 카탈로그 신청하기' icon='pi pi-arrow-right' iconPos="right" className='outline white roundBtn p-button-rounded mt60' onClick={(e) => goPage('/mml')} />
+                    <Button label='서비스 카탈로그 신청하기' icon='pi pi-arrow-right' iconPos='right' className='outline white roundBtn p-button-rounded mt60' onClick={(e) => goPage('/mml')} />
                 </div>
             </div>
-        </section>
+        </section> */}
 
-        <section className='content8'>
+        <section className='content7'>
             <h5 className='text underline'>PLAYING</h5>
             <h2 className='mt25 mb40'>아이디어가 가치가 되는 공간</h2>
             <p className='subText'>IBK 모두의 클라우드 아이디어를 소통하는 그 곳.</p>
