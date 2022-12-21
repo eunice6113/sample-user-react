@@ -55,9 +55,14 @@
     justify-content: center;
     align-items: center;
     height: 720px;
+    width: 100%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.mainContents .content1 .swiper {
+    height: 720px !important;
+    width: 100%;
 }
 .mainContents .content1 .mainVisual.v1 {
     background-image: url(../../../../assets/images/main/main1.jpg);

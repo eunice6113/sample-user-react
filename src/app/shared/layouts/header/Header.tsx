@@ -15,12 +15,40 @@ interface IProps {
 
 const Header: React.FC<IProps> = ({handleOpen, children}) => {
 
-    const { goPage } = useBasePage()
+    const { goPage, location } = useBasePage() //221221
 
     const [theme, setTheme] = React.useState(false);
     const [submenuOpen, setSubmenuOpen] = React.useState(false);
+    
+    const [scrollTop, setScrollTop] = React.useState(0); //221221
+    const [headerTransparent, setHeaderTransparent] = React.useState(false); //221221
 
     const profileOpRef = React.useRef<any>(null);
+
+    //221221
+    React.useEffect(() => {
+        if (location.pathname === '/test') {
+            setHeaderTransparent(true)
+        } else {
+            setHeaderTransparent(false)
+        }
+    }, []);
+
+    React.useEffect(() => {
+        const onScroll = () => {
+            let currentPosition = window.pageYOffset; // or use document.documentElement.scrollTop;
+            if (location.pathname === '/test' && currentPosition < 100) {
+                setHeaderTransparent(true)
+            } else {
+                setHeaderTransparent(false)
+            }
+            console.log('scrollTop =>', scrollTop)
+            setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
+        }
+
+        window.addEventListener("scroll", onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
+    }, [scrollTop]);
 
     //서브메뉴
     const menus = [
@@ -161,7 +189,8 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
     }
 
     return(
-    <div className='customHeader'>
+        // //221221
+    <div className={`customHeader ${headerTransparent ? 'transparentHeader':''}`}>
         <div className='headerInnerContents'>
             {/* <Button className='menu p-button-text' icon='pi pi-bars' onClick={handleOpen} /> */}
 
