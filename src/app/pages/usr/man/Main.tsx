@@ -397,6 +397,42 @@ const Main: React.FC = ({}) => {
              className={`outline white roundBtn p-button-rounded mt60 slideUp ${appearC7 ? 'motionStart':'motionInit'}`}
              onClick={(e) => goPage('/mml')} />
         </section>
+
+        <section className='content8'>
+            <h5 className={`text underline black`}>INTERVIEW</h5>
+            <h2 className={`mt25 mb40`}>클라우드 추진 Cell Interview</h2>
+
+            <video className='interviewVideo'>
+                <source src={video1} type='video/mp4'></source>
+            </video>
+        </section>
+
+        <section className='content9'>
+            <h5 className={`text underline black`}>NOTICE</h5>
+            <h2 className={`mt25 mb40`}>클라우드 포털의 소식</h2>
+            <Button className='textBtn' label='더보기' icon='pi pi-arrow-right' iconPos='right' />
+                            
+            <table className='mainTable mt60'>
+                <colgroup>
+                    <col width='80%'/>
+                    <col width='20%'/>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>클라우드 포탈이 오픈했습니다.</td>
+                        <td>2023-02-20</td>
+                    </tr>
+                    <tr>
+                        <td>클라우드 포탈이 오픈했습니다.</td>
+                        <td>2023-02-20</td>
+                    </tr>
+                    <tr>
+                        <td>클라우드 포탈이 오픈했습니다.</td>
+                        <td>2023-02-20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </div>)
 }
 export default Main;

@@ -43,7 +43,7 @@
     font-size: 20px;
 }
 .mainContents section .underline {
-    border-bottom: 1px solid #fff;
+    border-bottom: 2px solid #fff;
     display: inline-block;
     padding-bottom: 5px;
 }
@@ -424,6 +424,61 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.mainContents .content8 {
+    padding: 120px 0;
+    color: #000;
+    background-color: #E4EFFF;
+}
+.mainContents .content8 .interviewVideo {
+    margin: 0 auto;
+    width: 800px;
+    height: auto;
+}
+
+.mainContents .content9 {
+    padding: 120px 0;
+    color: #000;
+} 
+.mainContents .content9 h2 {
+    margin-bottom: 20px !important;
+}
+.mainContents .content9 .textBtn {
+    color: #000;
+    background: transparent;
+    font-size: 20px;
+}
+.mainContents .content9 .textBtn:hover {
+    background: transparent !important;
+    color: #777 !important;
+}
+
+
+.mainContents .mainTable {
+    position: relative;
+    width: 1180px;
+    border-top: 2px solid #000;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+.mainContents .mainTable tr td {
+    height: 90px;
+    font-size: 20px;
+    padding: 15px 40px;
+    border-bottom: 1px solid var(--global-border-color);
+    cursor: pointer;
+}
+.mainContents .mainTable tr td:first-child {
+    font-weight: 600;
+    text-align: left;
+}
+.mainContents .mainTable tr td:last-child {
+    font-weight: 400;
+    text-align: right;
+}
+.mainContents .mainTable tr:hover {
+    background-color: #F5F6F8;
 }
 
 .mainContents .textBtn {
