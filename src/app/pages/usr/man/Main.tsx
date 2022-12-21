@@ -54,19 +54,19 @@ const Main: React.FC = ({}) => {
                 // downscroll code
                 setIsDownscroll(true);
 
-                if(currentPosition > 550) {
+                if(currentPosition > 310) {
                     setAppearC2(true)
                 } 
-                if(currentPosition > 1000) {
+                if(currentPosition > 830) {
                     setAppearC3(true)
                 } 
-                if(currentPosition > 1700) {
+                if(currentPosition > 1500) {
                     setAppearC4(true)
                 } 
-                if(currentPosition > 2300) {
+                if(currentPosition > 2000) {
                     setAppearC5(true)
                 }
-                if(currentPosition > 3800) {
+                if(currentPosition > 3600) {
                     setAppearC7(true)
                 }
             } else {
@@ -135,7 +135,7 @@ const Main: React.FC = ({}) => {
                 spaceBetween={0}
                 centeredSlides={true}
                 autoplay={{delay: 3500, disableOnInteraction: false}}
-                pagination={{clickable: true, type: "fraction"}}
+                pagination={{clickable: true, type: 'fraction'}}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mainVisualSwiper"
@@ -148,13 +148,13 @@ const Main: React.FC = ({}) => {
                         </video>
                         <div className='copyWrapper'>
                             <h1 className='keyTitle'>
-                                <p className={activeIdx === 0 ? 'motionStart':''}>활용하고</p>
-                                <p className={activeIdx === 0 ? 'motionStart':''}>도전하고</p>
-                                <p className={activeIdx === 0 ? 'motionStart':''}>실현하는</p>
-                                <p className={activeIdx === 0 ? 'motionStart':''}>IBK 클라우드</p>
+                                <p className={`slideRtL ${activeIdx === 0 ? 'motionStart':'motionInit'}`}>활용하고</p>
+                                <p className={`slideRtL ${activeIdx === 0 ? 'motionStart':'motionInit'}`}>도전하고</p>
+                                <p className={`slideRtL ${activeIdx === 0 ? 'motionStart':'motionInit'}`}>실현하는</p>
+                                <p className={`slideRtL ${activeIdx === 0 ? 'motionStart':'motionInit'}`}>IBK 클라우드</p>
                             </h1>
-                            <hr className={activeIdx === 0 ? 'motionStart':''} />
-                            <p className={`text ${activeIdx === 0 ? 'motionStart':''}`}>
+                            <hr className={`slideRtL ${activeIdx === 0 ? 'motionStart':'motionInit'}`} />
+                            <p className={`text slideUp50 ${activeIdx === 0 ? 'motionStart':'motionInit'}`}>
                                 새로운 도전 클라우드가 지원합니다 
                             </p>
                         </div>
@@ -167,12 +167,12 @@ const Main: React.FC = ({}) => {
                         </video>
                         <div className='copyWrapper'>
                             <h1 className='keyTitle'>
-                                <p className={activeIdx === 1 ? 'motionStart':''}>비즈니스 혁신을</p>
-                                <p className={activeIdx === 1 ? 'motionStart':''}>가능하게 하는</p>
-                                <p className={activeIdx === 1 ? 'motionStart':''}>IBK 클라우드</p>
+                                <p className={`slideRtL ${activeIdx === 1 ? 'motionStart':'motionInit'}`}>비즈니스 혁신을</p>
+                                <p className={`slideRtL ${activeIdx === 1 ? 'motionStart':'motionInit'}`}>가능하게 하는</p>
+                                <p className={`slideRtL ${activeIdx === 1 ? 'motionStart':'motionInit'}`}>IBK 클라우드</p>
                             </h1>
-                            <hr className={activeIdx === 1 ? 'motionStart':''} />
-                            <p className={`text ${activeIdx === 1 ? 'motionStart':''}`}>
+                            <hr className={`slideRtL ${activeIdx === 1 ? 'motionStart':'motionInit'}`} />
+                            <p className={`text slideUp50 ${activeIdx === 1 ? 'motionStart':'motionInit'}`}>
                                 현업의 비즈니스 클라우드가 함께 합니다 
                             </p>
                         </div>
@@ -185,11 +185,11 @@ const Main: React.FC = ({}) => {
                         </video>
                         <div className='copyWrapper'>
                             <h1 className='keyTitle'>
-                                <p className={activeIdx === 2 ? 'motionStart':''}>우리가 그려가는</p>
-                                <p className={activeIdx === 2 ? 'motionStart':''}>클라우드 세상</p>
+                                <p className={`slideRtL ${activeIdx === 2 ? 'motionStart':'motionInit'}`}>우리가 그려가는</p>
+                                <p className={`slideRtL ${activeIdx === 2 ? 'motionStart':'motionInit'}`}>클라우드 세상</p>
                             </h1>
-                            <hr className={activeIdx === 2 ? 'motionStart':''} />
-                            <p className={`text ${activeIdx === 2 ? 'motionStart':''}`}>
+                            <hr className={`slideRtL ${activeIdx === 2 ? 'motionStart':'motionInit'}`} />
+                            <p className={`text slideUp50 ${activeIdx === 2 ? 'motionStart':'motionInit'}`}>
                                 우리와 함께 IBK DT를 만들어가요
                             </p>
                         </div>
@@ -213,13 +213,13 @@ const Main: React.FC = ({}) => {
                     <div className='mainVisual v2'>
                         <div className='copyWrapper'>
                             <h1 className='keyTitle'>
-                                <p className={activeIdx === 3 ? 'motionStart':''}>정보화 사업에 클라우드를</p>
-                                <p className={activeIdx === 3 ? 'motionStart':''}>활용하고 싶으신가요?</p>
-                                <p className={activeIdx === 3 ? 'motionStart':''}>클라우드 추진셀이 도와드립니다.</p>
+                                <p className={`slideRtL ${activeIdx === 3 ? 'motionStart':'motionInit'}`}>정보화 사업에 클라우드를</p>
+                                <p className={`slideRtL ${activeIdx === 3 ? 'motionStart':'motionInit'}`}>활용하고 싶으신가요?</p>
+                                <p className={`slideRtL ${activeIdx === 3 ? 'motionStart':'motionInit'}`}>클라우드 추진셀이 도와드립니다.</p>
                             </h1>
                             <Button label='The-Fast Cloud 신청하기' 
                                 icon='pi pi-arrow-right' iconPos='right' 
-                                className={`outline white roundBtn p-button-rounded mt60 ${activeIdx === 3 ? 'motionStart':''} `}
+                                className={`outline white roundBtn p-button-rounded mt60 slideUp50 ${activeIdx === 3 ? 'motionStart':'motionInit'} `}
                                 onClick={(e) => goPage('/mml')} />
                         </div>
                     </div>
@@ -269,14 +269,14 @@ const Main: React.FC = ({}) => {
             </video>
             <div className={`copyWrapper`}>
                 <div className={`conWrapper`}>
-                    <div className={`leftTextWrapper slideUp ${appearC3 ? 'motionStart':''}`}>
+                    <div className={`leftTextWrapper slideUp ${appearC3 ? 'motionStart':'motionInit'}`}>
                         <h5>Provisioning</h5>
                         <h2>우리만의 공간</h2>
                         <p className='subTitle'>IBK만의 퍼블릭, 프라이빗 클라우드를 누구나 쉽게<br/>요청을 하여 빠르게 아이디어를 만들어 갈 수 있습니다.</p>
                     </div>
                 </div>
                 <div className='conWrapper'>
-                    <div className={`rightTextWrapper slideUp ${appearC3 ? 'motionStart':''}`}>
+                    <div className={`rightTextWrapper slideUp ${appearC3 ? 'motionStart':'motionInit'}`}>
                         <h5>Security</h5>
                         <h2>안전한 공간</h2>
                         <p className='subTitle'>누구나 쉽게 사용할 수 있지만<br/>어느 누구도 접근 할 수 없습니다.</p>
@@ -288,7 +288,7 @@ const Main: React.FC = ({}) => {
         <section className='content4'>
             <h2 className={`mb40`}>클라우드 주요 서비스</h2>
             <div className='bannerWrapper'>
-                <div className={`banner slideUp ${appearC4 ? 'motionStart':''}`}>
+                <div className={`banner slideUp ${appearC4 ? 'motionStart':'motionInit'}`}>
                     <div className='imgWrapper'>
                         <img src={visual41}></img>
                         <div className='textWrapper'>
@@ -301,7 +301,7 @@ const Main: React.FC = ({}) => {
                     <p className='subText'>Consulting Service</p>
                     <h3>PLAN</h3>
                 </div>
-                <div className={`banner slideUp ${appearC4 ? 'motionStart':''}`}>
+                <div className={`banner slideUp ${appearC4 ? 'motionStart':'motionInit'}`}>
                     <div className='imgWrapper'>
                         <img src={visual42}></img>
                         <div className='textWrapper'>
@@ -314,7 +314,7 @@ const Main: React.FC = ({}) => {
                     <p className='subText'>Work Management</p>
                     <h3>Jira</h3>
                 </div>
-                <div className={`banner slideUp ${appearC4 ? 'motionStart':''}`}>
+                <div className={`banner slideUp ${appearC4 ? 'motionStart':'motionInit'}`}>
                     <div className='imgWrapper'>
                         <img src={visual43}></img>
                         <div className='textWrapper'>
@@ -331,12 +331,12 @@ const Main: React.FC = ({}) => {
         </section>
         
         <section className='content5'>
-            <h5 className={`text underline slideUp ${appearC5 ? 'motionStart':''}`}>IDEATION</h5>
-            <h2 className={`mt25 mb40 slideUp ${appearC5 ? 'motionStart':''}`}>우리가 할 수 있는 클라우드</h2>
-            <p className={`subText slideUp ${appearC5 ? 'motionStart':''}`}>클라우드 포탈에서 준비한 다양한 클라우드 활용 매뉴얼을 통해<br/>쉽고, 빠르게 IBK만의 DT를 완성할 수 있습니다.</p>
+            <h5 className={`text underline slideUp ${appearC5 ? 'motionStart':'motionInit'}`}>IDEATION</h5>
+            <h2 className={`mt25 mb40 slideUp ${appearC5 ? 'motionStart':'motionInit'}`}>우리가 할 수 있는 클라우드</h2>
+            <p className={`subText slideUp ${appearC5 ? 'motionStart':'motionInit'}`}>클라우드 포탈에서 준비한 다양한 클라우드 활용 매뉴얼을 통해<br/>쉽고, 빠르게 IBK만의 DT를 완성할 수 있습니다.</p>
 
             <Button label='다양한 클라우드 활용 매뉴얼 보러 가기' icon='pi pi-arrow-right' iconPos="right" 
-             className={`outline white roundBtn p-button-rounded mt60 slideUp ${appearC5 ? 'motionStart':''}`}
+             className={`outline white roundBtn p-button-rounded mt60 slideUp ${appearC5 ? 'motionStart':'motionInit'}`}
              onClick={(e) => goPage('/mml')} />
         </section>
 
@@ -389,12 +389,12 @@ const Main: React.FC = ({}) => {
 </>
 
         <section className='content7'>
-            <h5 className={`text underline slideUp ${appearC7 ? 'motionStart':''}`}>PLAYING</h5>
-            <h2 className={`mt25 mb40 slideUp ${appearC7 ? 'motionStart':''}`}>아이디어가 가치가 되는 공간</h2>
-            <p className={`subText slideUp ${appearC7 ? 'motionStart':''}`}>IBK 모두의 클라우드 아이디어를 소통하는 그 곳.</p>
+            <h5 className={`text underline slideUp ${appearC7 ? 'motionStart':'motionInit'}`}>PLAYING</h5>
+            <h2 className={`mt25 mb40 slideUp ${appearC7 ? 'motionStart':'motionInit'}`}>아이디어가 가치가 되는 공간</h2>
+            <p className={`subText slideUp ${appearC7 ? 'motionStart':'motionInit'}`}>IBK 모두의 클라우드 아이디어를 소통하는 그 곳.</p>
 
             <Button label='소통하러 가기' icon='pi pi-arrow-right' iconPos="right" 
-             className={`outline white roundBtn p-button-rounded mt60 slideUp ${appearC7 ? 'motionStart':''}`}
+             className={`outline white roundBtn p-button-rounded mt60 slideUp ${appearC7 ? 'motionStart':'motionInit'}`}
              onClick={(e) => goPage('/mml')} />
         </section>
     </div>)

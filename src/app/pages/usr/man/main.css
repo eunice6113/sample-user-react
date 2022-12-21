@@ -109,27 +109,10 @@
     animation-name: slideRtL;
 }
 .mainContents .content1 .copyWrapper .motionStart.text {
-    animation-name: slideUp;
+    animation-name: slideUp50;
 }
-/* .mainContents .content1 .copyWrapper .motionStart:nth-child(2) {
-    animation-delay: 200ms;
-}
-.mainContents .content1 .copyWrapper .motionStart:nth-child(3) {
-    animation-delay: 400ms;
-}
-.mainContents .content1 .copyWrapper .motionStart:nth-child(4) {
-    animation-delay: 600ms;
-}
-.mainContents .content1 .copyWrapper .motionStart:nth-child(5) {
-    animation-delay: 800ms;
-}
-.mainContents .content1 .copyWrapper .motionStart:nth-child(6) {
-    animation-delay: 1s;
-}
-.mainContents .content1 .copyWrapper .motionStart:nth-child(7) {
-    animation-delay: 1.2s;
-} */
 
+/* 페이지네이션 배너 화살표 위치 재조정 */
 .swiper-pagination-custom, .swiper-pagination-fraction {
     left: 50px !important;
     bottom: 30px !important;
@@ -237,6 +220,8 @@
     margin-top:auto;
     text-align: right;
     opacity: 0;
+
+    animation-delay: 200ms;
 }
 
 .mainContents .content4 {
@@ -262,7 +247,7 @@
 }
 .mainContents .content4 .bannerWrapper .imgWrapper:hover .textWrapper {
     transform: translateY(0);
-    animation-name: slideUp;
+    animation-name: slideUp50;
 }
 .mainContents .content4 .bannerWrapper .imgWrapper .textWrapper {
     position: absolute;
@@ -440,19 +425,45 @@
     background: transparent;
 }
 
+.mainContents .motionInit {
+    opacity: 0;
+}
+.mainContents .slideUp50.motionInit {
+    opacity: 0;
+    transform: translateY(50px);
+}
+.mainContents .slideUp.motionInit {
+    opacity: 0;
+    transform: translateY(100px);
+}
+.mainContents .slideRtL.motionInit {
+    opacity: 0;
+        transform: translateX(200px);
+}
+
 .mainContents .motionStart {
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     transition-timing-function: ease-out;
 }
-
+.mainContents .motionStart.slideUp50 {
+    opacity: 0;
+    transform: translateY(50px);
+    animation-name: slideUp50;
+}
 .mainContents .motionStart.slideUp {
     opacity: 0;
     transform: translateY(100px);
     animation-name: slideUp100;
 }
-
+.mainContents .motionStart.slideRtL {
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    transition-timing-function: ease-out;
+    animation-name: slideRtL;
+}
 .mainContents .motionStart.slideLtR {
     opacity: 0;
     transform: translateX(-100px);
@@ -497,7 +508,7 @@
         transform: translateX(0);
     }
 }
-@keyframes slideUp {
+@keyframes slideUp50 {
     from {
         opacity: 0;
         transform: translateY(50px);
