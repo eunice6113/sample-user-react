@@ -1,6 +1,11 @@
 import { OrganizationChart } from 'primereact';
 import * as React from 'react';
 import { BasePage } from '../../../shared/components/base/BasePage';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Autoplay, Pagination, Navigation } from 'swiper';
 import './CLPCLTM00200.css';
 
 import avatar1 from '../../../../assets/images/about-cloud-cell/avatar/Avatar1.png'
@@ -107,7 +112,7 @@ const CLPCLTM00200: React.FC = () => {
                     <img alt={node.data.name} src={node.data.avatar} className='avatar' />
                     <h4 className='name'>{node.data.name}</h4>
                     <p className='role'>{node.data.role}</p>
-                    <p className='phone'><i className='pi pi-phone f12 mr7'></i>{node.data.phone}</p>
+                    <p className='phone'><i className='pi pi-phone mr7'></i>{node.data.phone}</p>
                 </div>
             )
         } else {
@@ -116,6 +121,58 @@ const CLPCLTM00200: React.FC = () => {
             )
         }
     }
+
+    const historyData = [
+        {
+            date: '2022.01',
+            content: 'IT그룹장 산하 직속기구\n클라우드추진Cell 편제'
+        },
+        {
+            date: '2021. 07',
+            content: '클라우드 전략 수립 컨설팅(21.7~11)'
+        },
+        {
+            date: '2021. 05',
+            content: '클라우드 도입 및 운영 전략 수립 TFT 창설'
+        },
+        {
+            date: '2022.01',
+            content: 'IT그룹장 산하 직속기구\n클라우드추진Cell 편제'
+        },
+        {
+            date: '2021. 07',
+            content: '클라우드 전략 수립 컨설팅(21.7~11)'
+        },
+        {
+            date: '2021. 05',
+            content: '클라우드 도입 및 운영 전략 수립 TFT 창설'
+        },
+        {
+            date: '',
+            content: ''
+        },
+        {
+            date: '',
+            content: ''
+        },
+        {
+            date: '',
+            content: ''
+        },
+        {
+            date: '',
+            content: ''
+        },
+        {
+            date: '',
+            content: ''
+        },
+        {
+            date: '',
+            content: ''
+        },
+    ]
+
 
     return(
     <BasePage className='CLPCLTM00200'>
@@ -135,12 +192,30 @@ const CLPCLTM00200: React.FC = () => {
         </section>
         <section className='content2'>
             <h1 className='mb20'>HISTORY</h1>
-            <p className='mb100'>클라우드추진 Cell은<br/>IBK의 성공적인 클라우드 도입을 위해 달려왔습니다.</p>
-
+            <p className='subText'>클라우드추진 Cell은<br/>IBK의 성공적인 클라우드 도입을 위해 달려왔습니다.</p>
+            <Swiper
+                navigation={true}
+                slidesPerView={3}
+                spaceBetween={0}
+                modules={[Navigation]}
+                className='historySwiper'
+            >
+                {
+                    historyData.map(( item, index ) => 
+                        <SwiperSlide key={`history-${index}`}>
+                            <div className='historyCard'>
+                                <h3 className='date'>{item.date}</h3>
+                                <div className='dot'></div>
+                                <p className='content'>{item.content}</p>
+                            </div>
+                        </SwiperSlide>
+                    )
+                }
+            </Swiper>
         </section>
         <section className='content3'>
             <h1 className='mb30'>클라우드 추진 Cell의 주요 업무</h1>
-            <p>클라우드 추진 전략부터 설계/구현, 운영까지, 클라우드 도입의 전 과정을 담당하여<br/>클라우드 서비스를 지원하고 있습니다.</p>
+            <p className='mb50'>클라우드 추진 전략부터 설계/구현, 운영까지, 클라우드 도입의 전 과정을 담당하여<br/>클라우드 서비스를 지원하고 있습니다.</p>
 
             <div className='cloudBg'>
                 <div className='cir c1'>
