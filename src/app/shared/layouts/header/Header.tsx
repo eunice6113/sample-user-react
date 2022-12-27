@@ -42,7 +42,7 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
             } else {
                 setHeaderTransparent(false)
             }
-            console.log('scrollTop =>', scrollTop)
+            // console.log('scrollTop =>', scrollTop)
             setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
         }
 
