@@ -1,0 +1,93 @@
+.CLPISCM00800 .infoSection {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.CLPISCM00800 .infoSection h1 {
+    font-size: 40px;
+}
+
+.CLPISCM00800 .infoSection h2 {
+    font-size: 32px;
+}
+
+.CLPISCM00800 .infoSection p {
+    color: #4F4F4F;
+}
+
+.CLPISCM00800 .infoSection hr {
+    position: relative;
+    width: 100px;
+    height: 3px;
+    border: 0 none;
+    background-color: #eaeaea;
+    margin: 0 auto;
+}
+
+.CLPISCM00800 .infoSection .infoCardWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.CLPISCM00800 .infoSection .infoCardWrap .arrowRight {
+    padding: 0 30px;
+}
+.CLPISCM00800 .infoSection .infoCardWrap .arrowRight .pi-angle-right {
+    font-size: 35px;
+    color: #818182;
+}
+.CLPISCM00800 .infoSection .infoCardWrap .infoCard {
+    padding: 40px;
+    border-radius: 30px;
+    display: flex;
+    text-align: left;
+    width: 100%;
+}
+.CLPISCM00800 .infoSection .infoCardWrap .infoCard h3 {
+    font-size: 24px;
+}
+.CLPISCM00800 .infoSection .infoCardWrap .infoCard h5 {
+    font-size: 18px;
+    margin-top: 7px;
+}
+.CLPISCM00800 .infoSection .infoCardWrap .infoCard p {
+    line-height: 1.5;
+    margin-top: 12px;
+}
+
+.CLPISCM00800 .infoSection .infoCardWrap.i01 .infoCard {
+    height: 220px;
+}
+.CLPISCM00800 .infoSection .infoCardWrap.i01 .infoCard .mo01 {
+    margin-right: -40px;
+    margin-top: -10px;
+}
+.CLPISCM00800 .infoSection .infoCardWrap.i01 .infoCard .mo02 {
+    margin-right: -20px;
+    margin-top: 0px;
+}
+
+
+.CLPISCM00800 .infoSection .infoCardWrap.i02 .infoCard {
+    height: 280px;
+}
+.CLPISCM00800 .infoSection .infoCardWrap.i02 .arrowRight {
+    padding: 0 10px;
+}
+
+.CLPISCM00800 .infoSection .infoCardWrap.i03 .infoCard {
+    width: 800px;
+    height: 330px;
+}
+.CLPISCM00800 .infoSection .infoCardWrap.i03 .infoCard .mo03 {
+    margin-right: -10px;
+    margin-top: -80px;
+}
+
+
+
+.CLPISCM00800 .infoSection .infoCardWrap .infoCard.color01 {background-color: #F3F7FE;}
+.CLPISCM00800 .infoSection .infoCardWrap .infoCard.color02 {background-color: #F1F5FE;}
+.CLPISCM00800 .infoSection .infoCardWrap .infoCard.color03 {background-color: #F3F9FE;}
+.CLPISCM00800 .infoSection .infoCardWrap .infoCard.color04 {background-color: #FEF9F3;}
+.CLPISCM00800 .infoSection .infoCardWrap .infoCard.color05 {background-color: #F3F3FA;}
