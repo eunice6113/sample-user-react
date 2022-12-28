@@ -20,7 +20,12 @@
     text-align: center;
     padding: 120px 0;
 }
-
+.CLPCLTM00200 section .innerWrap {
+    min-width: 980px;
+}
+.CLPCLTM00200 section.content4 .innerWrap {
+    min-width: 1120px;
+}
 
 .CLPCLTM00200 .content1 {
     display: flex;
@@ -52,7 +57,7 @@
 }
 
 .CLPCLTM00200 .content2 .historySwiper {
-    max-width: 1160px;
+    width: 1160px;
     margin: 0 auto;
     padding: 120px 0 0;
 }
@@ -231,7 +236,7 @@
     top: 30px;
     left: -160px;
     width: 640px;
-    height: 1340px;
+    height: 1350px;
     border: 1px solid var(--global-border-color);;
     border-radius: 30px;
 }

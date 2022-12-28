@@ -177,7 +177,7 @@ const CLPCLTM00200: React.FC = () => {
     return(
     <BasePage className='CLPCLTM00200'>
         <section className='content1'>
-            <div>
+            <div className='innerWrap'>
                 <h1>Fast, Easy, Safety</h1>
                 <h2>IBK Cloud Digital Transformation</h2>
                 <p>
@@ -191,51 +191,57 @@ const CLPCLTM00200: React.FC = () => {
             </div>
         </section>
         <section className='content2'>
-            <h1 className='mb20'>HISTORY</h1>
-            <p className='subText'>클라우드추진 Cell은<br/>IBK의 성공적인 클라우드 도입을 위해 달려왔습니다.</p>
-            <Swiper
-                navigation={true}
-                slidesPerView={3}
-                spaceBetween={0}
-                modules={[Navigation]}
-                className='historySwiper'
-            >
-                {
-                    historyData.map(( item, index ) => 
-                        <SwiperSlide key={`history-${index}`}>
-                            <div className='historyCard'>
-                                <h3 className='date'>{item.date}</h3>
-                                <div className='dot'></div>
-                                <p className='content'>{item.content}</p>
-                            </div>
-                        </SwiperSlide>
-                    )
-                }
-            </Swiper>
+            <div className='innerWrap'>
+                <h1 className='mb20'>HISTORY</h1>
+                <p className='subText'>클라우드추진 Cell은<br/>IBK의 성공적인 클라우드 도입을 위해 달려왔습니다.</p>
+                <Swiper
+                    navigation={true}
+                    slidesPerView={3}
+                    spaceBetween={0}
+                    autoplay={{delay: 2500, disableOnInteraction: false}}
+                    modules={[Navigation]}
+                    className='historySwiper'
+                >
+                    {
+                        historyData.map(( item, index ) => 
+                            <SwiperSlide key={`history-${index}`}>
+                                <div className='historyCard'>
+                                    <h3 className='date'>{item.date}</h3>
+                                    <div className='dot'></div>
+                                    <p className='content'>{item.content}</p>
+                                </div>
+                            </SwiperSlide>
+                        )
+                    }
+                </Swiper>
+            </div>
         </section>
         <section className='content3'>
-            <h1 className='mb30'>클라우드 추진 Cell의 주요 업무</h1>
-            <p className='mb50'>클라우드 추진 전략부터 설계/구현, 운영까지, 클라우드 도입의 전 과정을 담당하여<br/>클라우드 서비스를 지원하고 있습니다.</p>
+            <div className='innerWrap'>
+                <h1 className='mb30'>클라우드 추진 Cell의 주요 업무</h1>
+                <p className='mb50'>클라우드 추진 전략부터 설계/구현, 운영까지, 클라우드 도입의 전 과정을 담당하여<br/>클라우드 서비스를 지원하고 있습니다.</p>
 
-            <div className='cloudBg'>
-                <div className='cir c1'>
-                    <h3>서비스 기획 및 개발</h3>
-                    <p>클라우드 아키텍처 설계<br/>클라우드 사업 지원 등</p>
-                </div>
-                <div className='cir c2'>
-                    <h3>클라우드 전략</h3>
-                    <p>클라우드 신사업 발굴 및 활성화<br/>클라우드 운영 지침 관리 등</p>
-                </div>
-                <div className='cir c3'>
-                    <h3>인프라 운영</h3>
-                    <p>클라우드 시스템 구성 및 관리<br/>클라우드 사용량 모니터링, 최적화 등</p>
+                <div className='cloudBg'>
+                    <div className='cir c1'>
+                        <h3>서비스 기획 및 개발</h3>
+                        <p>클라우드 아키텍처 설계<br/>클라우드 사업 지원 등</p>
+                    </div>
+                    <div className='cir c2'>
+                        <h3>클라우드 전략</h3>
+                        <p>클라우드 신사업 발굴 및 활성화<br/>클라우드 운영 지침 관리 등</p>
+                    </div>
+                    <div className='cir c3'>
+                        <h3>인프라 운영</h3>
+                        <p>클라우드 시스템 구성 및 관리<br/>클라우드 사용량 모니터링, 최적화 등</p>
+                    </div>
                 </div>
             </div>
-
         </section>
         <section className='content4'>
-            <h1 className='mb60'>클라우드 추진 Cell 팀원, 역할 소개</h1>
-            <OrganizationChart value={cellData} nodeTemplate={nodeTemplate}></OrganizationChart>
+            <div className='innerWrap'>
+                <h1 className='mb60'>클라우드 추진 Cell 팀원, 역할 소개</h1>
+                <OrganizationChart value={cellData} nodeTemplate={nodeTemplate}></OrganizationChart>
+            </div>
         </section>
         
     </BasePage>)
