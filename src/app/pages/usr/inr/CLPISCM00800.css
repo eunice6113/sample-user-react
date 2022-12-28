@@ -91,3 +91,22 @@
 .CLPISCM00800 .infoSection .infoCardWrap .infoCard.color03 {background-color: #F3F9FE;}
 .CLPISCM00800 .infoSection .infoCardWrap .infoCard.color04 {background-color: #FEF9F3;}
 .CLPISCM00800 .infoSection .infoCardWrap .infoCard.color05 {background-color: #F3F3FA;}
+
+
+
+
+@media (max-width:1280px) {
+    .CLPISCM00800 .infoSection .infoCardWrap.i01 .arrowRight {
+        padding: 0 10px !important;
+    }
+    .CLPISCM00800 .infoSection .infoCardWrap .infoCard {
+        padding: 30px 25px !important;
+    }
+
+    .CLPISCM00800 .infoSection .infoCardWrap.i02 .infoCard:first-child {
+        width: 85% !important;
+    }
+    .CLPISCM00800 .infoSection .infoCardWrap.i02 .infoCard.color04 {
+        width: 80% !important;
+    }
+}
