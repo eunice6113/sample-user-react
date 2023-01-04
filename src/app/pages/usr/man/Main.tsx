@@ -240,7 +240,6 @@ const Main: React.FC = ({}) => {
                 </SwiperSlide>
             </Swiper>
         </section>
-
         <section className='content2'>
             <div className='banner c1 hoverScaleEffect'>
                 <h3 className={`${appearC2 ? 'motionStart':''}`}>

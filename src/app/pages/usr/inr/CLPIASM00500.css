@@ -1,0 +1,126 @@
+.basePage.CLPIASM00500 {
+    min-width: 1280px;
+    width: initial !important;
+}
+
+.CLPIASM00500 h1 {
+    font-size: 45px;
+}
+.CLPIASM00500 h2 {
+    font-size: 30px;
+}
+.CLPIASM00500 p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+.CLPIASM00500 section {
+    position: relative;
+    top:0;
+    left:0;
+    text-align: center;
+}
+.CLPIASM00500 section .innerWrap {
+    min-width: 980px;
+}
+
+
+.CLPIASM00500 .content1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 510px;
+    width: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../../../assets/images/about-cloud-service/about-service-main-visual.jpg);
+    color: #fff;
+    text-align: center;
+    padding: 120px 0;
+}
+.CLPIASM00500 .content1 h1 {
+    margin-bottom: 10px;
+}
+.CLPIASM00500 .content1 p {
+    margin-top: 35px;
+    font-size: 20px;
+}
+
+
+.CLPIASM00500 .content2 {
+    padding: 20px 0 120px;
+    color: #000;
+}
+.CLPIASM00500 .content2 .bannerWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    width: 1180px;
+    margin: 0 auto 30px;
+}
+.CLPIASM00500 .content2 .bannerWrapper:last-child {
+    margin-bottom: 0;
+}
+
+.CLPIASM00500 .content2 .bannerWrapper .imgWrapper {
+    position: relative;
+    top:0;
+    left: 0;
+    width: 370px;
+    height: 230px;
+    cursor: pointer;
+    overflow: hidden;
+    margin:20px;
+    border: 1px solid var(--global-border-color);
+}
+.CLPIASM00500 .content2 .bannerWrapper .imgWrapper img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.CLPIASM00500 .content2 .bannerWrapper .imgWrapper:hover .textWrapper {
+    transform: translateY(0);
+    animation-name: slideUp50;
+}
+.CLPIASM00500 .content2 .bannerWrapper .imgWrapper .textWrapper {
+    position: absolute;
+    top:0;
+    left:0;
+    background: rgba(0, 0, 0, .7);
+    width: 370px;
+    height: 230px;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px;
+    word-break: break-all;
+
+    transform: translateY(230px);
+    animation-duration: .3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    transition-timing-function: ease-out;
+    
+}
+.CLPIASM00500 .content2 .bannerWrapper .textWrapper button {
+    margin-top: 15px;
+    background: transparent !important;
+    font-size: 20px;
+}
+.CLPIASM00500 .content2 .subText {
+    margin: 10px 0 5px;
+    color: #ccc;
+    font-size: 20px;
+}
+
+@keyframes slideUp50 {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
