@@ -93,14 +93,66 @@
 }
 .hasSubVisual .subVisualContainer .tags {
     margin-right: 10px;
+    display: flex;
+    margin-bottom: 30px;
+}
+.hasSubVisual .subVisualContainer .tags:last-child {
+    margin-bottom: 0;
 }
 .hasSubVisual .subVisualContainer .tags .tag {
-    background: rgba(0, 0, 0, .4);
+    background: rgba(0, 0, 0, .6);
     color: #fff;
-    padding: 15px 20px;
-    border-radius: 10px;
+    padding: 10px 40px;
+    border-radius: 15px;
     margin-right: 10px;
     font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.hasSubVisual .subVisualContainer .tags .tag:last-child {
+    margin-right: 0;
+}
+.hasSubVisual .subVisualContainer .tags .tagHeader {
+    position: relative;
+    top:0;
+    left:0;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    width: 220px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../images/survey-arrow.png);
+    font-weight: 500;
+    font-size: 20px;
+    margin-right: 15px;
+}
+.hasSubVisual .subVisualContainer .alertText {
+    position: relative;
+    top:0;
+    left:0;
+    font-size: 16px;
+    color: #FFF410;
+    margin-top: 20px;
+    padding-left: 15px;
+    margin-left: -590px;
+}
+.hasSubVisual .subVisualContainer .alertText::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: #FFF410;
 }
 .hasSubVisual .contentsContainer {
     padding-bottom: 20px;

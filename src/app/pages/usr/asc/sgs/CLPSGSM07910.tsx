@@ -108,8 +108,29 @@ const CLPSGSM07910: React.FC<IProps> = ({children}) => {
     ]
 
     return(
-    <BasePage className="CLPSGSM07910">
-        <div className="wrap">
+    <BasePage className="CLPSGSM07910 hasSubVisual">
+        <div className="subVisualContainer">
+            <h2>설문 도구란?</h2>
+            <p>
+                설문을 만들어 참여하고 결과를 공유하고 싶다면?!<br/>
+                We클라우드의 설문 도구를 이용해보세요.
+            </p>
+            <div className="tagsCon">
+                <div className="tags">
+                    <div className="tagHeader user">사용자</div>
+                    <div className="tag">#설문참여</div>
+                    <div className="tag">#결과확인</div>
+                </div>
+                <div className="tags">
+                    <div className="tagHeader admin">관리자</div>
+                    <div className="tag">#권한신청</div>
+                    <div className="tag">#설문생성</div>
+                    <div className="tag">#외부공유</div>
+                </div>
+            </div>
+            <p className="alertText">신청 : 서비스 신청 &gt; 서비스마켓</p>
+        </div>
+        <div className="wrap contentsContainer">
             <p className="fs20 pt45 mb20"><span className="text-bold color-blue">3</span><span className="">개</span>의 설문이 진행 중 입니다.</p>
             <TabView>
                 <TabPanel header="진행중인 설문">

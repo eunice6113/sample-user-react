@@ -85,3 +85,34 @@ body.theme-dark .CLPSGSM07910 .contentList .content .state {
 .CLPSGSM07910 .color-blue {
     color: var(--brand-primary) !important;
 }
+
+
+.CLPSGSM07910.hasSubVisual .subVisualContainer {
+    height: 480px;
+}
+.CLPSGSM07910.hasSubVisual .subVisualContainer {
+    background-image: url(../../../../../assets/images/survey-bg.jpg);
+}
+.CLPSGSM07910.hasSubVisual .subVisualContainer .tags {
+    justify-content: flex-start;
+}
+.CLPSGSM07910.hasSubVisual .subVisualContainer h2 {
+    margin-top: 40px;
+}
+.CLPSGSM07910.hasSubVisual .subVisualContainer .tags .tagHeader::before {
+    content: '';
+    position: absolute;
+    top:0;
+    left:-30px;
+    width: 100px;
+    height: 80px;
+    background-repeat: no-repeat;
+}
+.CLPSGSM07910.hasSubVisual .subVisualContainer .tags .tagHeader.user::before {
+    top: -4px;
+    background-image: url(../../../../../assets/images/survey-user.png);
+}
+.CLPSGSM07910.hasSubVisual .subVisualContainer .tags .tagHeader.admin::before {
+    top: -16px;
+    background-image: url(../../../../../assets/images/survey-admin.png);
+}

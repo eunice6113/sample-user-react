@@ -130,10 +130,10 @@ const CLPENTM07210: React.FC = () => {
                 We클라우드가 만든 당첨 도구로 공정한 당첨자 선정까지!
             </p>
             <div className="tags">
-                <span className="tag">#댓글이벤트</span>
-                <span className="tag">#퀴즈이벤트</span>
-                <span className="tag">#실시간당첨</span>
-                <span className="tag">#랜덤당첨</span>
+                <div className="tag">#댓글이벤트</div>
+                <div className="tag">#퀴즈이벤트</div>
+                <div className="tag">#실시간당첨</div>
+                <div className="tag">#랜덤당첨</div>
             </div>
         </div>
         <div className="contentsContainer">
