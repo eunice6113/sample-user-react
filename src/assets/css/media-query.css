@@ -7,12 +7,18 @@
   .CLPCMNM08610 .wrap,
   .basePage,
   .CLPMANM00100 .category,
-  .CLPSGSM07910 .wrap,
+  /* .CLPSGSM07910 .wrap, */
   .CLPMNLM04010 .category,
   .hasSubVisual .contentsContainer
   {
     width:980px !important;
   }
+
+  .basePage.CLPENTM07210
+  {
+    width: 1180px !important;
+  }
+
   .CLPMANM00100 .category{
     margin: 0 auto;
     flex-wrap: wrap;

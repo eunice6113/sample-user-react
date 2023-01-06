@@ -70,6 +70,9 @@
     width: 100% !important;
 }
 .hasSubVisual .subVisualContainer {
+    position: relative;
+    top:0;
+    left:0;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -80,6 +83,7 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    min-width: 980px;
 }
 .hasSubVisual .subVisualContainer h2 {
     font-size: 36px;
