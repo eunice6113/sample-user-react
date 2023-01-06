@@ -8,7 +8,9 @@
   .basePage,
   .CLPMANM00100 .category,
   .CLPSGSM07910 .wrap,
-  .CLPMNLM04010 .category{
+  .CLPMNLM04010 .category,
+  .hasSubVisual .contentsContainer
+  {
     width:980px !important;
   }
   .CLPMANM00100 .category{

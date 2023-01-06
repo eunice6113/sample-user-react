@@ -122,35 +122,50 @@ const CLPENTM07210: React.FC = () => {
     ]
 
     return(
-    <BasePage className="CLPENTM07210">
-        <div className='searchBar mt40'>
-            <Dropdown value={values.type1} options={options1} onChange={(e) => handleChange('type1', e.value)} 
-                optionLabel='name' placeholder='전체' />
-            <Dropdown value={values.type2} options={options2} onChange={(e) => handleChange('type2', e.value)} 
-                optionLabel='name' placeholder='전체' />
-
-            <InputText className='searchTxt mr20' placeholder='검색어를 입력해주세요' value={values.searchValue} onChange={(e) => handleChange('searchValue', e.target.value)} />
-            
-            <Button label='조회' />
+    <BasePage className="CLPENTM07210 hasSubVisual">
+        <div className="subVisualContainer">
+            <h2>이벤트 도구란?</h2>
+            <p>
+                재잘재잘 재미있는 이벤트 등록하고<br/>
+                We클라우드가 만든 당첨 도구로 공정한 당첨자 선정까지!
+            </p>
+            <div className="tags">
+                <span className="tag">#댓글이벤트</span>
+                <span className="tag">#퀴즈이벤트</span>
+                <span className="tag">#실시간당첨</span>
+                <span className="tag">#랜덤당첨</span>
+            </div>
         </div>
+        <div className="contentsContainer">
+            <div className='searchBar mt40'>
+                <Dropdown value={values.type1} options={options1} onChange={(e) => handleChange('type1', e.value)} 
+                    optionLabel='name' placeholder='전체' />
+                <Dropdown value={values.type2} options={options2} onChange={(e) => handleChange('type2', e.value)} 
+                    optionLabel='name' placeholder='전체' />
 
-        <div className='toolbar mb10 mt10'>
-            <p>총 <span className='pageNm'>{pages}</span>개</p>
-            <Dropdown className='ml-auto mr8' value={sort.sort1} options={options3} onChange={(e) => sortHandleChange('sort1', e.value)} 
-                optionLabel='name' placeholder='전체' />
-            <Button className='outline' label='신규등록' icon='pi pi-pencil' onClick={register} />
+                <InputText className='searchTxt mr20' placeholder='검색어를 입력해주세요' value={values.searchValue} onChange={(e) => handleChange('searchValue', e.target.value)} />
+                
+                <Button label='조회' />
+            </div>
 
+            <div className='toolbar mb10 mt10'>
+                <p>총 <span className='pageNm'>{pages}</span>개</p>
+                <Dropdown className='ml-auto mr8' value={sort.sort1} options={options3} onChange={(e) => sortHandleChange('sort1', e.value)} 
+                    optionLabel='name' placeholder='전체' />
+                <Button className='outline' label='신규등록' icon='pi pi-pencil' onClick={register} />
+
+            </div>
+
+            <DataTable value={eventDummyData} paginator paginatorTemplate={paginator} 
+                className='ent'
+                onRowClick={(e) => goDetail(e)}
+                first={first} rows={rows} 
+                onPage={onCustomPage} responsiveLayout='scroll'>
+                {headerTemplate.map((col, index) => (
+                    <Column key={col.header} field={col.field} header={col.header} ></Column>
+                ))}
+            </DataTable>
         </div>
-
-        <DataTable value={eventDummyData} paginator paginatorTemplate={paginator} 
-            className='ent'
-            onRowClick={(e) => goDetail(e)}
-            first={first} rows={rows} 
-            onPage={onCustomPage} responsiveLayout='scroll'>
-            {headerTemplate.map((col, index) => (
-                <Column key={col.header} field={col.field} header={col.header} ></Column>
-            ))}
-        </DataTable>
     </BasePage>)
 }
 export default CLPENTM07210;

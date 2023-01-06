@@ -27,3 +27,8 @@
     position: relative;
     padding-left: 20px;
 }
+
+
+.CLPENTM07210.hasSubVisual .subVisualContainer {
+    background-image: url(../../../../../assets/images/evt-bg.jpg);
+}
