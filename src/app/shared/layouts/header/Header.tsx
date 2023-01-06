@@ -190,7 +190,7 @@ const Header: React.FC<IProps> = ({handleOpen, children}) => {
 
     return(
         // //221221
-    <div className={`customHeader ${headerTransparent ? 'transparentHeader':''}`}>
+    <div className={`customHeader`}>
         <div className='headerInnerContents'>
             {/* <Button className='menu p-button-text' icon='pi pi-bars' onClick={handleOpen} /> */}
 
