@@ -47,6 +47,7 @@ const CLPISCM00800 = Loadable(lazy(() => import('../pages/usr/inr/CLPISCM00800')
 const CLPASCM01700 = Loadable(lazy(() => import('../pages/usr/inr/CLPASCM01700')));
 const CLPASCM08900 = Loadable(lazy(() => import('../pages/usr/inr/CLPASCM08900')));
 const CLPASCM08800 = Loadable(lazy(() => import('../pages/usr/inr/CLPASCM08800')));
+const CLPSVMM00000 = Loadable(lazy(() => import('../pages/usr/inr/CLPSVMM00000')));
 
 // 매뉴얼
 const CLPMNLM04010 = Loadable(lazy(() => import('../pages/usr/mnl/CLPMNLM04010')));
@@ -205,6 +206,7 @@ const portalRoutes = [
           {path: 'tfc', name:'The fast cloud 지원 프로그램', element: <CLPTFCM00300 />, subTitle: '사업 추진부서가 손쉽게 클라우드를 도입하도록 맞춤형 멘토링을 제공합니다.'},
           {path: 'portal', name:'클라우드 포털 소개', element: <CLPICPM00400 />, subTitle: '클라우드 포탈은 IBK 맞춤형 클라우드를 신속하게 도입/운영 할 수 있도록 지원합니다.'},
           {path: 'cloud',  name:'클라우드 서비스 소개',element: <CLPIASM00500 />, subTitle: '클라우드 서비스의 관련 용어와 지식을 소개해드립니다.'},
+          {path: 'svm',  name:'서비스 마켓 소개',element: <CLPSVMM00000 />, subTitle: '클라우드 서비스의 관련 용어와 지식을 소개해드립니다.'},
         ],
       },
       { 

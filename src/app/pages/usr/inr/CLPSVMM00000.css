@@ -1,0 +1,116 @@
+.basePage.CLPSVMM00000 {
+    min-width: 1280px;
+    width: initial !important;
+}
+
+.CLPSVMM00000 h1 {
+    font-size: 45px;
+}
+.CLPSVMM00000 h2 {
+    font-size: 36px;
+}
+.CLPSVMM00000 h3 {
+    font-size: 24px;
+}
+.CLPSVMM00000 p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+.CLPSVMM00000 section {
+    position: relative;
+    top:0;
+    left:0;
+    text-align: center;
+}
+.CLPSVMM00000 section .innerWrap {
+    min-width: 980px;
+}
+.CLPSVMM00000 .arrowImg {
+    width: 60px;
+    height: 50px;
+}
+
+.CLPSVMM00000 .content1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 510px;
+    width: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../../../assets/images/about-service-market/about-service-market-mainbg.jpg);
+    color: #fff;
+    text-align: center;
+    padding: 120px 0;
+}
+.CLPSVMM00000 .content1 h1 {
+    margin-bottom: 10px;
+}
+.CLPSVMM00000 .content1 p {
+    margin-top: 35px;
+    font-size: 20px;
+}
+
+
+
+.CLPSVMM00000 .content2 {
+    padding: 20px 0 120px;
+    color: #000;
+}
+.CLPSVMM00000 .content2 .cirWrapper {
+    position: relative;
+    top:0;
+    left:0;
+    margin-top: -110px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.CLPSVMM00000 .content2 .cirWrapper .cirBanner .cir {
+    width: 250px;
+    height: 250px;
+    border-radius: 200px;
+    background-color: #646464;
+    color: #fff;
+    border: 10px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CLPSVMM00000 .content2 .cirWrapper .cirBanner .cir h3 {
+    margin-top: 20px;
+}
+.CLPSVMM00000 .content2 .cirWrapper .cirBanner:last-child .cir h3 {
+    margin-top: 10px;
+}
+.CLPSVMM00000 .content2 .cirWrapper .cirBanner p {
+    color: #666666;
+    margin-top: 10px;
+}
+.CLPSVMM00000  hr {
+    border: 0 none;
+    height: 1px;
+    background-color: #CCC;
+    max-width: 1180px;
+    min-width: 980px;
+    width: 100%;
+    margin:0 auto 100px;
+}
+
+.CLPSVMM00000 .content3 {
+    margin:0 auto 150px;
+}
+.CLPSVMM00000 .content3  h2 {
+    margin-bottom: 70px;
+}
+.CLPSVMM00000 .content3 .banners {
+    display: flex;
+    justify-content: space-evenly;
+}
+.CLPSVMM00000 .content3 .banners .banner {
+    width: 330px;
+}
+.CLPSVMM00000 .content3 .banners .banner p {
+    text-align: left;
+}
